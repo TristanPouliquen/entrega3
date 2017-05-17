@@ -1,6 +1,6 @@
 <?php
 
-namespace Entities\40\Repositories;
+namespace Entities\grupo40\Repositories;
 
 use Doctrine\ORM\EntityRepository;
 

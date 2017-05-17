@@ -44,8 +44,8 @@ $app->register(new DoctrineOrmServiceProvider, [
             'mappings' => [
                 [
                     'type' => 'annotation',
-                    'namespace' => 'Entities\37',
-                    'path' => __DIR__ . '/entities/37'
+                    'namespace' => 'Entities\grupo37',
+                    'path' => __DIR__ . '/entities/grupo37'
                 ]
             ]
         ],
@@ -54,8 +54,8 @@ $app->register(new DoctrineOrmServiceProvider, [
             'mappings' => [
                 [
                     'type' => 'annotation',
-                    'namespace' => 'Entities\40',
-                    'path' => __DIR__ . '/entities/40'
+                    'namespace' => 'Entities\grupo40',
+                    'path' => __DIR__ . '/entities/grupo40'
                 ]
             ]
         ]
@@ -64,7 +64,7 @@ $app->register(new DoctrineOrmServiceProvider, [
 
 
 $app->get('/', function () use($app) {
-    $hotel = $app["orm.ems"]["grupo40"]->getRepository("Entities\40\Hotel")->findFirst();
+    $hotel = $app["orm.ems"]["grupo40"]->getRepository("Entities\grupo40\Hotel")->findFirst();
     return new Response(json_encode($hotel));
 });
 

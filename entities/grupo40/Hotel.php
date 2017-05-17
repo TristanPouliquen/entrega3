@@ -1,6 +1,6 @@
 <?php
 
-namespace Entities\40;
+namespace Entities\grupo40;
 
 use Doctrine\ORM\Mapping as ORM;
 //use Symfony\Component\Validator\Constraints as Assert;
