@@ -42,17 +42,21 @@ $app->register(new DoctrineOrmServiceProvider, [
         'grupo37' => [
             'connection' => 'grupo37',
             'mappings' => [
-                'type' => 'annotation',
-                'namespace' => 'Entities\37',
-                'path' => __DIR__ . '/entities/37'
+                [
+                    'type' => 'annotation',
+                    'namespace' => 'Entities\37',
+                    'path' => __DIR__ . '/entities/37'
+                ]
             ]
         ],
         'grupo40' => [
             'connection' => 'grupo40',
             'mappings' => [
-                'type' => 'annotation',
-                'namespace' => 'Entities\40',
-                'path' => __DIR__ . '/entities/40'
+                [
+                    'type' => 'annotation',
+                    'namespace' => 'Entities\40',
+                    'path' => __DIR__ . '/entities/40'
+                ]
             ]
         ]
     ]
