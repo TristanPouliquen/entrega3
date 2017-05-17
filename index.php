@@ -1,10 +1,6 @@
 <?php
 
 $loader = require_once __DIR__.'/vendor/autoload.php';
-$loader->add("Entity\grupo40", __DIR__.'/Entity/grupo40');
-$loader->add("Entity\grupo40\Repository", __DIR__.'/Entity/grupo40/Repository');
-$loader->add("Entity\grupo37", __DIR__.'/Entity/grupo37');
-$loader->add("Entity\grupo37/Repository", __DIR__.'/Entity/grupo37/Repository');
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,6 +11,8 @@ use Dflydev\Provider\DoctrineOrm\DoctrineOrmServiceProvider;
 
 $app['debug']=false;
 $app = new Silex\Application();
+
+$app['autoloader']->registerNamespace('Entity', __DIR__.'/Entity');
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/views',
 ));
