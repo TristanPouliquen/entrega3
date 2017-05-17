@@ -4,15 +4,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Dflydev\Provider\DoctrineOrm\DoctrineOrmServiceProvider;
 
-$app['debug']=false;
 $app = new Silex\Application();
 
-$app->register(new Silex\Provider\TwigServiceProvider(), array(
-    'twig.path' => __DIR__.'/views',
-));
-$app->register(new Silex\Provider\MonologServiceProvider(), array(
-    'monolog.logfile' => __DIR__.'../var/log/development.log',
-));
+$app->register(new Silex\Provider\TwigServiceProvider());
 
 $app->register(new Silex\Provider\DoctrineServiceProvider(), [
     'dbs.options' => [
