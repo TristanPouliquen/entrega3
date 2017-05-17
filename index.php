@@ -4,6 +4,8 @@ $loader = require_once __DIR__.'/vendor/autoload.php';
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Dflydev\Provider\DoctrineOrm\DoctrineOrmServiceProvider;
+
 
 \Doctrine\Common\Annotations\AnnotationRegistry::registerLoader(array($loader, 'loadClass'));
 
@@ -14,15 +16,6 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 ));
 $app->register(new Silex\Provider\MonologServiceProvider(), array(
     'monolog.logfile' => __DIR__.'/development.log',
-));
-$app->register(new Silex\Provider\DoctrineServiceProvider(), array(
-    'db.options' => array(
-        'driver'    => 'pdo_pgsql',
-        'host'      => 'localhost',
-        'dbname'    => 'grupo40',
-        'user'      => 'grupo40',
-        'password'  => 'grupo40',
-    ),
 ));
 
 $app->register(new Silex\Provider\DoctrineServiceProvider(), [
