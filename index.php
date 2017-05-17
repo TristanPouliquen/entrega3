@@ -1,7 +1,7 @@
 <?php
 
 $loader = require_once __DIR__.'/vendor/autoload.php';
-
+$loader->add('Entity', __DIR__.'/Entity/');
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Dflydev\Provider\DoctrineOrm\DoctrineOrmServiceProvider;
@@ -12,7 +12,6 @@ use Dflydev\Provider\DoctrineOrm\DoctrineOrmServiceProvider;
 $app['debug']=false;
 $app = new Silex\Application();
 
-$app['autoloader']->registerNamespace('Entity', __DIR__.'/Entity');
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/views',
 ));
@@ -66,7 +65,7 @@ $app->register(new DoctrineOrmServiceProvider, [
 
 
 $app->get('/', function () use($app) {
-    $hotel = $app["orm.ems"]["grupo40"]->getRepository("Entity\grupo40\Hotel")->findFirst();
+    $hotel = $app["orm.ems"]["grupo40"]->getRepository("Entity::grupo40\Hotel")->findFirst();
     return new Response(json_encode($hotel));
 });
 
