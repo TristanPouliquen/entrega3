@@ -8,9 +8,10 @@
       "symfony/doctrine-bridge": "^3.2"
   },
   "autoload": {
-    "psr-4":
-      {
-        "Entity": "Entity"
+      "psr-0": {
+          "Controller": "src/",
+          "Entity": "src/",
+          "Form": "src/"
       }
   }
 }
