@@ -1,6 +1,6 @@
 <?php
 
-namespace Entities\grupo40;
+namespace Entity\grupo40;
 
 use Doctrine\ORM\Mapping as ORM;
 //use Symfony\Component\Validator\Constraints as Assert;
@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="hoteles",
  *   indexes={@ORM\Index(name="hoteles_pkey", columns={"id"})}
  * )
- * @ORM\Entity(repositoryClass="Entities\40\Repositories\HotelRepository.php")
+ * @ORM\Entity(repositoryClass="Entity\grupo40\Repository\HotelRepository.php")
  */
 class Hotel {
 
