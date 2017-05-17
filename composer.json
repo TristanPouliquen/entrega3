@@ -1,10 +1,16 @@
 {
-    "require": {
-        "silex/silex": "~2.0",
-        "twig/twig": "^1.33",
-        "dflydev/doctrine-orm-service-provider": "^2.0",
-        "monolog/monolog": "^1.22",
-        "doctrine/dbal": "^2.5",
-        "symfony/doctrine-bridge": "^3.2"
-    }
+  "require": {
+      "silex/silex": "~2.0",
+      "twig/twig": "^1.33",
+      "dflydev/doctrine-orm-service-provider": "^2.0",
+      "monolog/monolog": "^1.22",
+      "doctrine/dbal": "^2.5",
+      "symfony/doctrine-bridge": "^3.2"
+  },
+  "autoload": {
+    "psr-4":
+      {
+        "Entity": "Entity"
+      }
+  }
 }
