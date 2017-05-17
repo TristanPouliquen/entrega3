@@ -4,9 +4,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Dflydev\Provider\DoctrineOrm\DoctrineOrmServiceProvider;
 
-
-\Doctrine\Common\Annotations\AnnotationRegistry::registerLoader(array($loader, 'loadClass'));
-
 $app['debug']=false;
 $app = new Silex\Application();
 
