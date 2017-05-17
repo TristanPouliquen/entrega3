@@ -67,17 +67,8 @@ $app->register(new DoctrineOrmServiceProvider, [
 
 
 $app->get('/', function () use($app) {
-    $sql1 = "SELECT DISTINCT tipo FROM Facilidades;";
-    $types = $app['db']->fetchAll($sql1);
-    $sql2 = "SELECT DISTINCT ciudad FROM Direcciones";
-    $cities = $app['db']->fetchAll($sql2);
-    $sql3 = "SELECT id, nombre FROM Hoteles";
-    $hotels = $app['db']->fetchAll($sql3);
-    return $app['twig']->render('index.twig', [
-        'cities' => $cities,
-        'types' => $types,
-        'hotels' => $hotels
-        ]);
+    $hotel = $app["orm.ems"]["grupo40"]->getRepository("Entities\40\Hotel")->findFirst();
+    return new Response(json_encode($hotel));
 });
 
 $app->run();

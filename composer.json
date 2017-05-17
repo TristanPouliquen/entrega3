@@ -4,6 +4,7 @@
         "twig/twig": "^1.33",
         "dflydev/doctrine-orm-service-provider": "^2.0",
         "monolog/monolog": "^1.22",
-        "doctrine/dbal": "^2.5"
+        "doctrine/dbal": "^2.5",
+        "symfony/doctrine-bridge": "^3.2"
     }
 }
