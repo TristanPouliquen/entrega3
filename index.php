@@ -1,7 +1,10 @@
 <?php
 
 $loader = require_once __DIR__.'/vendor/autoload.php';
-$loader->add("Entity", __DIR__.'/Entity');
+$loader->add("Entity\grupo40", __DIR__.'/Entity/grupo40');
+$loader->add("Entity\grupo40\Repository", __DIR__.'/Entity/grupo40/Repository');
+$loader->add("Entity\grupo37", __DIR__.'/Entity/grupo37');
+$loader->add("Entity\grupo37/Repository", __DIR__.'/Entity/grupo37/Repository');
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
