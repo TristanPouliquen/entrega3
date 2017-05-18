@@ -1,6 +1,13 @@
 Entity37\ReviewRestaurant:
   type: entity
   table: criticarestaurante
+  id:
+    review:
+      associationKey: true
+    author:
+      associationKey: true
+    restaurant:
+      associationKey: true
   indexes:
     criticarestaurante_pkey:
       columns: [idcritica]

@@ -9,6 +9,8 @@ Entity37\Reservation:
       type: integer
       id: true
       column: idreserva
+      generator:
+        strategy: AUTO
     date:
       type: date
       column: fecha

@@ -1,6 +1,9 @@
 Entity37\ReservationRestaurant:
   type: entity
   table: reservarestaurante
+  id:
+    reservation:
+      associationKey: true
   indexes:
     reservarestaurante_pkey:
       columns: [idreserva]

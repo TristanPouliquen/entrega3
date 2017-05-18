@@ -4,6 +4,11 @@ Entity37\ReviewMenu:
   indexes:
     criticamenu_pkey:
       columns: [idcritica, plato]
+  id:
+    review:
+      associationKey: true
+    menu:
+      associationKey: true
   oneToOne:
     review:
       targetEntity: Entity37\Review
