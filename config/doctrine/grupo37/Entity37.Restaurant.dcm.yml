@@ -37,5 +37,5 @@ Entity37\Restaurant:
       targetEntity: Entity37\ReviewRestaurant
       mappedBy: restaurant
     reservations:
-      targetEntity: Entity\ReservationRestaurant
+      targetEntity: Entity37\ReservationRestaurant
       mappedBy: restaurant
