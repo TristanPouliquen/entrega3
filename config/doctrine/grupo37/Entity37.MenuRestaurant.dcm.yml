@@ -1,4 +1,4 @@
-Entity\MenuRestaurant:
+Entity37\MenuRestaurant:
   type: entity
   table: menurestaurante
   indexes:
