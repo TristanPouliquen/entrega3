@@ -187,3 +187,4 @@ class Menu
         return $this->menuPrices;
     }
 }
+

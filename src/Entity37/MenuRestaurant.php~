@@ -116,3 +116,4 @@ class MenuRestaurant
         return $this->menu;
     }
 }
+
