@@ -1,7 +1,5 @@
 <?php
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Dflydev\Provider\DoctrineOrm\DoctrineOrmServiceProvider;
 
 $app = new Silex\Application();
