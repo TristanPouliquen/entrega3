@@ -38,7 +38,6 @@ class IndexController implements ControllerProviderInterface {
      *
      */
     public function index(Application $app) {
-        var_dump($app['twig.path']);die;
         return $app['twig']->render('root/index.html.twig');
     }
 

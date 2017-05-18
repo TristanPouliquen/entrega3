@@ -8,6 +8,5 @@ use Symfony\Component\HttpFoundation\Response;
     $restaurant = $app["orm.ems"]["grupo37"]->getRepository("Entity37\Restaurant")->findAll()[0];
     return new Response($hotel->getName() . " - " . $restaurant->getName());
 });*/
-$test = new Controller\IndexController();
-var_dump(has_method($test, 'connect'));
+
 $app->mount( '/', new Controller\IndexController());
