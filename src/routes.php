@@ -8,5 +8,5 @@ use Symfony\Component\HttpFoundation\Response;
     $restaurant = $app["orm.ems"]["grupo37"]->getRepository("Entity37\Restaurant")->findAll()[0];
     return new Response($hotel->getName() . " - " . $restaurant->getName());
 });*/
-var_dump($app['twig.path']);die;
+var_dump(class_exists('Controller\IndexController'));die;
 $app->mount( '/', new Controller\IndexController());
