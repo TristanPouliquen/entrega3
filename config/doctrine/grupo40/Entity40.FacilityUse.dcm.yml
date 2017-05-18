@@ -15,5 +15,5 @@ Entity40\FacilityUse:
       targetEntity: Entity40\Facility
       inversedBy: facilityUses
     reservation:
-      targetEntity: Entity40\reservation
+      targetEntity: Entity40\Reservation
       inversedBy: facilityUses

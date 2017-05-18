@@ -24,6 +24,6 @@ Entity40\Guest:
       column: fecha_nacimiento
   oneToMany:
     reservations:
-      targetEntity: Entity40\reservation
+      targetEntity: Entity40\Reservation
       mappedBy: huesped_id
       cascade: ["persist", "merge"]

@@ -24,7 +24,7 @@ Entity40\Hotel:
       column: estrellas
   oneToOne:
     address:
-      targetEntity: Entity40\address
+      targetEntity: Entity40\Address
       joinColumn:
         name: direccion_id
         referencedColumnName: id
@@ -35,7 +35,7 @@ Entity40\Hotel:
       mappedBy: hotel_id
       cascade: ["persist", "merge"]
     reservations:
-      targetEntity: Entity40\reservation
+      targetEntity: Entity40\Reservation
       mappedBy: hotel_id
       cascade: ['persist', 'merge']
 
