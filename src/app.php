@@ -35,7 +35,7 @@ $app->register(new DoctrineOrmServiceProvider, [
                 [
                     'type' => 'yml',
                     'namespace' => 'Entity37',
-                    'path' => __DIR__ . '../config/doctrine/grupo37'
+                    'path' => __DIR__ . '/../config/doctrine/grupo37'
                 ]
             ]
         ],
