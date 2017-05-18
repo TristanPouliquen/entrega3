@@ -20,6 +20,6 @@ Entity40\Facility:
       type: integer
   oneToMany:
     facilityUses:
-      targetEntity: Entity40\FacilityUses
+      targetEntity: Entity40\FacilityUse
       mappedBy: facility
       cascade: ['persist']
