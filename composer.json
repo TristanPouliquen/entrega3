@@ -5,12 +5,14 @@
       "dflydev/doctrine-orm-service-provider": "^2.0",
       "monolog/monolog": "^1.22",
       "doctrine/dbal": "^2.5",
-      "symfony/doctrine-bridge": "^3.2"
+      "symfony/doctrine-bridge": "^3.2",
+    "symfony/yaml": "^3.2"
   },
   "autoload": {
       "psr-0": {
           "Controller": "src/",
           "Entity": "src/",
+          "Entity40": "src/Entity",
           "Form": "src/"
       }
   }

@@ -33,9 +33,9 @@ $app->register(new DoctrineOrmServiceProvider, [
             'connection' => 'grupo37',
             'mappings' => [
                 [
-                    'type' => 'annotation',
-                    'namespace' => 'Entity\grupo37',
-                    'path' => __DIR__ . '/Entity/grupo37'
+                    'type' => 'yml',
+                    'namespace' => 'Entity37',
+                    'path' => __DIR__ . '../config/doctrine/grupo37'
                 ]
             ]
         ],
@@ -43,9 +43,9 @@ $app->register(new DoctrineOrmServiceProvider, [
             'connection' => 'grupo40',
             'mappings' => [
                 [
-                    'type' => 'annotation',
-                    'namespace' => 'Entity\grupo40',
-                    'path' => __DIR__ . '/Entity/grupo40'
+                    'type' => 'yml',
+                    'namespace' => 'Entity40',
+                    'path' => __DIR__ . '/../config/doctrine/grupo40'
                 ]
             ]
         ]
