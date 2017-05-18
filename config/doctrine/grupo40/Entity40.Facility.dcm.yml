@@ -1,0 +1,25 @@
+Entity40\Facility:
+  type: entity
+  table: facilidades
+  indexes:
+    facilidades_pkey:
+      columns: [id]
+  fields:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+    price:
+      type: integer
+      column: precio
+    type:
+      type: string
+      column: tipo
+    hotel_id:
+      type: integer
+  oneToMany:
+    facilityUses:
+      targetEntity: Entity40\facilityUses
+      mappedBy: facility
+      cascade: ['persist']
