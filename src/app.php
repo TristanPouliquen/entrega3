@@ -49,7 +49,8 @@ $app->register(new DoctrineOrmServiceProvider, [
                 ]
             ]
         ]
-    ]
+    ],
+    'orm.proxies_dir' => __DIR__.'/../var/cache/doctrine/proxies'
 ]);
 
 require __DIR__.'/routes.php';
