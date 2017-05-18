@@ -1,0 +1,18 @@
+Entity40\FacilityUse:
+  type: entity
+  table: usos
+    usos_pkey:
+      columns: [id]
+  fields:
+    id:
+      type: integer
+      id: true
+      strategy:
+        generator: AUTO
+  manyToOne:
+    facility:
+      targetEntity: Entity40\Facility
+      inversedBy: facilityUses
+    reservation:
+      targetEntity: Entity40\reservation
+      inversedBy: facilityUses

@@ -1,0 +1,24 @@
+Entity40\Address:
+  type: entity
+  table: direcciones
+  indexes:
+    direcciones_pkey:
+      columns: [id]
+  fields:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+    street:
+      type: string
+      column: calle
+    number:
+      type: integer
+      column: numero
+    city:
+      type: string
+      column: ciudad
+    country:
+      type: string
+      column: pais
