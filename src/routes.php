@@ -8,3 +8,5 @@ $app->get('/', function () use($app) {
     $restaurant = $app["orm.ems"]["grupo37"]->getRepository("Entity37\Restaurant")->findAll()[0];
     return new Response($hotel->getName() . " - " . $restaurant->getName());
 });
+
+$app->mount( '/', new Controller\IndexController());
