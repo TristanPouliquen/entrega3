@@ -4,14 +4,11 @@ Entity37\Schedule:
   indexes:
     horario_pkey:
       columns: [rnombre, dia]
-  id:
-    restaurant:
-      associationKey: true
-      column: rnombre
+  fields:
     day:
       type: integer
       column: dia
-  fields:
+      id: true
     opening:
       type: time
       column: apertura

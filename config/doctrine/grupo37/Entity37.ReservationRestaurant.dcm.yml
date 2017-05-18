@@ -4,9 +4,6 @@ Entity37\ReservationRestaurant:
   indexes:
     reservarestaurante_pkey:
       columns: [idreserva]
-  id:
-    reservation:
-      associationKey: true
   manyToOne:
     client:
       targetEntity: Entity37\Client

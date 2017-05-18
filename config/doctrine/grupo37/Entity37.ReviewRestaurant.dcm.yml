@@ -4,9 +4,6 @@ Entity37\ReviewRestaurant:
   indexes:
     criticarestaurante_pkey:
       columns: [idcritica]
-  id:
-    review:
-      associationKey: true
   oneToOne:
     review:
       targetEntity: Entity37\Review

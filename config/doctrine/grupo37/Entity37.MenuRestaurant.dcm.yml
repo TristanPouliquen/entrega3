@@ -4,11 +4,6 @@ Entity\MenuRestaurant:
   indexes:
     menurestaurante_pkey:
       columns: [rnombre, plato]
-  id:
-    restaurant:
-      associationKey: true
-    menu:
-      associationKey: true
   fields:
     price:
       type: integer
