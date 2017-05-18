@@ -3,7 +3,7 @@
         <div class="row footer">
             <div class="col-md-4">
                 <div class="single-footer">
-                    <img src="assets/img/footer-logo.png" alt="" class="wow pulse" data-wow-delay="1s">
+                    <img src="{{ asset('footer-logo.png', 'images') }}" alt="" class="wow pulse" data-wow-delay="1s">
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati architecto quaerat facere blanditiis tempora sequi nulla accusamus, possimus cum necessitatibus suscipit quia autem mollitia, similique quisquam molestias. Vel unde, blanditiis.</p>
                 </div>
             </div>
@@ -45,8 +45,8 @@
     </div>
 </div>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
-<script src="../assets/js/bootstrap.min.js"></script>
-<script src="../assets/js/owl.carousel.min.js"></script>
-<script src="../assets/js/wow.js"></script>
-<script src="../assets/js/main.js"></script>
+<script>window.jQuery || document.write('<script src="{{ asset('jquery-1.10.2.min.js', 'js') }}"><\/script>')</script>
+<script src="{{ asset('bootstrap.min.js', 'js') }}"></script>
+<script src="{{ asset('owl.carousel.min.js', 'js') }}"></script>
+<script src="{{ asset('wow.js', 'js') }}"></script>
+<script src="{{ asset('main.js', 'js') }}"></script>
