@@ -3,7 +3,7 @@ Entity40\Facility:
   table: facilidades
   indexes:
     facilidades_pkey:
-    columns: [id]
+      columns: [id]
   fields:
     id:
       type: integer
