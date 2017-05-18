@@ -6,6 +6,17 @@ $app = new Silex\Application();
 
 $app->register(new Silex\Provider\TwigServiceProvider());
 
+$app->register(new Silex\Provider\AssetServiceProvider(), array(
+    'assets.version' => 'v1',
+    'assets.version_format' => '%s?version=%s',
+    'assets.named_packages' => array(
+        'css' => array('version' => 'css2', 'base_path' => __DIR__.'/assets/css'),
+        'images' => array('base_path' => __DIR__.'/assets/img'),
+        'js' => array('base_path' => __DIR__.'/assets/js'),
+        'fonts' => array('base_path' => __DIR__.'/assets/fonts')
+    ),
+));
+
 $app->register(new Silex\Provider\DoctrineServiceProvider(), [
     'dbs.options' => [
         'grupo37' => [
