@@ -1,0 +1,24 @@
+Entity37\Reservation:
+  type: entity
+  table: reserva
+  indexes:
+    reserva_pkey:
+      columns: [idreserva]
+  fields:
+    id:
+      type: integer
+      id: true
+      column: idreserva
+    date:
+      type: date
+      column: fecha
+    time:
+      type: time
+      column: hora
+    quantity:
+      type: integer
+      column: cantidad
+  oneToOne:
+    restaurantReservation:
+      targetEntity: Entity37\ReservationRestaurant
+      mappedBy: reservation

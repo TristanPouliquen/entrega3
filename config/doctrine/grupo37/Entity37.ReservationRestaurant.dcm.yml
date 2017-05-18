@@ -1,0 +1,29 @@
+Entity37\ReservationRestaurant:
+  type: entity
+  table: reservarestaurante
+  indexes:
+    reservarestaurante_pkey:
+      columns: [idreserva]
+  id:
+    reservation:
+      associationKey: true
+  manyToOne:
+    client:
+      targetEntity: Entity37\Client
+      inversedBy: reservations
+      joinColumn:
+        name: telefono
+        referencedColumnName: telefono
+    restaurant:
+      targetEntity: Entity37\Restaurant
+      inversedBy: reservations
+      joinColumn:
+        name: rnombre
+        referencedColumnName: rnombre
+  oneToOne:
+    reservation:
+      targetEntity: Entity37\Reservation
+      inversedBy: restaurantReservation
+      joinColumn:
+        name: idreserva
+        referencedColumnName: idreserva

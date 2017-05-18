@@ -36,4 +36,3 @@ Entity40\Reservation:
       joinColumn:
         name: critica_id
         referencedColumnName: id
-        onDelete: SET NULL

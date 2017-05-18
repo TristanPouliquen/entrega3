@@ -1,0 +1,25 @@
+Entity37\ReviewMenu:
+  type: entity
+  table: criticamenu
+  indexes:
+    criticamenu_pkey:
+      columns: [idcritica, plato]
+  id:
+    review:
+      associationKey: true
+    menu:
+      associationKey: true
+  oneToOne:
+    review:
+      targetEntity: Entity37\Review
+      inversedBy: menuReview
+      joinColumn:
+        name: idcritica
+        referencedColumnName: idcritica
+  manyToOne:
+    menu:
+      targetEntity: Entity37\Menu
+      inversedBy: reviews
+      joinColumn:
+        name: plato
+        referencedColumnName: plato

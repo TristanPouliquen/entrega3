@@ -1,0 +1,41 @@
+Entity37\Restaurant:
+  type: entity
+  table: restaurante
+  indexes:
+    restaurante_pkey:
+      columns: [rnombre]
+  fields:
+    name:
+      type: string
+      id: true
+      column: rnombre
+    city:
+      type: string
+      column: ciudad
+    street:
+      type: string
+      column: calle
+    chef:
+      type: string
+    capacity:
+      type: integer
+      column: capacidad
+    star_rating:
+      type: integer
+      column: estrellas
+    style:
+      type: string
+      column: estilo
+  oneToMany:
+    menuDishes:
+      targetEntity: Entity37\MenuRestaurant
+      mappedBy: restaurant
+    schedule:
+      targetEntity: Entity37\Schedule
+      mappedBy: restaurant
+    reviews:
+      targetEntity: Entity37\ReviewRestaurant
+      mappedBy: restaurant
+    reservations:
+      targetEntity: Entity\ReservationRestaurant
+      mappedBy: restaurant

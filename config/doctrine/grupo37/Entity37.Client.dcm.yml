@@ -1,0 +1,21 @@
+Entity37\Client:
+  type: entity
+  table: cliente
+  indexes:
+    cliente_pkey:
+      columns: [telefono]
+  fields:
+    phone_number:
+      type: string
+      id: true
+      column: telefono
+    name:
+      type: string
+      column: nombre
+  oneToMany:
+    reservations:
+      targetEntity: Entity37\Reservation
+      mappedBy: client
+    reviews:
+      targetEntity: Entity37\ReviewRestaurant
+      mappedBy: author

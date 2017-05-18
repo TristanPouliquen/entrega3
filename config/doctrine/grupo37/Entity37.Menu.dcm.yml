@@ -1,0 +1,25 @@
+Entity37\Menu:
+  type: entity
+  table: menu
+  indexes:
+    menu_pkey:
+      columns: [plato]
+  fields:
+    dish_name:
+      type: string
+      id: true
+      column: plato
+    description:
+      type: string
+    vegan:
+      type: boolean
+    veggie:
+      type: boolean
+  oneToMany:
+    menuPrices:
+      targetEntity: Entity37\MenuRestaurant
+      mappedBy: menu
+  oneToMany:
+    reviews:
+      targetEntity: Entity37\ReviewMenu
+      mappedBy: menu

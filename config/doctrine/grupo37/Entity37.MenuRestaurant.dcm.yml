@@ -1,0 +1,27 @@
+Entity\MenuRestaurant:
+  type: entity
+  table: menurestaurante
+  indexes:
+    menurestaurante_pkey:
+      columns: [rnombre, plato]
+  id:
+    restaurant:
+      associationKey: true
+    menu:
+      associationKey: true
+  fields:
+    price:
+      type: integer
+  manyToOne:
+    restaurant:
+      targetEntity: Entity37\Restaurant
+      inversedBy: menuDishes
+      joinColumn:
+        name: rnombre
+        referencedColumnName: rnombre
+    menu:
+      targetEntity: Entity37\Menu
+      inversedBy: menuPrices
+      joinColumn:
+        name: plato
+        referencedColumnName: plato

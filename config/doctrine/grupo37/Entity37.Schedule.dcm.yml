@@ -1,0 +1,27 @@
+Entity37\Schedule:
+  type: entity
+  table: horario
+  indexes:
+    horario_pkey:
+      columns: [rnombre, dia]
+  id:
+    restaurant:
+      associationKey: true
+      column: rnombre
+    day:
+      type: integer
+      column: dia
+  fields:
+    opening:
+      type: time
+      column: apertura
+    closing:
+      type: time
+      column: cierre
+  manyToOne:
+    restaurant:
+      targetEntity: Entity37\Restaurant
+      inversedBy: schedule
+      joinColumn:
+        name: rnombre
+        referencedColumnName: rnombre

@@ -1,0 +1,26 @@
+Entity37\Review:
+  type: entity
+  table: critica
+  indexes:
+    critica_pkey:
+      columns: [idcritica]
+  id:
+    id:
+      type: integer
+      column: idcritica
+      generator:
+        strategy: AUTO
+  fields:
+    date:
+      type: date
+      column: fecha
+    description:
+      type: string
+      column: descripción
+    rating:
+      type: integer
+      column: nota
+  oneToOne:
+    menuReview:
+      targetEntity: Entity37\ReviewMenu
+      mappedBy: review
