@@ -4,6 +4,8 @@ use Dflydev\Provider\DoctrineOrm\DoctrineOrmServiceProvider;
 
 $app = new Silex\Application();
 
+$app->register(new Silex\Provider\SessionServiceProvider());
+
 $app->register(new Silex\Provider\TwigServiceProvider());
 
 $app->register(new Silex\Provider\AssetServiceProvider(), array(
@@ -61,5 +63,33 @@ $app->register(new DoctrineOrmServiceProvider, [
     ],
     'orm.proxies_dir' => __DIR__.'/../var/cache/doctrine/proxies'
 ]);
+
+$app['user.provider'] = $app->share(function($app) {
+    return new \Lib\UserProvider($app);
+});
+
+$app->register(new SecurityServiceProvider(), [
+    'security.firewalls' => [
+        'login' => [
+            'pattern' => '^/login$',
+        ],
+        'signup' => [
+            'pattern' => '^/signup$'
+        ],
+        'secured' => [
+            'pattern' => '^.*$',
+            'form' => ['login_path' => '/login', 'check_path' => '/check_login'],
+            'logout' => ['logout_path' => '/logout'],
+            'users' => $app['user.provider']
+        ],
+    ],
+    'security.access_rules' => [
+        ['^/login$', ''],
+        ['^.*$', 'ROLE_USER'], //anonymous routes
+    ]
+]);
+$app['user'] = $app->share(function($app) {
+    return ($app['user.provider']->getCurrentUser());
+});
 
 return $app;

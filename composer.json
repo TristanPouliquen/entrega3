@@ -8,14 +8,18 @@
       "symfony/doctrine-bridge": "^3.2",
     "symfony/yaml": "^3.2",
     "symfony/asset": "^3.2",
-    "symfony/twig-bridge": "^3.2"
+    "symfony/twig-bridge": "^3.2",
+    "symfony/security": "^3.2",
+    "symfony/validator": "^3.2",
+    "symfony/form": "^3.2"
   },
   "autoload": {
       "psr-0": {
           "Controller": "src/",
-          "Entity": "src/",
-          "Entity40": "src/Entity",
-          "Form": "src/"
+          "Entity37": "src/",
+          "Entity40": "src/",
+          "Form": "src/",
+          "Lib": "src/"
       }
   }
 }

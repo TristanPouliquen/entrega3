@@ -1,0 +1,25 @@
+Entity37\User:
+  type: entity
+  table: user
+  fields:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+    email:
+      type: string
+      length: 100
+    password:
+      type: string
+      length: 255
+    roles:
+      type: string
+      length: 255
+    salt:
+      type: string
+      length: 255
+    created_at:
+      type: datetime
+    updated_at:
+      type: datetime
