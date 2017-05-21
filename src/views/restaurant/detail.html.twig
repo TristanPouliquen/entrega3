@@ -3,8 +3,32 @@
 
  <div class="row page-title text-center wow zoomInDown" data-wow-delay="1s">
     <h1>{{ restaurant.name }}</h1>
-     <p> Put the adress</p>
+     <p> {{ restaurant.street }} , {{ restaurant.city }}</p>
 </div>
+          <div class="row how-it-work text-center">
+              <div class="col-md-4">
+                  <div class="single-work wow fadeInUp" data-wow-delay="0.8s">
+                      <img src="{{ asset('palme.png', 'images') }}" alt="" height="80" width="80">
+                      <h3>Nota Promedia</h3>
+                      <h2>{{ restaurant.getAverageNote() }} /4</h2>
+                  </div>
+                </div>
+              <div class="col-md-4">
+                  <div class="single-work  wow fadeInUp"  data-wow-delay="0.9s">
+                      <img src="{{ asset('Etoile.png', 'images') }}" alt="" height="80" width="80">
+                      <h3>Chef y Estrellas</h3>
+                      <p>{{ restaurant.chef }} con {{ restaurant.starRating }} estrellas </p>
+                  </div>
+              </div>
+              <div class="col-md-4">
+                  <div class="single-work wow fadeInUp"  data-wow-delay="1s">
+                      <img src="{{ asset('fourchette.png', 'images') }}" alt="" height="80" width="80">
+                      <h3>Estilo de cocina</h3>
+                      <p>{{ restaurant.style }}</p>
+                  </div>
+              </div>
+          </div>
+
           <div class="row how-it-work text-center">
               <div class="col-md-4">
                   <div class="single-work wow fadeInUp" data-wow-delay="0.8s">
