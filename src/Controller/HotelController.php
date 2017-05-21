@@ -30,3 +30,4 @@ class HotelController implements ControllerProviderInterface {
         $indexController->get("/delete/{id}", array($this, 'delete'))->bind('acme_delete');*/
         return $hotelController;
     }
+}
