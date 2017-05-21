@@ -3,7 +3,7 @@
       <div class="container">
           <div class="row page-title text-center wow bounce"  data-wow-delay="1s">
               <h5>Los Hoteles</h5>
-              <h2><span>23</span> Hoteles disponibles</h2>
+              <h2><span>{{ hotel.length }}</span> Hoteles disponibles</h2>
           </div>
           <div class="row jobs">
               <div class="col-md-9">
@@ -11,7 +11,7 @@
                       <table class="table">
                           {% for hotel in hotels %}
                           <tr class="odd wow fadeInUp" data-wow-delay="1s">
-                              <td class="tbl-logo"><img src="{{ asset('job-logo1.png', 'images') }}" alt=""></td>
+                              <td class="tbl-logo"><img src="{{ asset('logohotel.png', 'images') }}" alt=""></td>
                               <td class="tbl-title"><h4>{{ hotel.name }}<br><span class="job-type">Hotel</span></h4></td>
                               <td><p><i class="icon-location"></i>{{ hotel.address.city }}</p></td>
                               <td class="tbl-apply"><a href="#">Reservar</a></td>
