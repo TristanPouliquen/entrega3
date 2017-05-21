@@ -24,6 +24,7 @@ class RestaurantController implements ControllerProviderInterface {
     public function connect(Application $app) {
         $restaurantController = $app['controllers_factory'];
         $restaurantController->get("/", array($this, 'showAll'))->bind('restaurant_list');
+        $restaurantController->get("/{name}", array($this, 'detail'))->bind('restaurant_detail');
         /*$indexController->get("/show/{id}", array($this, 'show'))->bind('acme_show');
         $indexController->match("/create", array($this, 'create'))->bind('acme_create');
         $indexController->match("/update/{id}", array($this, 'update'))->bind('acme_update');
@@ -36,6 +37,14 @@ class RestaurantController implements ControllerProviderInterface {
         $restaurants = $em->getRepository('Entity37\Restaurant')->findAll();
         return $app['twig']->render('restaurant/list.html.twig', [
             'restaurants' => $restaurants
+        ]);
+    }
+
+    public function detail(Application $app, $name){
+        $em = $app['orm.ems']['grupo37'];
+        $restaurant = $em->getRepository('Entity37\Restaurant')->findOneByName($name);
+        return $app['twig']->render('restaurant/detail.html.twig', [
+            'restaurant' => $restaurant
         ]);
     }
 }

@@ -102,6 +102,17 @@ class Restaurant
         $this->reservations = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
+    public function getAverageNote(){
+        $total = 0;
+        $count = 0;
+        foreach($this->reviews as $review){
+            $total+= $review->getReview()->getRating();
+            $count++;
+        }
+
+        return $total / $count;
+    }
+
     /**
      * Set name
      *

@@ -2,53 +2,29 @@
 {% block content %}
 
  <div class="row page-title text-center wow zoomInDown" data-wow-delay="1s">
-    <h1>{{ restaurant.name }}</h1>
-     <p> {{ restaurant.street }} , {{ restaurant.city }}</p>
+    <h1>{{ hotel.name }}</h1>
+     <p> Put the adress</p>
 </div>
           <div class="row how-it-work text-center">
               <div class="col-md-4">
                   <div class="single-work wow fadeInUp" data-wow-delay="0.8s">
                       <img src="{{ asset('palme.png', 'images') }}" alt="" height="80" width="80">
                       <h3>Nota Promedia</h3>
-                      <h2>{{ restaurant.getAverageNote() }} /4</h2>
+                      <h2>{{ restaurant.reviews|length }} {{ restaurant.averageNote }} /4</h2>
                   </div>
                 </div>
               <div class="col-md-4">
                   <div class="single-work  wow fadeInUp"  data-wow-delay="0.9s">
                       <img src="{{ asset('Etoile.png', 'images') }}" alt="" height="80" width="80">
-                      <h3>Chef y Estrellas</h3>
-                      <p>{{ restaurant.chef }} con {{ restaurant.starRating }} estrellas </p>
+                      <h3>Estrellas</h3>
+                      <p>Ajouter estrella</p>
                   </div>
               </div>
               <div class="col-md-4">
                   <div class="single-work wow fadeInUp"  data-wow-delay="1s">
-                      <img src="{{ asset('fourchette.png', 'images') }}" alt="" height="80" width="80">
-                      <h3>Estilo de cocina</h3>
-                      <p>{{ restaurant.style }}</p>
-                  </div>
-              </div>
-          </div>
-
-          <div class="row how-it-work text-center">
-              <div class="col-md-4">
-                  <div class="single-work wow fadeInUp" data-wow-delay="0.8s">
-                      <img src="{{ asset('list.png', 'images') }}" alt="" height="80" width="80">
-                      <h3>Menu</h3>
-                      <h2></h2>
-                  </div>
-                </div>
-              <div class="col-md-4">
-                  <div class="single-work  wow fadeInUp"  data-wow-delay="0.9s">
-                      <img src="{{ asset('time.png', 'images') }}" alt="" height="80" width="80">
-                      <h3>Horarios</h3>
-                      <p> </p>
-                  </div>
-              </div>
-              <div class="col-md-4">
-                  <div class="single-work wow fadeInUp"  data-wow-delay="1s">
-                      <img src="{{ asset('logocapacidad.png', 'images') }}" alt="" height="80" width="80">
-                      <h3>Capacidad</h3>
-                      <p>{{ restaurant.capacity }}</p>
+                      <img src="{{ asset('logohotel.png', 'images') }}" alt="" height="80" width="80">
+                      <h3>Los servicios</h3>
+                      <p>Ajouter Style de cuisine</p>
                   </div>
               </div>
           </div>
