@@ -106,11 +106,11 @@ class Restaurant
         $total = 0;
         $count = 0;
         foreach($reviews as $review){
-            $total+= $review->getReview->getRating();
+            $total+= $review->getReview()->getRating();
             $count++;
         }
 
-        return $total / $count;
+        return $total;
     }
 
     /**
