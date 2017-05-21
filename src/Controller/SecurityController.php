@@ -30,18 +30,18 @@ Class SecurityController implements ControllerProviderInterface
      */
     public function login(Application $app, Request $request)
     {
-        $form = $this->app['form.factory']->createForm(UserType::class, []);
-        return $this->app['twig']->render('security/login.html.twig', array(
+        $form = $app['form.factory']->createForm(UserType::class, []);
+        return $app['twig']->render('security/login.html.twig', array(
             'form' => $form->createView(),
-            'error' => $this->app['security.last_error']($request),
-            'allowRememberMe' => isset($this->app['security.remember_me.response_listener']),
+            'error' => $app['security.last_error']($request),
+            'allowRememberMe' => isset($app['security.remember_me.response_listener']),
         ));
     }
 
     public function signup(Application $app, Request $request)
     {
         $user = new User();
-        $form = $this->app['form.factory']->createForm(UserType::class, $user);
+        $form = $app['form.factory']->createForm(UserType::class, $user);
 
         $form->handleRequest($request);
 
@@ -56,9 +56,9 @@ Class SecurityController implements ControllerProviderInterface
             $app['session']->getFlashBag()->add('success', 'Usted fue inscrito exitosamente. Ahora puede conectarse');
             return $this->redirectToRoute('login');
         }
-        return $this->app['twig']->render('security/signup.html.twig', array(
+        return $app['twig']->render('security/signup.html.twig', array(
             'form' => $form->createView(),
-            'error' => $this->app['security.last_error']($request),
+            'error' => $app['security.last_error']($request),
         ));
     }
 }
