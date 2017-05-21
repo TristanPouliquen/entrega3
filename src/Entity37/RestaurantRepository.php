@@ -1,10 +1,10 @@
 <?php
-namespace Entity40;
+namespace Entity37;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\NoResultException;
 
 
-class AddressRepository extends EntityRepository
+class RestaurantRepository extends EntityRepository
 {
     public function getDistinctCities(){
         $query = $this->createQueryBuilder('address')

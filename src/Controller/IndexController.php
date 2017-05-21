@@ -38,8 +38,11 @@ class IndexController implements ControllerProviderInterface {
     public function index(Application $app) {
         $em40 = $app['orm.ems']['grupo40'];
         $cities40 = $em40->getRepository('Entity40\Address')->getDistinctCities();
+        $em37 = $app['orm.ems']['grupo37'];
+        $cities37 = $em37->getRepository('Entity37\Restaurant')->getDistinctCities();
+        $merge = array_unique(array_merge($cities37,$cities40));
         return $app['twig']->render('root/index.html.twig', [
-            'cities'=> $cities
+            'cities'=> $merge
         ]);
     }
 
