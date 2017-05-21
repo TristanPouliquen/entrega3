@@ -1,0 +1,64 @@
+{% extends "base.html.twig" %}
+{% block content %}
+      
+ <div class="row page-title text-center wow zoomInDown" data-wow-delay="1s">
+              <h5>Our Process</h5>
+              <h2>How we work for you?</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae illum dolorem, rem officia, id explicabo sapiente</p>
+          </div>
+          <div class="row how-it-work text-center">
+              <div class="col-md-3">
+                  <div class="single-work wow fadeInUp" data-wow-delay="0.8s">
+                      <img src="{{ asset('how-work1.png', 'images') }}" alt="">
+                      <h3>Searching for the best job</h3>
+                      <p>Using the outcomes from the job, we will put together a plan for the most effective marketing strategy to get the best results.</p>
+              </div>
+              <div class="col-md-3">
+                  <div class="single-work  wow fadeInUp"  data-wow-delay="0.9s">
+                      <img src="{{ asset('how-work2.png', 'images') }}" alt="">
+                      <h3>Searching for the best job</h3>
+                      <p>Using the outcomes from the job, we will put together a plan for the most effective marketing strategy to get the best results.</p>
+                  </div>
+              </div>
+              <div class="col-md-3">
+                  <div class="single-work wow fadeInUp"  data-wow-delay="1s">
+                      <img src="{{ asset('how-work3.png', 'images') }}" alt="">
+                      <h3>Searching for the best job</h3>
+                      <p>Using the outcomes from the job, we will put together a plan for the most effective marketing strategy to get the best results.</p>
+                  </div>
+              </div>
+              <div class="col-md-3">
+                  <div class="single-work wow fadeInUp"  data-wow-delay="1s">
+                      <img src="{{ asset('how-work3.png', 'images') }}" alt="">
+                      <h3>Searching for the best job</h3>
+                      <p>Using the outcomes from the job, we will put together a plan for the most effective marketing strategy to get the best results.</p>
+                  </div>
+              </div>
+          </div>
+
+      </div>
+
+      <div class="container">
+          <div class="row page-title text-center wow bounce"  data-wow-delay="1s">
+              <h5>Las criticas</h5>
+              <h2><span>5</span> ultimas criticas</h2>
+          </div>
+          <div class="row jobs">
+              <div class="col-md-12">
+                  <div class="job-posts table-responsive">
+                      <table class="table">
+                          {% for restaurant in restaurants %}
+                          <tr class="odd wow fadeInUp" data-wow-delay="1s">
+                              <td class="tbl-logo"><img src="{{ asset('logousers.png', 'images') }}" alt="" height="50" width="50"></td>
+                              <td class="tbl-title"><h4>{{ restaurant.name }}<br><span class="job-type">Restaurante</span></h4></td>
+                              <td><p><i class="icon-location"></i>{{ restaurant.city }}</p></td>
+                              <td class="tbl-apply"><a href="#">Ver</a></td>
+                          </tr>
+                          {% endfor %}
+                      </table>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+{% endblock %}

@@ -3,10 +3,11 @@ namespace Entity37;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Doctrine\ORM\Mapping AS ORM;
 use Doctrine\Common\Collections\ArrayCollection;
-
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * @ORM\Entity
  * @ORM\Table(name="guloja_user")
+ * @UniqueEntity("email")
  */
 Class User implements UserInterface
 {
