@@ -1,6 +1,7 @@
 Entity37\Restaurant:
   type: entity
   table: restaurante
+  repositoryClass: Entity37\RestaurantRepository
   indexes:
     restaurante_pkey:
       columns: [rnombre]
