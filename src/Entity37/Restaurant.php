@@ -110,7 +110,7 @@ class Restaurant
             $count++;
         }
 
-        return $total;
+        return $total / $count;
     }
 
     /**
