@@ -44,7 +44,7 @@ Class SecurityController implements ControllerProviderInterface
 
         if ($form->isSubmitted()){
             $token = new UsernamePasswordToken($userLogin->getEmail(), $userLogin->getPlainPassword(), 'authentication');
-            $provider = new DaoAuthenticationProvider(new UserProvider(), new UserChecker(), 'authentication', new EncoderFactory());
+            $provider = new DaoAuthenticationProvider(new UserProvider($app), new UserChecker(), 'authentication', new EncoderFactory());
             $provider->authenticate($token);
         }
         return $app['twig']->render('security/login.html.twig', array(
