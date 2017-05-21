@@ -36,7 +36,11 @@ class IndexController implements ControllerProviderInterface {
      *
      */
     public function index(Application $app) {
-        return $app['twig']->render('root/index.html.twig');
+        $em40 = $app['orm.ems']['grupo40'];
+        $cities40 = $em40->getRepository('Entity40\Address')->getDistinctCities();
+        return $app['twig']->render('root/index.html.twig', [
+            'cities'=> $cities
+        ]);
     }
 
     /**
