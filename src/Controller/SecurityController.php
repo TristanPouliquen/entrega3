@@ -9,8 +9,9 @@ use Form\UserType;
 use Entity37\User;
 
 use Silex\Application;
+use Silex\Api\ControllerProviderInterface;
 
-Class SecurityController
+Class SecurityController implements ControllerProviderInterface
 {
     /**
      * Route settings
