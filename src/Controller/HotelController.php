@@ -32,6 +32,10 @@ class HotelController implements ControllerProviderInterface {
     }
 
     public function showAll(Application $app) {
-        return $app['twig']->render('Hotel/list.html.twig');
+        $em = $app['orm.ems']['grupo40'];
+        $hotel = $em->getRepository('Entity40\Hotel')->findAll();
+        return $app['twig']->render('Hotel/list.html.twig', [
+            'hotels' => $hotel
+        ]);
     }
 }
