@@ -96,7 +96,7 @@ $app->register(new SecurityServiceProvider(), [
             'pattern' => '^/signup$'
         ],
         'secured' => [
-            'pattern' => '^.*$',
+            'pattern' => '^/intern/.*$',
             'form' => ['login_path' => '/login', 'check_path' => '/check_login'],
             'logout' => ['logout_path' => '/logout'],
             'users' => $app['user.provider']
@@ -104,7 +104,7 @@ $app->register(new SecurityServiceProvider(), [
     ],
     'security.access_rules' => [
         ['^/login$', ''],
-        ['^/.*$', 'IS_AUTHENTICATED_ANONYMOUSLY'], //anonymous routes
+        ['^/intern/.*$', 'ROLE_USER'], //anonymous routes
     ]
 ]);
 $app['user'] = function($app) {
