@@ -42,7 +42,7 @@ class IndexController implements ControllerProviderInterface {
         $cities37 = $em37->getRepository('Entity37\Restaurant')->getDistinctCities();
         $merge = array_unique(array_map(function ($item) {
                 return $item['city'];
-        }, array_merge($cities37,$cities40)));
+        }, array_merge($cities37, $cities40)));
 
         return $app['twig']->render('root/index.html.twig', [
             'cities'=> $merge
