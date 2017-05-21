@@ -24,9 +24,9 @@
         </div>
       {% endif %}
       <ul class="main-nav nav navbar-nav navbar-right">
-        <li class="wow fadeInDown" data-wow-delay="0s"><a class="active" href="{{ path('root_index') }}">Portada</a></li>
-        <li class="wow fadeInDown" data-wow-delay="0.1s"><a href="{{ path('restaurant_list') }}">Restaurantes</a></li>
-        <li class="wow fadeInDown" data-wow-delay="0.2s"><a href="{{ path('hotel_list') }}">Hoteles</a></li>
+        <li class="wow fadeInDown" data-wow-delay="0s"><a class="{% if global.request.attributes.get('_route') == 'root_index' %}active{% endif %}" href="{{ path('root_index') }}">Portada</a></li>
+        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="{% if global.request.attributes.get('_route') == 'restaurant_list' %}active{% endif %}" href="{{ path('restaurant_list') }}">Restaurantes</a></li>
+        <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="{% if global.request.attributes.get('_route') == 'hotel_list' %}active{% endif %}" href="{{ path('hotel_list') }}">Hoteles</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
