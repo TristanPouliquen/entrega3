@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8135d268cfe9cf59adc89f38d8ae8edb",
+    "content-hash": "b8dcb6cd99d63215fc3aabddac202e52",
     "packages": [
         {
             "name": "dflydev/doctrine-orm-service-provider",
@@ -1727,6 +1727,57 @@
                 "localization"
             ],
             "time": "2017-05-01T14:55:58+00:00"
+        },
+        {
+            "name": "symfony/locale",
+            "version": "v2.8.20",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/locale.git",
+                "reference": "e559a9f99d87e64a37fde2c6fc3f2b79d7a3e7e4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/locale/zipball/e559a9f99d87e64a37fde2c6fc3f2b79d7a3e7e4",
+                "reference": "e559a9f99d87e64a37fde2c6fc3f2b79d7a3e7e4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9",
+                "symfony/intl": "~2.7.25|^2.8.18|~3.2.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.8-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Locale\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Locale Component",
+            "homepage": "https://symfony.com",
+            "abandoned": "symfony/intl",
+            "time": "2017-04-12T14:07:15+00:00"
         },
         {
             "name": "symfony/options-resolver",

@@ -4,6 +4,7 @@ use Dflydev\Provider\DoctrineOrm\DoctrineOrmServiceProvider;
 use Silex\Provider\FormServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\TranslationServiceProvider;
+use Silex\Provider\LocaleServiceProvider;
 use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\TwigServiceProvider;
 use Silex\Provider\AssetServiceProvider;
@@ -17,6 +18,8 @@ $app->register(new SessionServiceProvider());
 $app->register(new FormServiceProvider());
 
 $app->register(new ValidatorServiceProvider());
+
+$app->register(new LocaleServiceProvider());
 
 $app->register(new TranslationServiceProvider(), array(
     'translator.messages' => array(),
