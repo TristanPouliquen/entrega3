@@ -107,11 +107,11 @@ class UserProvider implements UserProviderInterface
      */
     function isLoggedIn()
     {
-        $token = $this->app['security']->getToken();
+        $token = $this->app['security.token_storage']->getToken();
         if (null === $token) {
             return false;
         }
-        return $this->app['security']->isGranted('IS_AUTHENTICATED_REMEMBERED');
+        return $this->app['security.authorization_checker']->isGranted('IS_AUTHENTICATED_REMEMBERED');
     }
 
 }
