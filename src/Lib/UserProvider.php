@@ -23,7 +23,7 @@ class UserProvider implements UserProviderInterface
 
   public function loadUserByUsername($username)
   {
-    $em = $app['orm.ems']['grupo37'];
+    $em = $this->app['orm.ems']['grupo37'];
     if($em instanceof EntityManager){
       if(!$user = $em->getRepository("Entity37\User")->findOneBy(array("username"=>$username))){
         throw new UsernameNotFoundException(sprintf('Username "%s" does not exist.', $username));
