@@ -39,7 +39,7 @@ class IndexController implements ControllerProviderInterface {
         $em40 = $app['orm.ems']['grupo40'];
         $cities40 = $em40->getRepository('Entity40\Address')->getDistinctCities();
         return $app['twig']->render('root/index.html.twig', [
-            'cities'=> $cities
+            'cities'=> $cities40
         ]);
     }
 

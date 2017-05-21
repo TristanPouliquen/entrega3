@@ -11,7 +11,6 @@ class AddressRepository extends EntityRepository
                     ->select('address.city')
                     ->distinct()
                     ->getQuery();
-
         return $query->getResult();
     }
 }
