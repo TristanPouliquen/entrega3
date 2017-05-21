@@ -1,10 +1,18 @@
 <?php
 
 use Dflydev\Provider\DoctrineOrm\DoctrineOrmServiceProvider;
+use Silex\Provider\FormServiceProvider;
+use Silex\Provider\ValidatorServiceProvider;
+use Silex\Provider\TranslationServiceProvider;
+use Silex\Provider\SessionServiceProvider;
+use Silex\Provider\TwigServiceProvider;
+use Silex\Provider\AssetServiceProvider;
+use Silex\Provider\DoctrineServiceProvider;
+use Silex\Provider\SecurityServiceProvider;
 
 $app = new Silex\Application();
 
-$app->register(new Silex\Provider\SessionServiceProvider());
+$app->register(new SessionServiceProvider());
 
 $app->register(new FormServiceProvider());
 
@@ -14,9 +22,9 @@ $app->register(new TranslationServiceProvider(), array(
     'translator.messages' => array(),
 ));
 
-$app->register(new Silex\Provider\TwigServiceProvider());
+$app->register(new TwigServiceProvider());
 
-$app->register(new Silex\Provider\AssetServiceProvider(), array(
+$app->register(new AssetServiceProvider(), array(
     'assets.version' => 'v1',
     'assets.version_format' => '%s?version=%s',
     'assets.named_packages' => array(
@@ -27,7 +35,7 @@ $app->register(new Silex\Provider\AssetServiceProvider(), array(
     ),
 ));
 
-$app->register(new Silex\Provider\DoctrineServiceProvider(), [
+$app->register(new DoctrineServiceProvider(), [
     'dbs.options' => [
         'grupo37' => [
             'driver'    => 'pdo_pgsql',
