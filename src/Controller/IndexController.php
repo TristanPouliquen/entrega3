@@ -57,9 +57,9 @@ class IndexController implements ControllerProviderInterface {
         $query= $request->request->get('query');
         $type= $request->request->get('type');
         $city= $request->request->get('city');
-        var_dump($query)
-        var_dump($type)
-        var_dump($city)
+        var_dump($query);
+        var_dump($type);
+        var_dump($city);
     return $app['twig']->render('root/index.html.twig', [
             'cities'=> []
         ]);
