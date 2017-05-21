@@ -95,17 +95,17 @@ $app->register(new SecurityServiceProvider(), [
         'signup' => [
             'pattern' => '^/signup$'
         ],
-        /*'secured' => [
-            'pattern' => '^.*$',
+        'secured' => [
+            'pattern' => '^/intern/.*$',
             'form' => ['login_path' => '/login', 'check_path' => '/check_login'],
             'logout' => ['logout_path' => '/logout'],
             'users' => $app['user.provider']
-        ],*/
+        ],
     ],
-    /*'security.access_rules' => [
+    'security.access_rules' => [
         ['^/login$', ''],
-        ['^.*$', 'ROLE_USER'], //anonymous routes
-    ]*/
+        ['^/intern/.*$', 'ROLE_USER'], //anonymous routes
+    ]
 ]);
 $app['user'] = function($app) {
     return ($app['user.provider']->getCurrentUser());
