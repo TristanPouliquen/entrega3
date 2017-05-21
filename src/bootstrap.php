@@ -6,6 +6,14 @@ $app = new Silex\Application();
 
 $app->register(new Silex\Provider\SessionServiceProvider());
 
+$app->register(new FormServiceProvider());
+
+$app->register(new ValidatorServiceProvider());
+
+$app->register(new TranslationServiceProvider(), array(
+    'translator.messages' => array(),
+));
+
 $app->register(new Silex\Provider\TwigServiceProvider());
 
 $app->register(new Silex\Provider\AssetServiceProvider(), array(

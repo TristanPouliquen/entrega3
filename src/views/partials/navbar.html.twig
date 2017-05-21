@@ -8,15 +8,21 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#"><img src="{{ asset('logo.png', 'images') }}" alt=""></a>
+      <a class="navbar-brand" href="{{ path('root_index')}}"><img src="{{ asset('logo.png', 'images') }}" alt=""></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <div class="button navbar-right">
-          <button class="navbar-btn nav-button wow bounceInRight login" data-wow-delay="0.8s">Login</button>
-          <button class="navbar-btn nav-button wow fadeInRight" data-wow-delay="0.6s">Sign up</button>
-      </div>
+      {% if app.user %}
+        <div class="button navbar-right">
+          <a href="{{ path('logout')}} " class="navbar-btn nav-button wow fadeInRight login" data-wow-delay="0.6s">Desconectarse</a>
+        </div>
+      {% else %}
+        <div class="button navbar-right">
+            <a href="{{path('login')}}" class="navbar-btn nav-button wow bounceInRight login" data-wow-delay="0.8s">Conectarse</a>
+            <a href="{{path('signup')}}" class="navbar-btn nav-button wow fadeInRight" data-wow-delay="0.6s">Inscribirse</a>
+        </div>
+      {% endif %}
       <ul class="main-nav nav navbar-nav navbar-right">
         <li class="wow fadeInDown" data-wow-delay="0s"><a class="active" href="#">Home</a></li>
         <li class="wow fadeInDown" data-wow-delay="0.1s"><a href="#">Job Seekers</a></li>

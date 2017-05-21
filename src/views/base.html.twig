@@ -39,6 +39,12 @@
 
         {% include "partials/navbar.html.twig" %}
 
+        {% for message in app.session.getFlashBag.get('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+
         {% block content %}{% endblock %}
 
         {% include "partials/footer.html.twig" %}

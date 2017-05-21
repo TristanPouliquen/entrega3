@@ -5,6 +5,9 @@ namespace Controller;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\Request;
 
+use Form\UserType;
+use Entity37\User;
+
 use Silex\Application;
 
 Class SecurityController
@@ -16,6 +19,7 @@ Class SecurityController
     public function connect(Application $app) {
         $securityController = $app['controllers_factory'];
         $securityController->get("/login", array($this, 'login'))->bind('login');
+        $securityController->match("/signup", array($this, 'signup'))->bind('signup');
         return $securityController;
     }
     /**
@@ -25,31 +29,35 @@ Class SecurityController
      */
     public function login(Application $app, Request $request)
     {
-        $form = $this->app['form.factory']->createNamedBuilder(null, 'form',
-            ['_username' => '', '_password' => ''])
-            ->add('_username', 'text', [
-                'label' => 'Email',
-                'attr' =>[
-                    'name' => '_username',
-                    'placeholder' => 'test@test.com'
-                ],
-                'constraints' => new Assert\Email()
-            ])
-            ->add('_password', 'password', [
-                'label' => 'Password',
-                'attr' => [
-                    'name' => '_password',
-                    'placeholder' => 'test'
-                ],
-                'constraints' => [new Assert\NotBlank()
-            ]])
-            ->getForm();
+        $form = $this->app['form.factory']->createForm(UserType::class, []);
         return $this->app['twig']->render('security/login.html.twig', array(
             'form' => $form->createView(),
-            'title' => 'Form',
             'error' => $this->app['security.last_error']($request),
-            'last_username' => $this->app['session']->get('_security.last_username'),
             'allowRememberMe' => isset($this->app['security.remember_me.response_listener']),
+        ));
+    }
+
+    public function signup(Application $app, Request $request)
+    {
+        $user = new User();
+        $form = $this->app['form.factory']->createForm(UserType::class, $user);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()){
+            $user->setEncodedPassword($app);
+            $user->eraseCredentials();
+
+            $em = $app['orm.ems']['grupo37'];
+            $em->persist($user);
+            $em->flush();
+
+            $app['session']->getFlashBag()->add('success', 'Usted fue inscrito exitosamente. Ahora puede conectarse');
+            return $this->redirectToRoute('login');
+        }
+        return $this->app['twig']->render('security/signup.html.twig', array(
+            'form' => $form->createView(),
+            'error' => $this->app['security.last_error']($request),
         ));
     }
 }

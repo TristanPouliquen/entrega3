@@ -6,7 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="user",uniqueConstraints={@ORM\UniqueConstraint(name="search_email", columns={"email"})})
+ * @ORM\Table(name="guloja_user")
  */
 Class User implements UserInterface
 {
@@ -24,6 +24,8 @@ Class User implements UserInterface
      * @ORM\Column(type="string", length=255)
      */
     protected $password;
+
+    protected $plainPassword;
     /**
      * @ORM\Column(type="string", length=255)
      */
@@ -78,10 +80,12 @@ Class User implements UserInterface
      */
     public function eraseCredentials()
     {
+        $this->plainPassword = "";
     }
-    public function setEncodedPassword($container, $password)
+    public function setEncodedPassword($container)
     {
-        $this->setPassword($container['security.encoder.digest']->encodePassword($password, $this->getSalt()));
+        $this->setPassword($container['security.encoder.digest']
+            ->encodePassword($this->getPlainPassword(), $this->getSalt()));
     }
     /**
      * Get id
@@ -131,6 +135,26 @@ Class User implements UserInterface
     public function getPassword()
     {
         return $this->password;
+    }
+    /**
+     * Set plainPassword
+     *
+     * @param string $password
+     * @return User
+     */
+    public function setPlainPassword($password)
+    {
+        $this->plainPassword = $password;
+        return $this;
+    }
+    /**
+     * Get plainPassword
+     *
+     * @return string
+     */
+    public function getPlainPassword()
+    {
+        return $this->plainPassword;
     }
     /**
      * Set salt
