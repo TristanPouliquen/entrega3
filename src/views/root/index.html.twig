@@ -22,8 +22,10 @@
                           </div>
                           <div class="form-group">
                               <select name="" id="" class="form-control">
-                                  <option selected>>Elige tu ciudad</option>
-                                  <option>New york, CA</option>
+                                  <option>Select Your City</option>
+                                  {% for city in cities %}
+                                  <option>{{ city}}</option>
+                                  {% endfor %}
                               </select>
                           </div>
                           <div class="form-group">
