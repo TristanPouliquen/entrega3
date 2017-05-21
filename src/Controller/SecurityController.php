@@ -30,7 +30,7 @@ Class SecurityController implements ControllerProviderInterface
      */
     public function login(Application $app, Request $request)
     {
-        $form = $app['form.factory']->createForm(UserType::class, []);
+        $form = $app['form.factory']->create(UserType::class, []);
         return $app['twig']->render('security/login.html.twig', array(
             'form' => $form->createView(),
             'error' => $app['security.last_error']($request),
@@ -41,7 +41,7 @@ Class SecurityController implements ControllerProviderInterface
     public function signup(Application $app, Request $request)
     {
         $user = new User();
-        $form = $app['form.factory']->createForm(UserType::class, $user);
+        $form = $app['form.factory']->create(UserType::class, $user);
 
         $form->handleRequest($request);
 
