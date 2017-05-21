@@ -11,6 +11,13 @@ use Entity37\User;
 use Silex\Application;
 use Silex\Api\ControllerProviderInterface;
 
+use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
+use Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider;
+use Symfony\Component\Security\Core\User\UserChecker;
+use Symfony\Component\Security\Core\Encoder\EncoderFactory;
+
+use Lib\UserProvider;
+
 Class SecurityController implements ControllerProviderInterface
 {
     /**
@@ -19,7 +26,7 @@ Class SecurityController implements ControllerProviderInterface
      */
     public function connect(Application $app) {
         $securityController = $app['controllers_factory'];
-        $securityController->get("/login", array($this, 'login'))->bind('login');
+        $securityController->match("/login", array($this, 'login'))->bind('login');
         $securityController->match("/signup", array($this, 'signup'))->bind('signup');
         return $securityController;
     }
@@ -30,7 +37,16 @@ Class SecurityController implements ControllerProviderInterface
      */
     public function login(Application $app, Request $request)
     {
-        $form = $app['form.factory']->create(UserType::class, new User());
+        $userLogin = new User();
+        $form = $app['form.factory']->create(UserType::class, $userLogin);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted()){
+            $token = new UsernamePasswordToken($userLogin->getEmail(), $userLogin->getPlainPassword(), 'authentication');
+            $provider = new DaoAuthenticationProvider(new UserProvider(), new UserChecker(), 'authentication', new EncoderFactory());
+            $provider->authenticate($token);
+        }
         return $app['twig']->render('security/login.html.twig', array(
             'form' => $form->createView(),
             'error' => $app['security.last_error']($request),
