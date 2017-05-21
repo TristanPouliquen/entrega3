@@ -80,9 +80,9 @@ $app->register(new DoctrineOrmServiceProvider, [
     'orm.proxies_dir' => __DIR__.'/../var/cache/doctrine/proxies'
 ]);
 
-$app['user.provider'] = $app->share(function($app) {
+$app['user.provider'] = function($app) {
     return new \Lib\UserProvider($app);
-});
+};
 
 $app->register(new SecurityServiceProvider(), [
     'security.firewalls' => [
