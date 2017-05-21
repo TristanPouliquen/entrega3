@@ -23,11 +23,15 @@ class HotelController implements ControllerProviderInterface {
      */
     public function connect(Application $app) {
         $hotelController = $app['controllers_factory'];
-        $hotelController->get("/", array($this, 'index'))->bind('hotel_index');
+        $hotelController->get("/", array($this, 'showAll'))->bind('hotel_list');
         /*$indexController->get("/show/{id}", array($this, 'show'))->bind('acme_show');
         $indexController->match("/create", array($this, 'create'))->bind('acme_create');
         $indexController->match("/update/{id}", array($this, 'update'))->bind('acme_update');
         $indexController->get("/delete/{id}", array($this, 'delete'))->bind('acme_delete');*/
         return $hotelController;
+    }
+
+    public function showAll(Application $app) {
+        return $app['twig']->render('hotel/list.html.twig');
     }
 }
