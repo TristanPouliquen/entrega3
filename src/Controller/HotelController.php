@@ -32,6 +32,6 @@ class HotelController implements ControllerProviderInterface {
     }
 
     public function showAll(Application $app) {
-        return $app['twig']->render('hotel/list.html.twig');
+        return $app['twig']->render('Hotel/list.html.twig');
     }
 }
