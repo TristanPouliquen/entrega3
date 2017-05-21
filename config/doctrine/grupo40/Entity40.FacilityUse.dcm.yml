@@ -9,7 +9,11 @@ Entity40\FacilityUse:
       type: integer
       id: true
       strategy:
-        generator: AUTO
+        generator: SEQUENCE
+      sequenceGenerator:
+        sequenceName: uso_ai
+        allocationSize: 100
+        initialValue: 1
   manyToOne:
     facility:
       targetEntity: Entity40\Facility

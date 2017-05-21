@@ -13,7 +13,8 @@ Class User implements UserInterface
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="guloja_user_id_seq", allocationSize=100, initialValue=1)
      */
     protected $id;
     /**

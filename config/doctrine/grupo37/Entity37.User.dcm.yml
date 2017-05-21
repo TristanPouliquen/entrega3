@@ -6,7 +6,11 @@ Entity37\User:
       type: integer
       id: true
       generator:
-        strategy: AUTO
+        strategy: SEQUENCE
+      sequenceGenerator:
+        sequenceName: guloja_user_id_seq
+        allocationSize: 100
+        initialValue: 1
     email:
       type: string
       length: 100

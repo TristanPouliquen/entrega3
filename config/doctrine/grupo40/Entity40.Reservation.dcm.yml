@@ -9,7 +9,11 @@ Entity40\Reservation:
       type: integer
       id: true
       generator:
-        strategy: AUTO
+        strategy: SEQUENCE
+      sequenceGenerator:
+        sequenceName: reserva_ai
+        allocationSize: 100
+        initialValue: 1
     arrival:
       type: date
       column: llegada

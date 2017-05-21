@@ -18,7 +18,7 @@ class Address
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="SEQUENCE")
-     * @ORM\SequenceGenerator(sequenceName="direcciones_id_seq", allocationSize=1, initialValue=1)
+     * @ORM\SequenceGenerator(sequenceName="direccion_auto_increment", allocationSize=100, initialValue=1)
      */
     private $id;
 

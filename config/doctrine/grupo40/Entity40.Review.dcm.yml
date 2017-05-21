@@ -9,7 +9,11 @@ Entity40\Review:
       type: integer
       id: true
       generator:
-        strategy: AUTO
+        strategy: SEQUENCE
+      sequenceGenerator:
+        sequenceName: critica_ai
+        allocationSize: 100
+        initialValue: 1
     description:
       type: string
       column: descripcion

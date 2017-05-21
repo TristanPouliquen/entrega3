@@ -9,7 +9,11 @@ Entity40\Guest:
       type: integer
       id: true
       generator:
-        strategy: AUTO
+        strategy: SEQUENCE
+      sequenceGenerator:
+        sequenceName: huesped_ai
+        allocationSize: 100
+        initialValue: 1
     name:
       type: string
       column: nombre

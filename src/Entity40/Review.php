@@ -18,7 +18,7 @@ class Review
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="SEQUENCE")
-     * @ORM\SequenceGenerator(sequenceName="criticas_id_seq", allocationSize=1, initialValue=1)
+     * @ORM\SequenceGenerator(sequenceName="critica_ai", allocationSize=100, initialValue=1)
      */
     private $id;
 

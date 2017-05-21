@@ -9,7 +9,11 @@ Entity40\Facility:
       type: integer
       id: true
       generator:
-        strategy: AUTO
+        strategy: SEQUENCE
+      sequenceGenerator:
+        sequenceName: facilidad_ai
+        allocationSize: 100
+        initialValue: 1
     price:
       type: integer
       column: precio

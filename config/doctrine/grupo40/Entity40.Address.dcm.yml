@@ -9,7 +9,11 @@ Entity40\Address:
       type: integer
       id: true
       generator:
-        strategy: AUTO
+        strategy: SEQUENCE
+      sequenceGenerator:
+        sequenceName: direccion_auto_increment
+        allocationSize: 100
+        initialValue: 1
     street:
       type: string
       column: calle
