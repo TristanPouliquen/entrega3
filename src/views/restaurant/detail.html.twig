@@ -2,7 +2,7 @@
 {% block content %}
       
  <div class="row page-title text-center wow zoomInDown" data-wow-delay="1s">
-    <h1>Put the name of the restaurant</h1>
+    <h1>{{ restaurant.name }}</h1>
      <p> Put the adress</p>
 </div>
           <div class="row how-it-work text-center">
@@ -10,7 +10,7 @@
                   <div class="single-work wow fadeInUp" data-wow-delay="0.8s">
                       <img src="{{ asset('palme.png', 'images') }}" alt="" height="80" width="80">
                       <h3>Nota Promedia</h3>
-                      <h2>Ajouter la note /4</h2>
+                      <h2>{{ restaurant.averageNote }} /4</h2>
                   </div>
                 </div>
               <div class="col-md-4">
