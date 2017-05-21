@@ -8,7 +8,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * @ORM\Entity
  * @ORM\Table(name="guloja_user")
  */
-Class GulojaUser implements UserInterface
+Class User implements UserInterface
 {
     /**
      * @ORM\Id

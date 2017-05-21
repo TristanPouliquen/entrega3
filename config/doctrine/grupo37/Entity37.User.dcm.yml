@@ -1,6 +1,6 @@
 Entity37\User:
   type: entity
-  table: user
+  table: guloja_user
   fields:
     id:
       type: integer

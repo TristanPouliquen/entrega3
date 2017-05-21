@@ -5,8 +5,8 @@ namespace Controller;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\Request;
 
-use Form\GulojaUserType as UserType;
-use Entity37\GulojaUser as User;
+use Form\UserType;
+use Entity37\User;
 
 use Silex\Application;
 use Silex\Api\ControllerProviderInterface;
