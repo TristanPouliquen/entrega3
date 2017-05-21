@@ -23,10 +23,22 @@ class RestaurantController implements ControllerProviderInterface {
      */
     public function connect(Application $app) {
         $restaurantController = $app['controllers_factory'];
-        $restaurantController->get("/", array($this, 'index'))->bind('restaurant_index');
+        $restaurantController->get("/", array($this, 'list'))->bind('restaurant_list');
         /*$indexController->get("/show/{id}", array($this, 'show'))->bind('acme_show');
         $indexController->match("/create", array($this, 'create'))->bind('acme_create');
         $indexController->match("/update/{id}", array($this, 'update'))->bind('acme_update');
         $indexController->get("/delete/{id}", array($this, 'delete'))->bind('acme_delete');*/
         return $restaurantController;
     }
+
+    public function list(Application $app) {
+        return $app['twig']->render('restaurant/list.html.twig');
+    }
+
+
+
+
+
+
+
+
