@@ -32,7 +32,11 @@ class RestaurantController implements ControllerProviderInterface {
     }
 
     public function showAll(Application $app) {
-        return $app['twig']->render('restaurant/list.html.twig');
+        $em = $app['orm.ems']['grupo37'];
+        $restaurants = $em->findAll('Entity37\Restaurant');
+        return $app['twig']->render('restaurant/list.html.twig', [
+            'restaurants' => $restaurants
+        ]);
     }
 }
 
