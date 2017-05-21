@@ -10,7 +10,7 @@
                   <div class="single-work wow fadeInUp" data-wow-delay="0.8s">
                       <img src="{{ asset('palme.png', 'images') }}" alt="" height="80" width="80">
                       <h3>Nota Promedia</h3>
-                      <h2>{{ restaurant.reviews|length }} {{ restaurant.getAverageNote }} /4</h2>
+                      <h2>{{ restaurant.getAverageNote() }} /4</h2>
                   </div>
                 </div>
               <div class="col-md-4">

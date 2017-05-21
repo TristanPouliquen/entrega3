@@ -105,8 +105,8 @@ class Restaurant
     public function getAverageNote(){
         $total = 0;
         $count = 0;
-        foreach($reviews as $review){
-            $total+= $review->getReview->getRating();
+        foreach($this->reviews as $review){
+            $total+= $review->getReview()->getRating();
             $count++;
         }
 
