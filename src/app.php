@@ -1,4 +1,3 @@
 <?php
 
-$app->mount( '/', new Controller\IndexController());
-$app->mount( '/', new Controller\SecurityController());
+require __DIR__.'/routes.php';

@@ -10,8 +10,6 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-/*use Entity\Acme;
-use Form\AcmeType;*/
 
 /**
  * Sample controller
