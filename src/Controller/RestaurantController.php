@@ -34,7 +34,7 @@ class RestaurantController implements ControllerProviderInterface {
     public function list(Application $app) {
         return $app['twig']->render('restaurant/list.html.twig');
     }
-
+}
 
 
 
