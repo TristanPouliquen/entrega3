@@ -1,10 +1,26 @@
 {% extends "base.html.twig" %}
 {% block content %}
-<ul>
-{% for hotel in hotels %}
-<li>{{ hotel.name }}</li>
-{% endfor %}
-</ul>
-
+      <div class="container">
+          <div class="row page-title text-center wow bounce"  data-wow-delay="1s">
+              <h5>Los Hoteles</h5>
+              <h2><span>{{ hotel.length }}</span> Hoteles disponibles</h2>
+          </div>
+          <div class="row jobs">
+              <div class="col-md-9">
+                  <div class="job-posts table-responsive">
+                      <table class="table">
+                          {% for hotel in hotels %}
+                          <tr class="odd wow fadeInUp" data-wow-delay="1s">
+                              <td class="tbl-logo"><img src="{{ asset('logohotel.png', 'images') }}" alt=""></td>
+                              <td class="tbl-title"><h4>{{ hotel.name }}<br><span class="job-type">Hotel</span></h4></td>
+                              <td><p><i class="icon-location"></i>{{ hotel.address.city }}</p></td>
+                              <td class="tbl-apply"><a href="#">Reservar</a></td>
+                          </tr>
+                          {% endfor %}
+                      </table>
+                  </div>
+              </div>
+          </div>
+      </div>
 
 {% endblock %}

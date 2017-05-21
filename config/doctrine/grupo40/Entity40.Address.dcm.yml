@@ -1,6 +1,7 @@
 Entity40\Address:
   type: entity
   table: direcciones
+  repositoryClass: Entity40\AddressRepository
   indexes:
     direcciones_pkey:
       columns: [id]
