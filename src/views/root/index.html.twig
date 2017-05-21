@@ -16,12 +16,12 @@
                   <h2>Encontrar al restaurante o el hotel ideal</h2>
                   <p>El mejor sitio para encontrar su felicidad</p>
                   <div class="search-form wow pulse" data-wow-delay="0.8s">
-                      <form action="" class=" form-inline">
+                      <form action="{{ path('search') }}" class=" form-inline">
                           <div class="form-group">
-                              <input type="text" class="form-control" placeholder="Palabra Clave">
+                              <input name="query" id="3" type="text" class="form-control" placeholder="Palabra Clave">
                           </div>
                           <div class="form-group">
-                              <select name="" id="" class="form-control">
+                              <select name="city" id="2" class="form-control">
                                   <option>Elige tu ciudad</option>
                                   {% for city in cities %}
                                   <option>{{ city }}</option>
@@ -29,7 +29,7 @@
                               </select>
                           </div>
                           <div class="form-group">
-                              <select name="" id="" class="form-control">
+                              <select name="type" id="3" class="form-control">
                                   <option selected>Elige tu tipo de facilidad</option>
                                   <option>Restaurante</option>
                                   <option>Hotel</option>

@@ -24,6 +24,7 @@ class IndexController implements ControllerProviderInterface {
     public function connect(Application $app) {
         $indexController = $app['controllers_factory'];
         $indexController->get("/", array($this, 'index'))->bind('root_index');
+        $indexController->post("/search", array($this, 'search'))->bind('search');
         /*$indexController->get("/show/{id}", array($this, 'show'))->bind('acme_show');
         $indexController->match("/create", array($this, 'create'))->bind('acme_create');
         $indexController->match("/update/{id}", array($this, 'update'))->bind('acme_update');
@@ -46,6 +47,21 @@ class IndexController implements ControllerProviderInterface {
 
         return $app['twig']->render('root/index.html.twig', [
             'cities'=> $merge
+        ]);
+    }
+
+    /*
+    * Query according to parameters
+    */
+    public function search(Application $app, Request $request) {
+        $query= $request->request->get('query');
+        $type= $request->request->get('type');
+        $city= $request->request->get('city');
+        var_dump($query)
+        var_dump($type)
+        var_dump($city)
+    return $app['twig']->render('root/index.html.twig', [
+            'cities'=> []
         ]);
     }
 
