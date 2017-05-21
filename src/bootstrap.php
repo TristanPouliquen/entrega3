@@ -104,8 +104,8 @@ $app->register(new SecurityServiceProvider(), [
         ['^.*$', 'ROLE_USER'], //anonymous routes
     ]
 ]);
-$app['user'] = $app->share(function($app) {
+$app['user'] = function($app) {
     return ($app['user.provider']->getCurrentUser());
-});
+};
 
 return $app;
