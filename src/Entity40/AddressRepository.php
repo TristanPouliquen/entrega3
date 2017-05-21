@@ -8,7 +8,7 @@ class AddressRepository extends EntityRepository
 {
     public function getDistinctCities(){
         $query = $this->createQueryBuilder('address')
-                    ->select('address.ciudad')
+                    ->select('address.city')
                     ->distinct()
                     ->getQuery();
 
