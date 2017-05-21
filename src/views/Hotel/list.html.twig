@@ -1,6 +1,10 @@
 {% extends "base.html.twig" %}
 {% block content %}
-<p> a </p>
+<ul>
+{% for hotel in hotels %}
+<li>{{ hotel.name }}</li>
+{% endfor %}
+</ul>
 
 
 {% endblock %}
