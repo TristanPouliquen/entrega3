@@ -54,7 +54,7 @@ Class SecurityController implements ControllerProviderInterface
             $em->flush();
 
             $app['session']->getFlashBag()->add('success', 'Usted fue inscrito exitosamente. Ahora puede conectarse');
-            return $app->redirectToRoute('login');
+            return $app->redirect($app['url_generator']->generate('login'));
         }
         return $app['twig']->render('security/signup.html.twig', array(
             'form' => $form->createView(),
