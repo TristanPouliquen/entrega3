@@ -59,37 +59,6 @@ class IndexController implements ControllerProviderInterface {
         $em40 = $app['orm.ems']['grupo37'];
         $cities40 = $em40->getRepository('Entity40\Address')->getDistinctCities();
         $cities37 = $em37->getRepository('Entity37\Restaurant')->getDistinctCities();
-        $merge = array_unique(array_map(function ($item) {
-                return $item['city'];
-        }, array_merge($cities37, $cities40)));
-        $query= $request->request->get('query');
-        $type= $request->request->get('type');
-        $city= $request->request->get('city');
-
-        if $type == "Elige tu tipo de facilidad" and $city == "Elige tu ciudad" and $query == "" {
-            $hotel = $em40->getRepository('Entity40\Hotel')->findAll();
-            $restaurants = $em37->getRepository('Entity37\Restaurant')->findAll();
-            return array_merge($hotel, $restaurants)
-        }
-
-        
-
-
-        if $type != "Elige tu tipo de facilidad"
-        if $query == "" {
-            return -1;}
-
-        if  != "":
-            hacer query 
-        if $type != "Elige tu tipo de facilidad"
-            hacer query 
-        if $city != "Elige tu ciudad" 
-            hacer query 
-        unir 
-
-        var_dump($query);
-        var_dump($type);
-        var_dump($city);
     return $app['twig']->render('root/index.html.twig', [
             'cities'=> []
         ]);
