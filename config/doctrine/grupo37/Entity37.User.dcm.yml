@@ -1,6 +1,9 @@
 Entity37\User:
   type: entity
   table: guloja_user
+  uniqueConstraints:
+    unique_mail:
+      columns: [username]
   fields:
     id:
       type: integer
