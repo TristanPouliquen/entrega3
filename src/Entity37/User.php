@@ -80,7 +80,7 @@ Class User implements UserInterface
     }
     public function setEncodedPassword($container)
     {
-        $this->setPassword($container['security.encoder.digest']
+        $this->setPassword($container['security.default_encoder']
             ->encodePassword($this->getPlainPassword(), $this->getSalt()));
     }
     /**
