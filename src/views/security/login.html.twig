@@ -11,18 +11,18 @@
       {% endif %}
 
       <div class="form-group">
-        {{ form_errors(form.email) }}
+        {{ form_errors(form._username) }}
         <div class="input-group">
           <span class="input-group-addon">Email</span>
-          {{ form_widget(form.email, {attr: {'class': 'form-control'}}) }}
+          {{ form_widget(form._username, {attr: {'class': 'form-control'}}) }}
         </div>
       </div>
 
       <div class="form-group">
-        {{ form_errors(form.plainPassword) }}
+        {{ form_errors(form._password) }}
         <div class="input-group">
           <span class="input-group-addon">Password</span>
-          {{ form_widget(form.plainPassword, {attr: {'class': 'form-control'}}) }}
+          {{ form_widget(form._password, {attr: {'class': 'form-control'}}) }}
         </div>
     </div>
 

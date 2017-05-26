@@ -37,7 +37,7 @@ Class SecurityController implements ControllerProviderInterface
      */
     public function login(Application $app, Request $request)
     {
-        $userLogin = new User();
+        /*$userLogin = new User();
         $form = $app['form.factory']->create(UserType::class, $userLogin);
 
         $form->handleRequest($request);
@@ -51,7 +51,28 @@ Class SecurityController implements ControllerProviderInterface
 
             $app['session']->getFlashBag()->add('success', 'Login exitoso');
             return $app->redirect($app['url_generator']->generate('root_index'));
-        }
+        }*/
+
+        $form = $this->app['form.factory']->createNamedBuilder(null, 'form',
+            array('_username' => '', '_password' => ''))
+            ->add('_username', 'text', array(
+                'label' => 'Email',
+                'attr' => array(
+                    'name' => '_username',
+                    'placeholder' => 'test@test.com'
+                ),
+                'constraints' => new Assert\Email()
+            ))
+            ->add('_password', 'password', array(
+                'label' => 'Password',
+                'attr' => array(
+                    'name' => '_password',
+                    'placeholder' => 'test'
+                ),
+                'constraints' => array(new Assert\NotBlank()
+            )))
+            ->getForm();
+
         return $app['twig']->render('security/login.html.twig', array(
             'form' => $form->createView(),
             'error' => $app['security.last_error']($request),
