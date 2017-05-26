@@ -98,6 +98,8 @@ $app->register(new SecurityServiceProvider(), [
         'unsecured' => [
             'pattern' => '^.*$',
             'anonymous' => true,
+            'form' => ['login_path' => '/login', 'check_path' => '/check_login'],
+            'logout' => ['logout_path' => '/logout'],
             'users' => $app['user.provider']
         ],
         'secured' => [
