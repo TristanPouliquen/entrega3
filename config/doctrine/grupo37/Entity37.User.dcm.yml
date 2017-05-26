@@ -5,6 +5,11 @@ Entity37\User:
     - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
       fields: [username]
       message: Email "{{value}}" already taken.
+  properties:
+    username:
+      - Email:
+        message: The email "{{ value }}" is not a valid email.
+        checkMX: true
   fields:
     id:
       type: integer
@@ -19,9 +24,6 @@ Entity37\User:
       column: email
       type: string
       length: 100
-      - Email:
-        message: The email "{{ value }}" is not a valid email.
-        checkMX: true
     password:
       type: string
       length: 255
