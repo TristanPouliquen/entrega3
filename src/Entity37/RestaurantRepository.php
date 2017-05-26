@@ -33,7 +33,7 @@ class RestaurantRepository extends EntityRepository
           ->setParameter('rating', $data["rating"]);
       }
 
-      $query = $queryBuilder->getQuery;
+      $query = $queryBuilder->getQuery();
 
       return $query->getResult();
     }
