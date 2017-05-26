@@ -42,7 +42,7 @@ Class SecurityController implements ControllerProviderInterface
 
         $form->handleRequest($request);
 
-        $user = $app['orm.ems']['grupo37']->getRepository('Entity37\User')->findOneBy(email: $userLogin->getEmail());
+        $user = $app['orm.ems']['grupo37']->getRepository('Entity37\User')->findOneByEmail($userLogin->getEmail());
         if ($form->isSubmitted() && $user){
 
             $token = new UsernamePasswordToken($user, $userLogin->getPlainPassword(), 'authentication');
