@@ -37,7 +37,7 @@ class HotelController implements ControllerProviderInterface {
         $form = $app['form_factory']->createBuilder(FormType::class, [])
             ->add("name", TextType::class)
             ->add("city", ChoiceType::class, [
-                'choices' => array_map(function($item){ return $item["city"]}, $em->getRepository("Entity37\Restaurant")->getDistinctCities())
+                'choices' => array_map(function($item){ return $item["city"];}, $em->getRepository("Entity37\Restaurant")->getDistinctCities())
             ])
             ->add("rating", ChoiceType::class, [
                 'choices' => [0,1,2,3,4,5]
