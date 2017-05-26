@@ -34,11 +34,9 @@
                   <div class="single-work wow fadeInUp" data-wow-delay="0.8s">
                       <img src="{{ asset('list.png', 'images') }}" alt="" height="80" width="80">
                       <h3>Menu</h3>
-                      {% for menu in  restaurant.menuDishes  %}
-                      <p> {{ menu }} </p>
+                      {% for dish in  restaurant.menuDishes  %}
+                      <p> {{ dish.dish_name }} </p>
                       {% endfor %}
-                      
-
                   </div>
                 </div>
               <div class="col-md-4">
