@@ -35,8 +35,8 @@
                       <img src="{{ asset('list.png', 'images') }}" alt="" height="80" width="80">
                       <h3>Menu</h3>
                       {% for dish in  restaurant.menuDishes  %}
-                      <p> {{dish.menu.dishName}} </p>
-                      <p> {{dish.menu.description}} </p>
+                      <h4> {{dish.menu.dishName}} </h4>
+                      <h5> {{dish.menu.description}} </h5>
                       {% endfor %}
                   </div>
                 </div>
