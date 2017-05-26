@@ -2,29 +2,29 @@
 {% block content %}
 
  <div class="row page-title text-center wow zoomInDown" data-wow-delay="1s">
-    <h1>{{ restaurant.name }}</h1>
-     <p> {{ restaurant.street }} , {{ restaurant.city }}</p>
+    <h1>{{ hotel.name }}</h1>
+     <p> {{ hotel.address }} </p>
 </div>
           <div class="row how-it-work text-center">
               <div class="col-md-4">
                   <div class="single-work wow fadeInUp" data-wow-delay="0.8s">
                       <img src="{{ asset('palme.png', 'images') }}" alt="" height="80" width="150">
-                      <h3>Nota Promedia</h3>
-                      <h2>{{ restaurant.getAverageNote() }} /4</h2>
+                      <h3>Nota Promedia/h3>
+                      <h2>Faire le get Average Note/4</h2>
                   </div>
                 </div>
               <div class="col-md-4">
                   <div class="single-work  wow fadeInUp"  data-wow-delay="0.9s">
                       <img src="{{ asset('Etoile.png', 'images') }}" alt="" height="80" width="80">
-                      <h3>Chef y Estrellas</h3>
-                      <p>{{ restaurant.chef }} con {{ restaurant.starRating }} estrellas </p>
+                      <h3>Estrellas</h3>
+                      <p>{{ hotel.starRating }} estrellas </p>
                   </div>
               </div>
               <div class="col-md-4">
                   <div class="single-work wow fadeInUp"  data-wow-delay="1s">
                       <img src="{{ asset('fourchette.png', 'images') }}" alt="" height="80" width="80">
-                      <h3>Estilo de cocina</h3>
-                      <p>{{ restaurant.style }}</p>
+                      <h3>Numero de piezas</h3>
+                      <p>{{ hotel.numberRooms }}</p>
                   </div>
               </div>
           </div>
@@ -33,54 +33,27 @@
               <div class="col-md-4">
                   <div class="single-work wow fadeInUp" data-wow-delay="0.8s">
                       <img src="{{ asset('list.png', 'images') }}" alt="" height="80" width="80">
-                      <h3>Menu</h3>
-                      {% for dish in  restaurant.menuDishes  %}
-                      <p> {{dish.menu.dishName}} </p>
-                      {% endfor %}
+                      <h3>Precio por pieza</h3>
+                      <p> {{hotel.priceRoom}} </p>
                   </div>
                 </div>
               <div class="col-md-4">
                   <div class="single-work  wow fadeInUp"  data-wow-delay="0.9s">
                       <img src="{{ asset('time.png', 'images') }}" alt="" height="80" width="80">
-                      <h3>Horarios</h3>
-                      {% for horario in  restaurant.schedule %}
-                      <p> {{horario.day}} {{horario.opening|date("g:ia")}} : {{horario.closing|date("g:ia")}} </p>
-
-                      {% endfor %}                 
+                      <h3>Facilities</h3>
+                      <p>{{hotel.facilities}} </p>               
                   </div>
               </div>
               <div class="col-md-4">
                   <div class="single-work wow fadeInUp"  data-wow-delay="1s">
                       <img src="{{ asset('logocapacidad.png', 'images') }}" alt="" height="80" width="80">
                       <h3>Capacidad</h3>
-                      <p>{{ restaurant.capacity }}</p>
+                      <p></p>
                   </div>
               </div>
           </div>
 
       <hr>
 
-      {<div class="container">
-          <div class="row page-title text-center wow bounce"  data-wow-delay="1s">
-              <h5>Las criticas</h5>
-              <h2><span>5</span> ultimas criticas</h2>
-          </div>
-          <div class="row jobs">
-              <div class="col-md-12">
-                  <div class="job-posts table-responsive">
-                      <table class="table">
-                          {% for a in restaurant.reviews|slice(0, 5)%}
-                          <tr class="odd wow fadeInUp" data-wow-delay="1s">
-                              <td class="tbl-logo"><img src="{{ asset('logousers.png', 'images') }}" alt="" height="80" width="80">
-                              <td class="tbl-title"><h3>{{a.review.rating}}/4<br><span class="job-type"></span></h3></td>
-                              <td class="tbl-title"><h4>{{a.review.description}}<br><span class="job-type">Plato comido : {{a.review.menureview.menu.dishname}} </span></h4></td>
-                              <td><p><i>{{a.review.date|date("d/m/Y")}}</i></p></td>
-                          </tr>
-                          {% endfor %}
-                      </table>
-                  </div>
-              </div>
-          </div>
-      </div>}
 
 {% endblock %}
