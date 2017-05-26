@@ -34,7 +34,7 @@ class HotelController implements ControllerProviderInterface {
 
     public function showAll(Application $app) {
         $em = $app['orm.ems']['grupo40'];
-        $form = $app['form_factory']->createBuilder(FormType::class, [])
+        $form = $app['form.factory']->createBuilder(FormType::class, [])
             ->add("name", TextType::class)
             ->add("city", ChoiceType::class, [
                 'choices' => array_map(function($item){ return $item["city"];}, $em->getRepository("Entity37\Restaurant")->getDistinctCities())
