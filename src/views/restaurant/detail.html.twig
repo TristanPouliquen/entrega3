@@ -45,7 +45,25 @@
                       <h3>Horarios</h3>
                       {% for horario in  restaurant.schedule %}
                       {% if horario.day==1 %}
-                      <p> lundi {{horario.opening|date("g:ia")}} : {{horario.closing|date("g:ia")}} </p>
+                      <p> Lunes {{horario.opening|date("g:ia")}} : {{horario.closing|date("g:ia")}} </p>
+                      {% endif %}
+                      {% if horario.day==2 %}
+                      <p> Martes {{horario.opening|date("g:ia")}} : {{horario.closing|date("g:ia")}} </p>
+                      {% endif %}
+                      {% if horario.day==3 %}
+                      <p> Miercoles {{horario.opening|date("g:ia")}} : {{horario.closing|date("g:ia")}} </p>
+                      {% endif %}
+                      {% if horario.day==4 %}
+                      <p> Jueves {{horario.opening|date("g:ia")}} : {{horario.closing|date("g:ia")}} </p>
+                      {% endif %}
+                      {% if horario.day==5 %}
+                      <p> Viernes {{horario.opening|date("g:ia")}} : {{horario.closing|date("g:ia")}} </p>
+                      {% endif %}
+                      {% if horario.day==6 %}
+                      <p> Sabado {{horario.opening|date("g:ia")}} : {{horario.closing|date("g:ia")}} </p>
+                      {% endif %}
+                      {% if horario.day==0 %}
+                      <p> Domingo {{horario.opening|date("g:ia")}} : {{horario.closing|date("g:ia")}} </p>
                       {% endif %}
 
                       {% endfor %}                 
