@@ -66,7 +66,7 @@ class HotelController implements ControllerProviderInterface {
         $hotel = $em40->getRepository('Entity40\Hotel')->findOne($id);
         $restaurant = $em37->getRepository('Entity37\Restaurant')->findOneBy([
             'city' => $hotel->getAddress()->getCity(),
-            'street' => hotel->getAddress()->getNumber() . ' ' . $hotel->getAddress()->getStreet()
+            'street' => $hotel->getAddress()->getNumber() . ' ' . $hotel->getAddress()->getStreet()
         ]);
         return $app['twig']->render('hotel/detail.html.twig', [
             'hotel' => $hotel,
