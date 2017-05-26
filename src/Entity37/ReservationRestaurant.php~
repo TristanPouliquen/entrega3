@@ -115,4 +115,3 @@ class ReservationRestaurant
         return $this->restaurant;
     }
 }
-

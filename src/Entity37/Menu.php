@@ -186,4 +186,43 @@ class Menu
     {
         return $this->menuPrices;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $reviews;
+
+
+    /**
+     * Add review
+     *
+     * @param \Entity37\ReviewMenu $review
+     *
+     * @return Menu
+     */
+    public function addReview(\Entity37\ReviewMenu $review)
+    {
+        $this->reviews[] = $review;
+
+        return $this;
+    }
+
+    /**
+     * Remove review
+     *
+     * @param \Entity37\ReviewMenu $review
+     */
+    public function removeReview(\Entity37\ReviewMenu $review)
+    {
+        $this->reviews->removeElement($review);
+    }
+
+    /**
+     * Get reviews
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getReviews()
+    {
+        return $this->reviews;
+    }
 }

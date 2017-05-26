@@ -142,4 +142,3 @@ class Schedule
         return $this->restaurant;
     }
 }
-

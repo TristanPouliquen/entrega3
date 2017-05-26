@@ -81,4 +81,3 @@ class ReviewMenu
         return $this->menu;
     }
 }
-

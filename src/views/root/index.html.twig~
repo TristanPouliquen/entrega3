@@ -1,0 +1,97 @@
+{% extends "base.html.twig" %}
+{% block content %}
+{{ app.user }}
+  <div class="slider-area">
+      <div class="slider">
+          <div id="bg-slider" class="owl-carousel owl-theme">
+
+            <div class="item"><img src="{{ asset('Foto2.jpg', 'images') }}" alt="Mirror Edge"></div>
+            <div class="item"><img src="{{ asset('Foto1.jpg', 'images') }}" alt="The Last of us"></div>
+            <div class="item"><img src="{{ asset('Foto3.jpg', 'images') }}" alt="GTA V"></div>
+
+          </div>
+      </div>
+      <div class="container slider-content">
+          <div class="row">
+              <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12">
+                  <h2>Encontrar al restaurante o el hotel ideal</h2>
+                  <p>El mejor sitio para encontrar su felicidad</p>
+                  <div class="search-form wow pulse" data-wow-delay="0.8s">
+                      <form method='POST' action="{{ path('search') }}" class=" form-inline">
+                          <div class="form-group">
+                              <input name="query" id="3" type="text" class="form-control" placeholder="Palabra Clave">
+                          </div>
+                          <div class="form-group">
+                              <select name="city" id="2" class="form-control">
+                                  <option>Elige tu ciudad</option>
+                                  {% for city in cities %}
+                                  <option>{{ city }}</option>
+                                  {% endfor %}
+                              </select>
+                          </div>
+                          <div class="form-group">
+                              <select name="type" id="3" class="form-control">
+                                  <option selected>Elige tu tipo de facilidad</option>
+                                  <option>Restaurante</option>
+                                  <option>Hotel</option>
+                                  <option>Hotel con restaurante</option>
+                              </select>
+                          </div>
+                          <input type="submit" class="btn" value="Buscar">
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="content-area">
+      <div class="container">
+          <div class="row page-title text-center  wow bounce"  data-wow-delay=".7s">
+              <h5>TESTIMONIOS</h5>
+              <h2>Encontraron sus restaurantes y hosteles gracias a Guloja</h2>
+          </div>
+          <div class="row testimonial">
+              <div class="col-md-12">
+                  <div id="testimonial-slider">
+                      <div class="item">
+                          <div class="client-text">
+                              <p>Bello, original, tematico y muy bien atendido. Personal muy amable y gentil. El restaurante excelente, el bar muy entretenido y con una vista imperdible.</p>
+                              <h4><strong>Marco Polo, </strong><i>23, La Baleonita</i></h4>
+                          </div>
+                          <div class="client-face wow fadeInRight" data-wow-delay=".9s">
+                              <img src="{{ asset('client-face1.png', 'images') }}" alt="">
+                          </div>
+                      </div>
+                      <div class="item">
+                          <div class="client-text">
+                              <p>El hotel solia ser un palacio y uno realmente se siente un rey/reina si tiene la oportunidad de hospedarse alli. El personal es excelente, siempre muy atentos a las necesidades de los huespedes, muy amables y abiertos a hacer recomendaciones turisticas si uno asi lo requiere.</p>
+                              <h4><strong>Juan Pedro Castillo, </strong><i>26, The Lanesborough</i></h4>
+                          </div>
+                          <div class="client-face">
+                              <img src="{{ asset('client-face2.png', 'images') }}" alt="">
+                          </div>
+                      </div>
+                      <div class="item">
+                          <div class="client-text">
+                              <p>Excelente en todo. Ubicacion perfecta, acceso caminando a los puntos de mayor interes, instalaciones y arquitectura de gran belleza y calidad, desayuno increible.</p>
+                              <h4><strong>Booba </strong><i>29, The Dolder Grand</i></h4>
+                          </div>
+                          <div class="client-face">
+                              <img src="{{ asset('client-face1.jpg', 'images') }}" alt="" >
+                          </div>
+                      </div>
+                      <div class="item">
+                          <div class="client-text">
+                              <p>La comida fue muy buena. Me encanto todo. No tienes que esperar mucho, todo va muy rapido. Lo recomiendo!</p>
+                              <h4><strong>Jean-Luc Melenchon </strong><i>22, La Graducci</i></h4>
+                          </div>
+                          <div class="client-face">
+                              <img src="{{ asset('client-face2.jpg', 'images') }}" alt="" >
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+{% endblock %}
