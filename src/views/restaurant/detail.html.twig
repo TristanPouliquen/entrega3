@@ -46,6 +46,7 @@
                       {% for horario in  restaurant.schedule %}
                       {% if horario.day==1 %}
                       <p> lundi {{horario.opening|date("g:ia")}} : {{horario.closing|date("g:ia")}} </p>
+                      {% endif %}
 
                       {% endfor %}                 
                   </div>
