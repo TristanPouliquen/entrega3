@@ -8,7 +8,7 @@ class HotelRepository extends EntityRepository
 {
     public function getFiltered($data){
         $queryBuilder = $this->createQueryBuilder('hotel')
-                    ->select('hotel.*');
+                    ->select('hotel');
 
         if ($data["city"]) {
           $queryBuilder->join('hotel.address', 'address')

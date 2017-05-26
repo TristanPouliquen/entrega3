@@ -16,7 +16,7 @@ class RestaurantRepository extends EntityRepository
 
     public function getFiltered($data){
       $queryBuilder = $this->createQueryBuilder('restaurant')
-                  ->select('restaurant.*');
+                  ->select('restaurant');
 
       if ($data["city"]){
         $queryBuilder->andWhere('restaurant.city = :city')
