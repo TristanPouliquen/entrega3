@@ -57,10 +57,10 @@ Class SecurityController implements ControllerProviderInterface
         }*/
 
         $form = $app['form.factory']->createNamedBuilder('login')
-            ->add('_username', EmailType::class, array(
+            ->add('_email', EmailType::class, array(
                 'label' => 'Email',
                 'attr' => array(
-                    'name' => '_username',
+                    'name' => '_email',
                     'placeholder' => 'test@test.com'
                 )
             ))
