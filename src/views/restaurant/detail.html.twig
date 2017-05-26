@@ -72,7 +72,7 @@
                           {% for a in restaurant.reviews %}
                           <tr class="odd wow fadeInUp" data-wow-delay="1s">
                               <td class="tbl-logo"><img src="{{ asset('logousers.png', 'images') }}" alt="" height="50" width="50"></td>
-                              <td class="tbl-title"><h4>{{a.review.description}}<br><span class="job-type">a</span></h4></td>
+                              <td class="tbl-title"><h4>{{a.review.description}}<br><span class="job-type">{{a.ReviewRestaurant.author}}</span></h4></td>
                               <td><p><i class="icon-location"></i></p></td>
                               <td class="tbl-apply"><a href="#">Ver</a></td>
                           </tr>
