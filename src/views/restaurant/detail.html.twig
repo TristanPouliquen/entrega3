@@ -44,7 +44,7 @@
                       <img src="{{ asset('time.png', 'images') }}" alt="" height="80" width="80">
                       <h3>Horarios</h3>
                       {% for horario in  restaurant.schedule %}
-                      <p> {{horario.day}}  </p>
+                      <p> {{horario.day}} {{horario.opening}}  </p>
 
                       {% endfor %}                 
                   </div>
@@ -72,8 +72,8 @@
                           {% for review in restaurant.reviews %}
                           <tr class="odd wow fadeInUp" data-wow-delay="1s">
                               <td class="tbl-logo"><img src="{{ asset('logousers.png', 'images') }}" alt="" height="50" width="50"></td>
-                              <td class="tbl-title"><h4>a<br><span class="job-type">Restaurante</span></h4></td>
-                              <td><p><i class="icon-location"></i>a</p></td>
+                              <td class="tbl-title"><h4>a<br><span class="job-type"></span></h4></td>
+                              <td><p><i class="icon-location"></i></p></td>
                               <td class="tbl-apply"><a href="#">Ver</a></td>
                           </tr>
                           {% endfor %}
