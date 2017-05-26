@@ -130,7 +130,8 @@ Class User implements UserInterface
      */
     public function getPassword()
     {
-        return $this->password;
+        // HACK : seems the password was loading with a trailing whitespace, which caused login failure
+        return trim($this->password);
     }
     /**
      * Set plainPassword
