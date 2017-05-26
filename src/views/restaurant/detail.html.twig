@@ -44,7 +44,7 @@
                       <img src="{{ asset('time.png', 'images') }}" alt="" height="80" width="80">
                       <h3>Horarios</h3>
                       {% for horario in  restaurant.schedule %}
-                      <p> {{horario.day}} </p>
+                      <p> {{horario.day}} {{horario.opening}} {{horario.closing}} </p>
                       {% endfor %}                 
                   </div>
               </div>
