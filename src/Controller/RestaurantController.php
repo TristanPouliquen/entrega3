@@ -42,11 +42,13 @@ class RestaurantController implements ControllerProviderInterface {
             ->add("name", TextType::class)
             ->add("city", ChoiceType::class, [
                 'choices' => array_map(function($item){ return $item["city"];}, $em->getRepository("Entity37\Restaurant")->getDistinctCities()),
-                "placeholder" => "Elige tu ciudad"
+                "placeholder" => "Elige tu ciudad",
+                "required" => false
             ])
             ->add("rating", ChoiceType::class, [
                 'choices' => [0,1,2,3],
-                "placeholder" => "Minimum de estrellas"
+                "placeholder" => "Minimum de estrellas",
+                "required" => false
             ])
             ->getForm();
 
