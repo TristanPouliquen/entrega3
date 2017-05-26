@@ -41,7 +41,7 @@ class HotelController implements ControllerProviderInterface {
         $form = $app['form.factory']->createBuilder(FormType::class, [])
             ->add("name", TextType::class)
             ->add("city", ChoiceType::class, [
-                'choices' => array_map(function($item){ return $item["city"];}, $em->getRepository("Entity37\Restaurant")->getDistinctCities())
+                'choices' => array_map(function($item){ return $item["city"];}, $em->getRepository("Entity40\Address")->getDistinctCities())
             ])
             ->add("rating", ChoiceType::class, [
                 'choices' => [0,1,2,3,4,5]
@@ -68,7 +68,7 @@ class HotelController implements ControllerProviderInterface {
         $em40 = $app['orm.ems']['grupo40'];
         $em37 = $app['orm.ems']['grupo37'];
         $hotel = $em40->getRepository('Entity40\Hotel')->findOne($id);
-        $restaurant = $em37->getRepository('\Entity37\Restaurant')->findOneBy([
+        $restaurant = $em37->getRepository('Entity37\Restaurant')->findOneBy([
             'city' => $hotel->getAddress()->getCity(),
             'street' => $hotel->getAddress()->getNumber() . ' ' . $hotel->getAddress()->getStreet()
         ]);
