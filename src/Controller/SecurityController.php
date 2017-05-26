@@ -2,7 +2,6 @@
 
 namespace Controller;
 
-use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\Request;
 
 use Form\UserType;
@@ -15,6 +14,10 @@ use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 use Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider;
 use Symfony\Component\Security\Core\User\UserChecker;
 use Symfony\Component\Security\Core\Encoder\EncoderFactory;
+
+use Symfony\Component\Form\Extension\Core\Type\FormType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
 use Lib\UserProvider;
 
@@ -54,22 +57,20 @@ Class SecurityController implements ControllerProviderInterface
         }*/
 
         $form = $app['form.factory']->createNamedBuilder('login')
-            ->add('_username', 'text', array(
+            ->add('_username', EmailType::class, array(
                 'label' => 'Email',
                 'attr' => array(
                     'name' => '_username',
                     'placeholder' => 'test@test.com'
-                ),
-                'constraints' => new Assert\Email()
+                )
             ))
-            ->add('_password', 'password', array(
+            ->add('_password', PasswordType::class, array(
                 'label' => 'Password',
                 'attr' => array(
                     'name' => '_password',
                     'placeholder' => 'test'
-                ),
-                'constraints' => array(new Assert\NotBlank()
-            )))
+                )
+            ))
             ->getForm();
 
         return $app['twig']->render('security/login.html.twig', array(
