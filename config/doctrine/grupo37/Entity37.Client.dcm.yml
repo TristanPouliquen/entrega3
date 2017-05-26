@@ -14,7 +14,7 @@ Entity37\Client:
       column: nombre
   oneToMany:
     reservations:
-      targetEntity: Entity37\Reservation
+      targetEntity: Entity37\ReservationRestaurant
       mappedBy: client
     reviews:
       targetEntity: Entity37\ReviewRestaurant

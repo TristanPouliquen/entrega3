@@ -19,7 +19,6 @@ Entity37\Menu:
     menuPrices:
       targetEntity: Entity37\MenuRestaurant
       mappedBy: menu
-  oneToMany:
     reviews:
       targetEntity: Entity37\ReviewMenu
       mappedBy: menu
