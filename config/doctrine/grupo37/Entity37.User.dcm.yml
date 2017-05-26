@@ -1,9 +1,11 @@
 Entity37\User:
   type: entity
   table: guloja_user
-  uniqueConstraints:
-    unique_mail:
-      columns: [username]
+  constraints:
+    - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: username
+  properties:
+    username:
+      - Email: ~
   fields:
     id:
       type: integer
