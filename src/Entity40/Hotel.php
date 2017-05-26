@@ -294,14 +294,6 @@ class Hotel
     {
         return $this->reservations;
     }
-    public function getAverageNote(){
-        $total = 0;
-        $count = 0;
-        foreach($this->reviews as $review){
-            $total+= $review->getReview()->getRating();
-            $count++;
-    }
-
-        return round($total / $count,2);
-    }
+    
+    
 }
