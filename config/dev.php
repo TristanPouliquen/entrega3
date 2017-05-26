@@ -8,6 +8,6 @@ require __DIR__.'/prod.php';
 // enable the debug mode
 $app['debug'] = true;
 
-/*$app->register(new MonologServiceProvider(), array(
+$app->register(new MonologServiceProvider(), array(
     'monolog.logfile' => __DIR__.'/../var/log/development.log',
-));*/
+));
