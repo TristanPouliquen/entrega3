@@ -45,6 +45,7 @@
                       <h3>Horarios</h3>
                       {% for horario in  restaurant.schedule  %}
                       <p> {{ horario.schedule.day}} {{ horario.schedule.opening}} {{ horario.schedule.closing}}</p>
+                      {% endfor %}                 
                   </div>
               </div>
               <div class="col-md-4">
