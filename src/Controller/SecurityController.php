@@ -45,7 +45,7 @@ Class SecurityController implements ControllerProviderInterface
         $user = $app['orm.ems']['grupo37']->getRepository('Entity37\User')->findOneByEmail($userLogin->getEmail());
         if ($form->isSubmitted() && $user){
 
-            $token = new UsernamePasswordToken($user, $userLogin->getPlainPassword(), 'authentication');
+            $token = new UsernamePasswordToken($user, $userLogin->getPlainPassword(), 'authentication', $user->getRoles());
             $provider = new DaoAuthenticationProvider(new UserProvider($app), new UserChecker(), 'authentication', new EncoderFactory([]));
             $app['security.token_storage']->setToken($provider->authenticate($token));
 

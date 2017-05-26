@@ -226,7 +226,7 @@ Class User implements UserInterface
     /**
      * Set roles
      *
-     * @param string $roles
+     * @param array $roles
      * @return User
      */
     public function setRoles($roles)
@@ -237,7 +237,7 @@ Class User implements UserInterface
     /**
      * Get roles
      *
-     * @return string
+     * @return array
      */
     public function getRoles()
     {
