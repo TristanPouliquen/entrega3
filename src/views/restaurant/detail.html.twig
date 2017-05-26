@@ -38,7 +38,7 @@
                       {% for dish in  restaurant.menuDishes  %}
                       <h4> {{dish.menu.dishName}} </h4>
                       <h5> {{dish.menu.description}} </h5>
-                      {% if dish.menu.vegan==False %}
+                      {% if dish.menu.vegan==0 %}
                       <p> true </p>
                       {% endif %}
                       {% endfor %}
