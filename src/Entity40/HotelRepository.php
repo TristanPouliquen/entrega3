@@ -6,7 +6,7 @@ use Doctrine\ORM\NoResultException;
 
 class HotelRepository extends EntityRepository
 {
-    public function getFiltered($data)){
+    public function getFiltered($data){
         $queryBuilder = $this->createQueryBuilder('hotel')
                     ->select('hotel.*');
 
