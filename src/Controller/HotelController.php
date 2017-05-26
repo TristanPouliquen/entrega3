@@ -39,12 +39,16 @@ class HotelController implements ControllerProviderInterface {
     public function showAll(Application $app, Request $request) {
         $em = $app['orm.ems']['grupo40'];
         $form = $app['form.factory']->createBuilder(FormType::class, [])
-            ->add("name", TextType::class)
+            ->add("name", TextType::class, [
+                "placeholder" => "Busca por nombre"
+            ])
             ->add("city", ChoiceType::class, [
-                'choices' => array_map(function($item){ return $item["city"];}, $em->getRepository("Entity40\Address")->getDistinctCities())
+                'choices' => array_map(function($item){ return $item["city"];}, $em->getRepository("Entity40\Address")->getDistinctCities()),
+                'placeholder' => "Elige tu ciudad"
             ])
             ->add("rating", ChoiceType::class, [
-                'choices' => [0,1,2,3,4,5]
+                'choices' => [0,1,2,3,4,5],
+                'placeholder' => 'Minimum de estrellas'
             ])
             ->getForm();
 

@@ -18,7 +18,7 @@ class HotelRepository extends EntityRepository
 
         if ($data['name']) {
           $queryBuilder->andWhere("hotel.name LIKE :name")
-            ->setParameter("name", "%{$data["name"]}%");
+            ->setParameter("name", "%" . $data['name'] . "%");
         }
 
         if ($data["rating"]) {

@@ -25,7 +25,7 @@ class RestaurantRepository extends EntityRepository
 
       if ($data["name"]){
         $queryBuilder->andWhere('restaurant.name LIKE :name')
-          ->setParameter('name', "%{$data['name']}%");
+          ->setParameter('name', "%" . $data['name'] . "%");
       }
 
       if ($data["rating"]){
