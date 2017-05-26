@@ -292,7 +292,8 @@ class Restaurant
     {
         $this->menuDishes[] = $menuDish;
 
-        return $this;
+        return $this
+        -> fetchOne();
     }
 
     /**
