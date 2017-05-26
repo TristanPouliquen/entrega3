@@ -95,6 +95,11 @@ $app->register(new SecurityServiceProvider(), [
         'signup' => [
             'pattern' => '^/signup$'
         ],
+        'unsecured' => [
+            'pattern' => '^.*$',
+            'anonymous' => true,
+            'users' => $app['user.provider']
+        ],
         'secured' => [
             'pattern' => '^/intern/.*$',
             'form' => ['login_path' => '/login', 'check_path' => '/check_login'],
