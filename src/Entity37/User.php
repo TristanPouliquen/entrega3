@@ -52,6 +52,10 @@ Class User implements UserInterface
     public function __construct() {
         return $this;
     }
+
+    public function __toString(){
+        return $this->email;
+    }
     /**
      * displayName
      *

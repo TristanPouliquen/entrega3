@@ -96,7 +96,7 @@ class UserProvider implements UserProviderInterface
     public function getCurrentUser()
     {
         if ($this->isLoggedIn()) {
-            return $this->app['security']->getToken()->getUser();
+            return $this->app['security.token_storage']->getToken()->getUser();
         }
         return null;
     }

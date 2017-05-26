@@ -42,10 +42,15 @@ Class SecurityController implements ControllerProviderInterface
 
         $form->handleRequest($request);
 
-        if ($form->isSubmitted()){
-            $token = new UsernamePasswordToken($userLogin->getEmail(), $userLogin->getPlainPassword(), 'authentication');
+        $user = $app['orm.ems']['grupo37']->getRepository('Entity37\User')->findOneBy(email: $userLogin->getEmail());
+        if ($form->isSubmitted() && $user){
+
+            $token = new UsernamePasswordToken($user, $userLogin->getPlainPassword(), 'authentication');
             $provider = new DaoAuthenticationProvider(new UserProvider($app), new UserChecker(), 'authentication', new EncoderFactory());
-            $provider->authenticate($token);
+            $app['security.token_storage']->setToken($provider->authenticate($token));
+
+            $app['session']->getFlashBag()->add('success', 'Login exitoso');
+            return $app->redirect($app['url_generator']->generate('root_index'));
         }
         return $app['twig']->render('security/login.html.twig', array(
             'form' => $form->createView(),
