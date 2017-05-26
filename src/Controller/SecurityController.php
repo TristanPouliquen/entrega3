@@ -53,8 +53,7 @@ Class SecurityController implements ControllerProviderInterface
             return $app->redirect($app['url_generator']->generate('root_index'));
         }*/
 
-        $form = $app['form.factory']->createNamedBuilder(null, 'form',
-            array('_username' => '', '_password' => ''))
+        $form = $app['form.factory']->createNamedBuilder('login')
             ->add('_username', 'text', array(
                 'label' => 'Email',
                 'attr' => array(
