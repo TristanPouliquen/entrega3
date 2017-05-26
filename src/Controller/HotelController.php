@@ -76,7 +76,7 @@ class HotelController implements ControllerProviderInterface {
     public function detail(Application $app, $id){
         $em40 = $app['orm.ems']['grupo40'];
         $em37 = $app['orm.ems']['grupo37'];
-        $hotel = $em40->getRepository('Entity40\Hotel')->findOne($id);
+        $hotel = $em40->getRepository('Entity40\Hotel')->find($id);
         $restaurant = $em37->getRepository('Entity37\Restaurant')->findOneBy([
             'city' => $hotel->getAddress()->getCity(),
             'street' => $hotel->getAddress()->getNumber() . ' ' . $hotel->getAddress()->getStreet()
