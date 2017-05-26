@@ -45,10 +45,7 @@ class HotelController implements ControllerProviderInterface {
             ->add("city", ChoiceType::class, [
                 'choices' => array_map(function($item){ return $item["city"];}, $em->getRepository("Entity40\Address")->getDistinctCities()),
                 'choice_label' => function($value, $key, $index) {
-                    return $key;
-                },
-                'choice_value' => function($value, $key, $index){
-                    return $key;
+                    return $value;
                 },
                 'placeholder' => "Elige tu ciudad",
                 "required" => false
