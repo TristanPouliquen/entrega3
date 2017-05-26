@@ -21,7 +21,7 @@ Class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=255)
      */
-    protected $email;
+    protected $username;
     /**
      * @ORM\Column(type="string", length=255)
      */
@@ -67,17 +67,6 @@ Class User implements UserInterface
         return sprintf("%s", $this->getUserName());
     }
     /**
-     * Returns the email address, which serves as the username used to authenticate the user.
-     *
-     * This method is required by the UserInterface.
-     *
-     * @return string The username
-     */
-    public function getUsername()
-    {
-        return $this->getEmail();
-    }
-    /**
      * Removes sensitive data from the user.
      *
      * This is a no-op, since we never store the plain text credentials in this object.
@@ -104,24 +93,24 @@ Class User implements UserInterface
         return $this->id;
     }
     /**
-     * Set email
+     * Set username
      *
-     * @param string $email
+     * @param string $username
      * @return User
      */
-    public function setEmail($email)
+    public function setUsername($username)
     {
-        $this->email = $email;
+        $this->username = $username;
         return $this;
     }
     /**
-     * Get email
+     * Get username
      *
      * @return string
      */
-    public function getEmail()
+    public function getUsername()
     {
-        return $this->email;
+        return $this->username;
     }
     /**
      * Set password
