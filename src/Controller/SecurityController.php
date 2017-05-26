@@ -40,41 +40,8 @@ Class SecurityController implements ControllerProviderInterface
      */
     public function login(Application $app, Request $request)
     {
-        /*$userLogin = new User();
-        $form = $app['form.factory']->create(UserType::class, $userLogin);
-
-        $form->handleRequest($request);
-
-        $user = $app['orm.ems']['grupo37']->getRepository('Entity37\User')->findOneByEmail($userLogin->getEmail());
-        if ($form->isSubmitted() && $user){
-
-            $token = new UsernamePasswordToken($user, $userLogin->getPlainPassword(), 'authentication', $user->getRoles());
-            $provider = new DaoAuthenticationProvider(new UserProvider($app), new UserChecker(), 'authentication', new EncoderFactory([]));
-            $app['security.token_storage']->setToken($provider->authenticate($token));
-
-            $app['session']->getFlashBag()->add('success', 'Login exitoso');
-            return $app->redirect($app['url_generator']->generate('root_index'));
-        }*/
-
-        $form = $app['form.factory']->createNamedBuilder('login')
-            ->add('_email', EmailType::class, array(
-                'label' => 'Email',
-                'attr' => array(
-                    'name' => '_email',
-                    'placeholder' => 'test@test.com'
-                )
-            ))
-            ->add('_password', PasswordType::class, array(
-                'label' => 'Password',
-                'attr' => array(
-                    'name' => '_password',
-                    'placeholder' => 'test'
-                )
-            ))
-            ->getForm();
 
         return $app['twig']->render('security/login.html.twig', array(
-            'form' => $form->createView(),
             'error' => $app['security.last_error']($request),
             'allowRememberMe' => isset($app['security.remember_me.response_listener']),
         ));
