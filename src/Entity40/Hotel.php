@@ -83,6 +83,20 @@ class Hotel
         $this->reservations = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
+    public function getAverageNote() {
+        $total = 0;
+        $count  = 0;
+        foreach($this->reservations as $reservation){
+            $review = $reservation->getReview();
+            if ($review){
+                $total += $review->getRating();
+                $count++;
+            }
+        }
+
+        return $total / $count;
+    }
+
     /**
      * Get id
      *

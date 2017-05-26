@@ -24,6 +24,7 @@ class HotelController implements ControllerProviderInterface {
     public function connect(Application $app) {
         $hotelController = $app['controllers_factory'];
         $hotelController->get("/", array($this, 'showAll'))->bind('hotel_list');
+        $hotelController->get("/{id}", array($this, 'detail'))->bind('hotel_detail');
         /*$indexController->get("/show/{id}", array($this, 'show'))->bind('acme_show');
         $indexController->match("/create", array($this, 'create'))->bind('acme_create');
         $indexController->match("/update/{id}", array($this, 'update'))->bind('acme_update');
@@ -34,8 +35,16 @@ class HotelController implements ControllerProviderInterface {
     public function showAll(Application $app) {
         $em = $app['orm.ems']['grupo40'];
         $hotel = $em->getRepository('Entity40\Hotel')->findAll();
-        return $app['twig']->render('Hotel/list.html.twig', [
+        return $app['twig']->render('hotel/list.html.twig', [
             'hotels' => $hotel
+        ]);
+    }
+
+    public function detail(Application $app, $name){
+        $em = $app['orm.ems']['grupo40'];
+        $hotel = $em->getRepository('Entity40\Hotel')->findOne($id);
+        return $app['twig']->render('hotel/detail.html.twig', [
+            'hotel' => $hotel
         ]);
     }
 }

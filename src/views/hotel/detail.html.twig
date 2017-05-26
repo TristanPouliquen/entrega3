@@ -1,0 +1,94 @@
+{% extends "base.html.twig" %}
+{% block content %}
+
+ <div class="row page-title text-center wow zoomInDown" data-wow-delay="1s">
+    <h1>{{ hotel.name }}</h1>
+     <p>
+     {% set address = hotel.address %}
+     {{ address.number }} {{ address.street}}<br>
+     {{ address.city }} <br>
+     {{ address.country }}
+     </p>
+</div>
+<div class="row how-it-work text-center">
+  <div class="col-md-4">
+    <div class="single-work wow fadeInUp" data-wow-delay="0.8s">
+      <img src="{{ asset('palme.png', 'images') }}" alt="" height="80" width="80">
+      <h3>Nota Promedia</h3>
+      <h2>{{ hotel.getAverageNote() }} /4</h2>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="single-work  wow fadeInUp"  data-wow-delay="0.9s">
+      <img src="{{ asset('Etoile.png', 'images') }}" alt="" height="80" width="80">
+      <h3>Estrellas</h3>
+      <p>{{ hotel.starRating }}</p>
+    </div>
+  </div>
+    <div class="col-md-4">
+      <div class="single-work wow fadeInUp"  data-wow-delay="1s">
+        <img src="{{ asset('logohotel.png', 'images') }}" alt="" height="80" width="80">
+        <h3>Los servicios</h3>
+        <p><ul>
+          {% for facility in facilities %}
+            <li>{{ facility.name }}</li>
+          {% endfor %}
+        </p>
+      </div>
+    </div>
+</div>
+
+<hr>
+
+<div class="content-area">
+  <div class="container">
+    <div class="row page-title text-center  wow bounce"  data-wow-delay=".7s">
+      <h5>TESTIMONIOS</h5>
+      <h2>Criticas sobre {{ hotel.name }}</h2>
+    </div>
+    <div class="row testimonial">
+      <div class="col-md-12">
+        <div id="testimonial-slider">
+          {% for reservation in hotel.reservations %}
+            {% if reservation.review %}
+              <div class="item">
+                <div class="client-text">
+                  <p>{{ reservation.review.description }}</p>
+                  <h4><strong>{{ reservation.review.rating }}</strong><i> el {{ reservation.arrival }}</i></h4>
+                </div>
+                <div class="client-face wow fadeInRight" data-wow-delay=".9s">
+                  <img src="{{ asset('client-face1.png', 'images') }}" alt="">
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      {#<div class="container">
+          <div class="row page-title text-center wow bounce"  data-wow-delay="1s">
+              <h5>Las criticas</h5>
+              <h2><span>5</span> ultimas criticas</h2>
+          </div>
+          <div class="row jobs">
+              <div class="col-md-12">
+                  <div class="job-posts table-responsive">
+                      <table class="table">
+                          {% for restaurant in restaurants %}
+                          <tr class="odd wow fadeInUp" data-wow-delay="1s">
+                              <td class="tbl-logo"><img src="{{ asset('logousers.png', 'images') }}" alt="" height="50" width="50"></td>
+                              <td class="tbl-title"><h4>{{ restaurant.name }}<br><span class="job-type">Restaurante</span></h4></td>
+                              <td><p><i class="icon-location"></i>{{ restaurant.city }}</p></td>
+                              <td class="tbl-apply"><a href="#">Ver</a></td>
+                          </tr>
+                          {% endfor %}
+                      </table>
+                  </div>
+              </div>
+          </div>
+      </div>#}
+
+{% endblock %}
