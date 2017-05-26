@@ -60,7 +60,7 @@ class RestaurantController implements ControllerProviderInterface {
 
         return $app['twig']->render('restaurant/list.html.twig', [
             'restaurants' => $restaurants,
-            'form' => $form
+            'form' => $form->createView()
         ]);
     }
 

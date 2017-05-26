@@ -60,7 +60,7 @@ class HotelController implements ControllerProviderInterface {
 
         return $app['twig']->render('hotel/list.html.twig', [
             'hotels' => $hotels,
-            'form' => $form
+            'form' => $form->createView()
         ]);
     }
 
