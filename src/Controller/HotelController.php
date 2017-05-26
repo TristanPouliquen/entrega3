@@ -23,7 +23,7 @@ class HotelController implements ControllerProviderInterface {
      */
     public function connect(Application $app) {
         $hotelController = $app['controllers_factory'];
-        $hotelController->get("/", array($this, 'showAll'))->bind('hotel_list');
+        $hotelController->match("/", array($this, 'showAll'))->bind('hotel_list');
         $hotelController->get("/{id}", array($this, 'detail'))->bind('hotel_detail');
         /*$indexController->get("/show/{id}", array($this, 'show'))->bind('acme_show');
         $indexController->match("/create", array($this, 'create'))->bind('acme_create');
@@ -34,17 +34,43 @@ class HotelController implements ControllerProviderInterface {
 
     public function showAll(Application $app) {
         $em = $app['orm.ems']['grupo40'];
-        $hotel = $em->getRepository('Entity40\Hotel')->findAll();
+        $form = $app['form_factory']->createBuilder(FormType::class, [])
+            ->add("name", TextType::class)
+            ->add("city", ChoiceType::class, [
+                'choices' => array_map(function($item){ return $item["city"]}, $em->getRepository("Entity37\Restaurant")->getDistinctCities())
+            ])
+            ->add("rating", ChoiceType::class, [
+                'choices' => [0,1,2,3,4,5]
+            ])
+            ->getForm();
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted()){
+            $data = $form->getData();
+            $hotels = $em->getRepository('Entity40\Hotel')->getFiltered($data);
+
+        } else {
+            $hotels = $em->getRepository('Entity40\Hotel')->findAll();
+        }
+
         return $app['twig']->render('hotel/list.html.twig', [
-            'hotels' => $hotel
+            'hotels' => $hotels,
+            'form' => $form
         ]);
     }
 
-    public function detail(Application $app, $name){
-        $em = $app['orm.ems']['grupo40'];
-        $hotel = $em->getRepository('Entity40\Hotel')->findOne($id);
+    public function detail(Application $app, $id){
+        $em40 = $app['orm.ems']['grupo40'];
+        $em37 = $app['orm.ems']['grupo37'];
+        $hotel = $em40->getRepository('Entity40\Hotel')->findOne($id);
+        $restaurant = $em37->getRepository('Entity37\Restaurant')->findOneBy([
+            'city' => $hotel->getAddress()->getCity(),
+            'street' => hotel->getAddress()->getNumber() . ' ' . $hotel->getAddress()->getStreet()
+        ]);
         return $app['twig']->render('hotel/detail.html.twig', [
-            'hotel' => $hotel
+            'hotel' => $hotel,
+            'restaurant' => $restaurant
         ]);
     }
 }

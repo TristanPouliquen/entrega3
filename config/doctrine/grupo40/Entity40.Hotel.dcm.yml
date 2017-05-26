@@ -1,6 +1,7 @@
 Entity40\Hotel:
   type: entity
   table: hoteles
+  repositoryClass: Entity40\HotelRepository
   indexes:
     hoteles_pkey:
       columns: [id]

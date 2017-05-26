@@ -10,6 +10,11 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+use Symfony\Component\Form\Extension\Core\Type\FormType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+
 
 /**
  * Sample controller
@@ -23,7 +28,7 @@ class RestaurantController implements ControllerProviderInterface {
      */
     public function connect(Application $app) {
         $restaurantController = $app['controllers_factory'];
-        $restaurantController->get("/", array($this, 'showAll'))->bind('restaurant_list');
+        $restaurantController->match("/", array($this, 'showAll'))->bind('restaurant_list');
         $restaurantController->get("/{name}", array($this, 'detail'))->bind('restaurant_detail');
         /*$indexController->get("/show/{id}", array($this, 'show'))->bind('acme_show');
         $indexController->match("/create", array($this, 'create'))->bind('acme_create');
@@ -32,11 +37,31 @@ class RestaurantController implements ControllerProviderInterface {
         return $restaurantController;
     }
 
-    public function showAll(Application $app) {
+    public function showAll(Application $app, Request $request) {
         $em = $app['orm.ems']['grupo37'];
-        $restaurants = $em->getRepository('Entity37\Restaurant')->findAll();
+        $form = $app['form_factory']->createBuilder(FormType::class, [])
+            ->add("name", TextType::class)
+            ->add("city", ChoiceType::class, [
+                'choices' => array_map(function($item){ return $item["city"]}, $em->getRepository("Entity37\Restaurant")->getDistinctCities())
+            ])
+            ->add("rating", ChoiceType::class, [
+                'choices' => [0,1,2,3,4,5]
+            ])
+            ->getForm();
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted()){
+            $data = $form->getData();
+            $restaurants = $em->getRepository('Entity37\Restaurant')->getFiltered($data);
+
+        } else {
+            $restaurants = $em->getRepository('Entity37\Restaurant')->findAll();
+        }
+
         return $app['twig']->render('restaurant/list.html.twig', [
-            'restaurants' => $restaurants
+            'restaurants' => $restaurants,
+            'form' => $form
         ]);
     }
 

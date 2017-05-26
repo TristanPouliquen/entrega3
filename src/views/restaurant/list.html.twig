@@ -1,26 +1,38 @@
 {% extends "base.html.twig" %}
 {% block content %}
-      <div class="container">
-          <div class="row page-title text-center wow bounce"  data-wow-delay="1s">
-              <h5>Los Restaurantes</h5>
-              <h2><span>{{ restaurants|length }}</span> Restaurantes disponibles</h2>
-          </div>
-          <div class="row jobs">
-              <div class="col-md-12">
-                  <div class="job-posts table-responsive">
-                      <table class="table">
-                          {% for restaurant in restaurants %}
-                          <tr class="odd wow fadeInUp" data-wow-delay="1s">
-                              <td class="tbl-logo"><img src="{{ asset('logorestaurant.png', 'images') }}" alt="" height="50" width="50"></td>
-                              <td class="tbl-title"><h4>{{ restaurant.name }}<br><span class="job-type">Restaurante</span></h4></td>
-                              <td><p><i class="icon-location"></i>{{ restaurant.city }}</p></td>
-                              <td class="tbl-apply"><a href="{{ path('restaurant_detail', {'name': restaurant.name }) }}">Ver</a></td>
-                          </tr>
-                          {% endfor %}
-                      </table>
-                  </div>
-              </div>
-          </div>
+<div class="container">
+  <div class="row page-title text-center wow bounce"  data-wow-delay="1s">
+    <h5>Los Restaurantes</h5>
+    <h2><span>{{ restaurants|length }}</span> Restaurantes disponibles</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <form action="{{ path('restaurant_list') }}" method="POST" class="form-inline">
+        {{ form_widget(form.name, {attr: {'class': 'form-control'}}) }}
+        {{ form_widget(form.city, {attr: {'class': 'form-control'}}) }}
+        {{ form_widget(form.rating, {attr: {'class': 'form-control'}}) }}
+
+        {{ form_widget(form) }}
+        <input type="submit" name="submit" />
+      </form>
+    </div>
+  </div>
+  <div class="row jobs">
+    <div class="col-md-12">
+      <div class="job-posts table-responsive">
+        <table class="table">
+          {% for restaurant in restaurants %}
+          <tr class="odd wow fadeInUp" data-wow-delay="1s">
+            <td class="tbl-logo"><img src="{{ asset('logorestaurant.png', 'images') }}" alt="" height="50" width="50"></td>
+            <td class="tbl-title"><h4>{{ restaurant.name }}<br><span class="job-type">Restaurante</span></h4></td>
+            <td><p><i class="icon-location"></i>{{ restaurant.city }}</p></td>
+            <td class="tbl-apply"><a href="{{ path('restaurant_detail', {'name': restaurant.name }) }}">Ver</a></td>
+          </tr>
+          {% endfor %}
+        </table>
       </div>
+    </div>
+  </div>
+</div>
 
 {% endblock %}
