@@ -4,10 +4,11 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use Doctrine\ORM\Mapping AS ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity
  * @ORM\Table(name="guloja_user")
- * @UniqueEntity("username")
+ * @UniqueEntity(fields="username", message="Email already taken")
  */
 Class User implements UserInterface
 {
@@ -19,7 +20,11 @@ Class User implements UserInterface
      */
     protected $id;
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, name="email")
+     * @Assert\Email(
+     *  message="Email not valid",
+     *  checkHost = true
+     * )
      */
     protected $username;
     /**
