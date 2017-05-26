@@ -52,14 +52,13 @@ class IndexController implements ControllerProviderInterface {
 
     /*
     * Query according to parameters
+    * Defaults: string(0) "" string(26) "Elige tu tipo de facilidad" string(15) "Elige tu ciudad"
     */
     public function search(Application $app, Request $request) {
-        $query= $request->request->get('query');
-        $type= $request->request->get('type');
-        $city= $request->request->get('city');
-        var_dump($query);
-        var_dump($type);
-        var_dump($city);
+        $em40 = $app['orm.ems']['grupo40'];
+        $em40 = $app['orm.ems']['grupo37'];
+        $cities40 = $em40->getRepository('Entity40\Address')->getDistinctCities();
+        $cities37 = $em37->getRepository('Entity37\Restaurant')->getDistinctCities();
     return $app['twig']->render('root/index.html.twig', [
             'cities'=> []
         ]);

@@ -46,7 +46,7 @@ Class SecurityController implements ControllerProviderInterface
         if ($form->isSubmitted() && $user){
 
             $token = new UsernamePasswordToken($user, $userLogin->getPlainPassword(), 'authentication');
-            $provider = new DaoAuthenticationProvider(new UserProvider($app), new UserChecker(), 'authentication', new EncoderFactory());
+            $provider = new DaoAuthenticationProvider(new UserProvider($app), new UserChecker(), 'authentication', new EncoderFactory([]));
             $app['security.token_storage']->setToken($provider->authenticate($token));
 
             $app['session']->getFlashBag()->add('success', 'Login exitoso');
