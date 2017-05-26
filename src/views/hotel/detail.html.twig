@@ -41,8 +41,7 @@
                   <div class="single-work  wow fadeInUp"  data-wow-delay="0.9s">
                       <img src="{{ asset('time.png', 'images') }}" alt="" height="80" width="80">
                       <h3>Facilities</h3>
-                      {% for simpatico in hotel.facilities %}
-                      <p>{{ simpatico.type }}</p>
+                      <p>{{ hotel.facilities.type }}</p>
                       {% endfor %}               
                   </div>
               </div>
