@@ -43,7 +43,7 @@
                   <div class="single-work  wow fadeInUp"  data-wow-delay="0.9s">
                       <img src="{{ asset('time.png', 'images') }}" alt="" height="80" width="80">
                       <h3>Horarios</h3>
-                      {% for horario in  restaurant.schedule  %}
+                      {% for horario in  schedule.restaurant  %}
                       <p> {{ horario.schedule.day}} </p>
                       {% endfor %}                 
                   </div>
