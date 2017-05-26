@@ -33,7 +33,7 @@ Class User implements UserInterface
      */
     protected $salt;
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="array", length=255)
      */
     protected $roles;
     /**
@@ -50,6 +50,7 @@ Class User implements UserInterface
      * @return User $this
      */
     public function __construct() {
+        $this->roles = ["ROLE_USER"];
         return $this;
     }
 
