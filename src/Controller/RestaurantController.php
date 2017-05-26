@@ -39,7 +39,9 @@ class RestaurantController implements ControllerProviderInterface {
     public function showAll(Application $app, Request $request) {
         $em = $app['orm.ems']['grupo37'];
         $form = $app['form.factory']->createBuilder(FormType::class, [])
-            ->add("name", TextType::class)
+            ->add("name", TextType::class, [
+                'required' => false,
+            ])
             ->add("city", ChoiceType::class, [
                 'choices' => array_map(function($item){ return $item["city"];}, $em->getRepository("Entity37\Restaurant")->getDistinctCities()),
                 "placeholder" => "Elige tu ciudad",
