@@ -71,9 +71,9 @@
                       <table class="table">
                           {% for a in restaurant.reviews|slice(0, 5)%}
                           <tr class="odd wow fadeInUp" data-wow-delay="1s">
-                              <td class="tbl-logo"><img src="{{ asset('logousers.png', 'images') }}" alt="">
+                              <td class="tbl-logo"><img src="{{ asset('logousers.png', 'images') }}" alt="" height="80" width="80">
                               <td class="tbl-title"><h4>{{a.review.description}}<br><span class="job-type"></span></h4></td>
-                              <td><p><i class="icon-location">{{a.review.rating}}</i></p></td>
+                              <td><p><i>{{a.review.rating}}</i></p></td>
                               <td class="tbl-apply"><a href="#">Ver</a></td>
                           </tr>
                           {% endfor %}
