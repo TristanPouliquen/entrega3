@@ -74,7 +74,7 @@
                               <td class="tbl-logo"><img src="{{ asset('logousers.png', 'images') }}" alt="" height="80" width="80">
                               <td class="tbl-title"><h4>{{a.review.rating}}<br><span class="job-type"></span></h4></td>
                               <td class="tbl-title"><h4>{{a.review.description}}<br><span class="job-type"></span></h4></td>
-                              <td><p><i>{{a.review.date}}</i></p></td>
+                              <td><p><i>{{a.review.date|date("d/m/Y")}}</i></p></td>
                               <td class="tbl-apply"><a href="#">Ver</a></td>
                           </tr>
                           {% endfor %}
