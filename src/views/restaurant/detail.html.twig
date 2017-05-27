@@ -64,7 +64,7 @@
                   <div class="single-work  wow fadeInUp"  data-wow-delay="0.9s">
                       <img src="{{ asset('time.png', 'images') }}" alt="" height="80" width="80">
                       <h3>Horarios</h3>
-                      {% set dayTranslation = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes'] %}
+                      {% set dayTranslation = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo'] %}
                       {% for horario in  restaurant.schedule %}
                       <p> {{ dayTranslation[horario.day - 1]}} {{horario.opening|date("g:ia")}} : {{horario.closing|date("g:ia")}} </p>
                       {#{% if horario.day==1 %}
