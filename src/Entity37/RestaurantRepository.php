@@ -21,8 +21,7 @@ class RestaurantRepository extends EntityRepository
         ->where('r.rnombre = :name')
         ->setParameter($restaurant->getName())
         ->orderBy('rrr.date', 'DESC')
-        ->limit(':limit')
-        ->setParameter('limit', $limit)
+        ->setMaxResults((int)$limit)
         ->getQuery();
 
       return $query->getResult();
