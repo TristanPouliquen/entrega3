@@ -19,7 +19,7 @@ class RestaurantRepository extends EntityRepository
         ->join('r.reviews', 'rr')
         ->join('rr.review', 'rrr')
         ->where('r.name = :name')
-        ->setParameter($restaurant->getName())
+        ->setParameter('name', $restaurant->getName())
         ->orderBy('rrr.date', 'DESC')
         ->setMaxResults((int)$limit)
         ->getQuery();
