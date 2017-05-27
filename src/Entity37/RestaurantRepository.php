@@ -16,9 +16,8 @@ class RestaurantRepository extends EntityRepository
 
     public function getLatestReviewsFirst(){
       $query = $this->createQueryBuilder('r')
-        ->select('rrr')
-        ->join('r.reservations', 'rr')
-        ->join('rr.reservation', 'rrr')
+        ->join('r.reviews', 'rr')
+        ->join('rr.review', 'rrr')
         ->orderBy('rrr.date', 'DESC')
         ->getQuery();
 
