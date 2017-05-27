@@ -176,11 +176,6 @@ class Facility
     {
         return $this->facilityUses;
     }
-    /**
-     * @var \Entity40\Hotel
-     */
-    private $hotel;
-
 
     /**
      * Set hotel
