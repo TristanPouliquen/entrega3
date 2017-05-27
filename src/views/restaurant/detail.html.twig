@@ -40,22 +40,6 @@
                       <h5> {{dish.menu.description}} </h5>
                       {% set booleanTranslation = ['No', 'Yes'] %}
                       <h6> Veggie: {{ booleanTranslation[dish.menu.vegan]}} - Vegan: {{ booleanTranslation[dish.menu.veggie]}}
-                      {#{% if dish.menu.vegan==0 %}
-                        {% if dish.menu.veggie==0 %}
-                        <h6> Veggie : No - Vegan : No </h6>
-                        {% endif %}
-                        {% if dish.menu.veggie==1 %}
-                        <h6> Veggie : Si - Vegan : No </h6>
-                        {% endif %}
-                      {% endif %}
-                      {% if dish.menu.vegan==1 %}
-                        {% if dish.menu.veggie==0 %}
-                        <h6> Veggie : Si - Vegan : No </h6>
-                        {% endif %}
-                        {% if dish.menu.veggie==1 %}
-                        <h6> Veggie : Si - Vegan : Si </h6>
-                        {% endif %}
-                      {% endif %}#}
                       <p></p>
                       {% endfor %}
                   </div>
@@ -67,28 +51,6 @@
                       {% set dayTranslation = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo'] %}
                       {% for horario in  restaurant.schedule %}
                       <p> {{ dayTranslation[horario.day - 1]}} {{horario.opening|date("g:ia")}} : {{horario.closing|date("g:ia")}} </p>
-                      {#{% if horario.day==1 %}
-                      <p> Lunes {{horario.opening|date("g:ia")}} : {{horario.closing|date("g:ia")}} </p>
-                      {% endif %}
-                      {% if horario.day==2 %}
-                      <p> Martes {{horario.opening|date("g:ia")}} : {{horario.closing|date("g:ia")}} </p>
-                      {% endif %}
-                      {% if horario.day==3 %}
-                      <p> Miercoles {{horario.opening|date("g:ia")}} : {{horario.closing|date("g:ia")}} </p>
-                      {% endif %}
-                      {% if horario.day==4 %}
-                      <p> Jueves {{horario.opening|date("g:ia")}} : {{horario.closing|date("g:ia")}} </p>
-                      {% endif %}
-                      {% if horario.day==5 %}
-                      <p> Viernes {{horario.opening|date("g:ia")}} : {{horario.closing|date("g:ia")}} </p>
-                      {% endif %}
-                      {% if horario.day==6 %}
-                      <p> Sabado {{horario.opening|date("g:ia")}} : {{horario.closing|date("g:ia")}} </p>
-                      {% endif %}
-                      {% if horario.day==0 %}
-                      <p> Domingo {{horario.opening|date("g:ia")}} : {{horario.closing|date("g:ia")}} </p>
-                      {% endif %}#}
-
                       {% endfor %}
                   </div>
               </div>
