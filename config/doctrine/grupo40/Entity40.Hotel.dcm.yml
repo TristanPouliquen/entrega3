@@ -38,9 +38,9 @@ Entity40\Hotel:
     facilities:
       targetEntity: Entity40\Facility
       mappedBy: hotel_id
-      cascade: ["persist", "merge"]
+      cascade: ["persist"]
     reservations:
       targetEntity: Entity40\Reservation
       mappedBy: hotel_id
-      cascade: ['persist', 'merge']
+      cascade: ['persist']
 

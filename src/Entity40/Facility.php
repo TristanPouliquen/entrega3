@@ -37,11 +37,14 @@ class Facility
     private $type;
 
     /**
-     * @var integer
+     * @var \Entity40\Hotel
      *
-     * @ORM\Column(name="hotel_id", type="integer")
+     * @ORM\ManyToOne(targetEntity="Entity40\Hotel", inversedBy="facilities")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="hotel_id", referencedColumnName="id")
+     * })
      */
-    private $hotel_id;
+    private $hotel;
 
     /**
      * @var \Doctrine\Common\Collections\Collection

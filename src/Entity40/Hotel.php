@@ -63,14 +63,14 @@ class Hotel
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\OneToMany(targetEntity="Entity40\Facility", mappedBy="hotel_id", cascade={"persist","merge"})
+     * @ORM\OneToMany(targetEntity="Entity40\Facility", mappedBy="hotel", cascade={"persist"})
      */
     private $facilities;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\OneToMany(targetEntity="Entity40\reservation", mappedBy="hotel_id", cascade={"persist","merge"})
+     * @ORM\OneToMany(targetEntity="Entity40\Reservation", mappedBy="hotel_id", cascade={"persist"})
      */
     private $reservations;
 
@@ -294,6 +294,6 @@ class Hotel
     {
         return $this->reservations;
     }
-    
-    
+
+
 }
