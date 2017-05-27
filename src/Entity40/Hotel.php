@@ -70,7 +70,7 @@ class Hotel
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\OneToMany(targetEntity="Entity40\Reservation", mappedBy="hotel_id", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="Entity40\Reservation", mappedBy="hotel", cascade={"persist"})
      */
     private $reservations;
 
@@ -85,16 +85,16 @@ class Hotel
 
     public function getAverageNote() {
         $total = 0;
-        $count  = 0;
+        $count = 0;
         foreach($this->reservations as $reservation){
             $review = $reservation->getReview();
             if ($review){
                 $total += $review->getRating();
                 $count++;
             }
-        }
+	}
 
-        return $total / $count;
+        return round($total / $count,2);
     }
 
     /**
