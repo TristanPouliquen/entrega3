@@ -14,11 +14,15 @@ class RestaurantRepository extends EntityRepository
         return $query->getResult();
     }
 
-    public function getLatestReviewsFirst(){
+    public function getLatestReviewsFirst($restaurant, $limit =5){
       $query = $this->createQueryBuilder('r')
         ->join('r.reviews', 'rr')
         ->join('rr.review', 'rrr')
+        ->where('r.rnombre = :name')
+        ->setParameter($restaurant->getName())
         ->orderBy('rrr.date', 'DESC')
+        ->limit(':limit')
+        ->setParameter('limit', $limit)
         ->getQuery();
 
       return $query->getResult();

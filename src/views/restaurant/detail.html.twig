@@ -74,7 +74,7 @@
               <div class="col-md-12">
                   <div class="job-posts table-responsive">
                       <table class="table">
-                          {% for a in restaurant.reviews|slice(0, 5)%}
+                          {% for a in reviews%}
                           <tr class="odd wow fadeInUp" data-wow-delay="1s">
                               <td class="tbl-logo"><img src="{{ asset('logousers.png', 'images') }}" alt="" height="80" width="80">
                               <td class="tbl-title"><h3>{{a.review.rating}}/4<br><span class="job-type"></span></h3></td>
