@@ -37,10 +37,8 @@ Entity40\Hotel:
   oneToMany:
     facilities:
       targetEntity: Entity40\Facility
-      mappedBy: hotel_id
-      cascade: ["persist"]
+      mappedBy: hotel
     reservations:
       targetEntity: Entity40\Reservation
-      mappedBy: hotel_id
-      cascade: ['persist']
+      mappedBy: hotel
 
