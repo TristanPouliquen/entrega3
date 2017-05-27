@@ -18,7 +18,7 @@ class RestaurantRepository extends EntityRepository
       $query = $this->createQueryBuilder('r')
         ->join('r.reviews', 'rr')
         ->join('rr.review', 'rrr')
-        ->where('r.rnombre = :name')
+        ->where('r.name = :name')
         ->setParameter($restaurant->getName())
         ->orderBy('rrr.date', 'DESC')
         ->setMaxResults((int)$limit)
