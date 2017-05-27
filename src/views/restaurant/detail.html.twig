@@ -74,12 +74,13 @@
               <div class="col-md-12">
                   <div class="job-posts table-responsive">
                       <table class="table">
-                          {% for a in reviews%}
+                          {% for restaurant in reviews %}
+                          {% set review = restaurant.reviews.first.review %}
                           <tr class="odd wow fadeInUp" data-wow-delay="1s">
                               <td class="tbl-logo"><img src="{{ asset('logousers.png', 'images') }}" alt="" height="80" width="80">
-                              <td class="tbl-title"><h3>{{a.rating}}/4<br><span class="job-type"></span></h3></td>
-                              <td class="tbl-title"><h4>{{a.description}}<br><span class="job-type">Plato comido : {{a.menureview.menu.dishname}} </span></h4></td>
-                              <td><p><i>{{a.date|date("d/m/Y")}}</i></p></td>
+                              <td class="tbl-title"><h3>{{review.rating}}/4<br><span class="job-type"></span></h3></td>
+                              <td class="tbl-title"><h4>{{review.description}}<br><span class="job-type">Plato comido : {{review.menureview.menu.dishname}} </span></h4></td>
+                              <td><p><i>{{review.date|date("d/m/Y")}}</i></p></td>
                           </tr>
                           {% endfor %}
                       </table>
