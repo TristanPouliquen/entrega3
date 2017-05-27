@@ -173,4 +173,33 @@ class Facility
     {
         return $this->facilityUses;
     }
+    /**
+     * @var \Entity40\Hotel
+     */
+    private $hotel;
+
+
+    /**
+     * Set hotel
+     *
+     * @param \Entity40\Hotel $hotel
+     *
+     * @return Facility
+     */
+    public function setHotel(\Entity40\Hotel $hotel = null)
+    {
+        $this->hotel = $hotel;
+
+        return $this;
+    }
+
+    /**
+     * Get hotel
+     *
+     * @return \Entity40\Hotel
+     */
+    public function getHotel()
+    {
+        return $this->hotel;
+    }
 }

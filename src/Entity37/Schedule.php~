@@ -24,14 +24,14 @@ class Schedule
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="apertura", type="time")
+     * @ORM\Column(name="apertura", type="time without time zone")
      */
     private $opening;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="cierre", type="time")
+     * @ORM\Column(name="cierre", type="time without time zone")
      */
     private $closing;
 

@@ -110,7 +110,7 @@ class Restaurant
             $count++;
         }
 
-        return $total / $count;
+        return round($total / $count,2);
     }
 
     /**
@@ -292,7 +292,8 @@ class Restaurant
     {
         $this->menuDishes[] = $menuDish;
 
-        return $this;
+        return $this
+        -> fetchOne();
     }
 
     /**
