@@ -20,8 +20,13 @@ Entity40\Facility:
     type:
       type: string
       column: tipo
-    hotel_id:
-      type: integer
+  manyToOne:
+    hotel:
+      targetEntity: Entity40\Hotel
+      inversedBy: facilities
+      joinColumn:
+        name: hotel_id
+        referencedColumnName: id
   oneToMany:
     facilityUses:
       targetEntity: Entity40\FacilityUse

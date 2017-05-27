@@ -25,7 +25,7 @@ Entity40\Reservation:
       column: medio_pago
   manyToOne:
     hotel:
-      targetEntity: Entity40\hotel
+      targetEntity: Entity40\Hotel
       inversedBy: reservations
       joinColumn:
         name: hotel_id
