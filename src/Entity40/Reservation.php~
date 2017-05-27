@@ -61,9 +61,9 @@ class Reservation
     private $facilityUses;
 
     /**
-     * @var \Entity40\hotel
+     * @var \Entity40\Hotel
      *
-     * @ORM\ManyToOne(targetEntity="Entity40\hotel", inversedBy="reservations")
+     * @ORM\ManyToOne(targetEntity="Entity40\Hotel", inversedBy="reservations")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="hotel_id", referencedColumnName="id")
      * })
