@@ -38,7 +38,9 @@
                       {% for dish in  restaurant.menuDishes  %}
                       <h4> {{dish.menu.dishName}} </h4>
                       <h5> {{dish.menu.description}} </h5>
-                      {% if dish.menu.vegan==0 %}
+                      {% set booleanTranslation = ['No', 'Yes'] %}
+                      <h6> Veggie: {{ booleanTranslation[dish.menu.vegan]}} - Vegan: {{ booleanTranslation[dish.menu.veggie]}}
+                      {#{% if dish.menu.vegan==0 %}
                         {% if dish.menu.veggie==0 %}
                         <h6> Veggie : No - Vegan : No </h6>
                         {% endif %}
@@ -53,7 +55,7 @@
                         {% if dish.menu.veggie==1 %}
                         <h6> Veggie : Si - Vegan : Si </h6>
                         {% endif %}
-                      {% endif %}
+                      {% endif %}#}
                       <p></p>
                       {% endfor %}
                   </div>
@@ -62,8 +64,10 @@
                   <div class="single-work  wow fadeInUp"  data-wow-delay="0.9s">
                       <img src="{{ asset('time.png', 'images') }}" alt="" height="80" width="80">
                       <h3>Horarios</h3>
+                      {% set dayTranslation = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes'] %}
                       {% for horario in  restaurant.schedule %}
-                      {% if horario.day==1 %}
+                      <p> {{ dayTranslation[horario.day - 1]}} {{horario.opening|date("g:ia")}} : {{horario.closing|date("g:ia")}} </p>
+                      {#{% if horario.day==1 %}
                       <p> Lunes {{horario.opening|date("g:ia")}} : {{horario.closing|date("g:ia")}} </p>
                       {% endif %}
                       {% if horario.day==2 %}
@@ -83,9 +87,9 @@
                       {% endif %}
                       {% if horario.day==0 %}
                       <p> Domingo {{horario.opening|date("g:ia")}} : {{horario.closing|date("g:ia")}} </p>
-                      {% endif %}
+                      {% endif %}#}
 
-                      {% endfor %}                 
+                      {% endfor %}
                   </div>
               </div>
               <div class="col-md-4">
