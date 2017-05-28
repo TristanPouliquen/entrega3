@@ -1,6 +1,7 @@
 Entity37\ReviewRestaurant:
   type: entity
   table: criticarestaurante
+  repositoryClass: Entity37\ReviewRestaurantRepository
   id:
     review:
       associationKey: true
