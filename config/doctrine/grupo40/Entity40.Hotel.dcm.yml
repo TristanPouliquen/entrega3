@@ -39,6 +39,7 @@ Entity40\Hotel:
       targetEntity: Entity40\Facility
       mappedBy: hotel
     reservations:
+      orderBy: {'arrival' : 'DESC'}
       targetEntity: Entity40\Reservation
       mappedBy: hotel
 

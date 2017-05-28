@@ -71,6 +71,7 @@ class Hotel
      * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\OneToMany(targetEntity="Entity40\Reservation", mappedBy="hotel")
+     * @ORM\OrderBy({'arrival': 'DESC'})
      */
     private $reservations;
 
