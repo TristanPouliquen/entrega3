@@ -77,7 +77,6 @@ class RestaurantController implements ControllerProviderInterface {
         $em = $app['orm.ems']['grupo37'];
         $restaurant = $em->getRepository('Entity37\Restaurant')->findOneByName($name);
         $orderedReviews = $em->getRepository('Entity37\ReviewRestaurant')->getLatestReviewsFirst($restaurant);
-        var_dump($orderedReviews);die;
 	return $app['twig']->render('restaurant/detail.html.twig', [
             'restaurant' => $restaurant,
             'reviews' => $orderedReviews

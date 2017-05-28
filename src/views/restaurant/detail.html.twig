@@ -74,8 +74,8 @@
               <div class="col-md-12">
                   <div class="job-posts table-responsive">
                       <table class="table">
-                          {% for restaurant in reviews %}
-                          {% set review = restaurant.reviews.first.review %}
+                          {% for reviewrestaurant in reviews %}
+                          {% set review = reviewrestaurant.review %}
                           <tr class="odd wow fadeInUp" data-wow-delay="1s">
                               <td class="tbl-logo"><img src="{{ asset('logousers.png', 'images') }}" alt="" height="80" width="80">
                               <td class="tbl-title"><h3>{{review.rating}}/4<br><span class="job-type"></span></h3></td>
