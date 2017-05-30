@@ -13,8 +13,8 @@
         <table class="table">
           {% for reservation in hotel.reservations %}
           <tr class="odd wow fadeInUp" data-wow-delay="1s">
-            <td class="tbl-logo"><img src="{{ asset('logohotel.png', 'images') }}" alt="" height="50" width="45">  {{ reservation.guest.name }} </td>
-            <td class="tbl-title"><h4>a<br><span class="job-type"> {{reservation.arrival|date('d/m/Y')}} -  Para {{ reservation.duration}} dia(s) </span></h4></td>
+            <td class="tbl-logo"><img src="{{ asset('logohotel.png', 'images') }}" alt="" height="50" width="45">   </td>
+            <td class="tbl-title"><h4>{{ reservation.guest.name }}<br><span class="job-type"> {{reservation.arrival|date('d/m/Y')}} -  Para {{ reservation.duration}} dia(s) </span></h4></td>
             
           </tr>
           {% endfor %}
