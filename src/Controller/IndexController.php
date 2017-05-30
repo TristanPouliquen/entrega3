@@ -56,11 +56,14 @@ class IndexController implements ControllerProviderInterface {
     */
     public function search(Application $app, Request $request) {
         $em40 = $app['orm.ems']['grupo40'];
-        $em40 = $app['orm.ems']['grupo37'];
+        $em37 = $app['orm.ems']['grupo37'];
         $cities40 = $em40->getRepository('Entity40\Address')->getDistinctCities();
         $cities37 = $em37->getRepository('Entity37\Restaurant')->getDistinctCities();
-    return $app['twig']->render('root/index.html.twig', [
-            'cities'=> []
+        $hotels = [];
+        $restaurants = [];
+    return $app['twig']->render('search/list.html.twig', [
+            'hotels'=> $hotels,
+            'restaurants'=> $restaurants,
         ]);
     }
 

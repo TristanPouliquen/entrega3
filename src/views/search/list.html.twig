@@ -1,0 +1,12 @@
+  {% extends "base.html.twig" %}
+{% block content %}
+  <div class="row jobs">
+    <div class="col-md-6">
+      {% include "partials/search_hotel.html.twig" with {'hotels':hotels}%}
+    </div>
+	<div class="col-md-6">
+  		{% include "partials/search_restaurant.html.twig" with {'restaurants':restaurants}%}
+  	</div>
+  </div>
+
+  {% endblock %}
