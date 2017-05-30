@@ -1,6 +1,10 @@
 {% extends "base.html.twig" %}
 
 {% block content %}
+  
+
+
+
   <form action="{{ path('signup') }}" method="post" class="form-login center">
     {% if error %}
     <div class="alert alert-error">{{ error|nl2br }}</div>
@@ -9,7 +13,7 @@
     <div class="form-group">
       {{ form_errors(form.username) }}
       <div class="input-group">
-        <span class="input-group-addon">Email</span>
+        {{ form_label(form.username, 'Correo') }}
         {{ form_widget(form.username, {attr: {'class': 'form-control'}}) }}
       </div>
     </div>
@@ -18,6 +22,7 @@
       {{ form_errors(form.plainPassword) }}
       <div class="input-group">
         <span class="input-group-addon">Password</span>
+        {{ form_label(form.plainPassword, 'Contrasena') }}
         {{ form_widget(form.plainPassword, {attr: {'class': 'form-control'}}) }}
       </div>
     </div>
