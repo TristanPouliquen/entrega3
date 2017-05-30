@@ -21,31 +21,31 @@
     <div class="col-md-12">
       <form class="form" method="POST" action="{{ path('hotel_reserve', {'id': hotel.id }) }}">
         <div class="form-group">
-          {{ form_label(form.name) }}
+          {{ form_label(form.name, 'Nombre y Apellido') }}
           {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
         </div>
         <div class="form-group">
-          {{form_label(form.identityNumber) }}
+          {{form_label(form.identityNumber, 'RUN') }}
           {{ form_widget(form.identityNumber, {'attr' : {'class': 'form-control'}}) }}
         </div>
         <div class="form-group">
-          {{ form_label(form.phoneNumber) }}
+          {{ form_label(form.phoneNumber,'Numero de telefono') }}
           {{ form_widget(form.phoneNumber, {'attr' : {'class': 'form-control'}}) }}
         </div>
         <div class="form-group">
-          {{ form_label(form.birthdate) }}
+          {{ form_label(form.birthdate, 'Fecha de Nacimiento') }}
           {{ form_widget(form.birthdate, {'attr' : {'class': 'form-control'}}) }}
         </div>
         <div class="form-group">
-          {{ form_label(form.arrival) }}
+          {{ form_label(form.arrival, 'Fecha de llegada') }}
           {{ form_widget(form.arrival, {'attr' : {'class': 'form-control'}}) }}
         </div>
         <div class="form-group">
-          {{ form_label(form.duration) }}
+          {{ form_label(form.duration, 'Duracion' )}}
           {{ form_widget(form.duration, {'attr' : {'class': 'form-control'}}) }}
         </div>
         <div class="form-group">
-          {{ form_label(form.paymentMethod) }}
+          {{ form_label(form.paymentMethod, 'Metodo de pago' )}}
           {{ form_widget(form.paymentMethod, {'attr' : {'class': 'form-control'}}) }}
         </div>
         <div class="form-group">
