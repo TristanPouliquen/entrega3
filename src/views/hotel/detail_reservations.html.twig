@@ -16,7 +16,7 @@
             <td class="tbl-logo"><img src="{{ asset('logohotel.png', 'images') }}" alt="" height="50" width="45"></td>
             <td class="tbl-title"><h4>a<br><span class="job-type"> {{reservation.arrival|date('d/m/Y')}} -  Para {{ reservation.duration}} dia(s) </span></h4></td>
             {% for fac in reservation.facilityUses %}
-            <td><p><i class="icon-location"></i> fac </p></td>
+            <td><p><i class="icon-location"></i> a </p></td>
             {% endfor %}
           </tr>
           {% endfor %}
