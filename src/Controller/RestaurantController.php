@@ -135,7 +135,7 @@ class RestaurantController implements ControllerProviderInterface {
             $reservation = new Reservation();
             $reservation->setDate($data['date']);
             $reservation->setTime($data['time']);
-            $reseration->setQuantity($data['quantity']);
+            $reservation->setQuantity($data['quantity']);
 
             $reservationRestaurant = new ReservationRestaurant();
             $reservationRestaurant->setClient($client);
