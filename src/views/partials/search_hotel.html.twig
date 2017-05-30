@@ -5,7 +5,7 @@
       <td class="tbl-logo"><img src="{{ asset('logohotel.png', 'images') }}" alt="" height="50" width="45"></td>
       <td class="tbl-title"><h4>{{ hotel.name }}<br><span class="job-type">Hotel</span></h4></td>
       <td><p><i class="icon-location"></i>{{ hotel.address.city }}</p></td>
-      <td class="tbl-apply"><a href="{{path('hotel_detail', {'id': hotel.id}) }}">Ver</a> <a class="pull-right" href="{{path('hotel_reserve', {'id': hotel.id}) }}">Reservar</a></td>
+      <td class="tbl-apply"><a class="pull-left"href="{{path('hotel_detail', {'id': hotel.id}) }}">Ver</a> <a class="pull-right" href="{{path('hotel_reserve', {'id': hotel.id}) }}">Reservar</a></td>
     </tr>
     {% endfor %}
   </table>
