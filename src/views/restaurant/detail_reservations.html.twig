@@ -3,7 +3,6 @@
 
 {<div class="container">
           <div class="row page-title text-center wow bounce"  data-wow-delay="1s">
-              <h5>Las reservas/h5>
               <h2><span>{{ restaurant.reservations|length }}</span> reservas</h2>
           </div>
           <div class="row jobs">
@@ -13,9 +12,9 @@
                           {% for reservas in restaurant.reservations %}
                           <tr class="odd wow fadeInUp" data-wow-delay="1s">
                               <td class="tbl-logo"><img src="{{ asset('logousers.png', 'images') }}" alt="" height="80" width="80">
-                              <td class="tbl-title"><h3>{{ restaurant.reservationrestaurant.client.name }}<br><span class="job-type"></span></h3></td>
+                              <td class="tbl-title"><h3>{{ restaurant.reservations.client.name }}<br><span class="job-type"></span></h3></td>
                               <td class="tbl-title"><h4>{{ restaurant.reservation.time }}<br><span class="job-type">{{ restaurant.reservation.quantity}} </span></h4></td>
-                              <td><p><i>{{restaurante.reservation.date|date("d/m/Y")}}</i></p></td>
+                              <td><p><i>{{restaurant.reservation.date|date("d/m/Y")}}</i></p></td>
                           </tr>
                           {% endfor %}
                       </table>
