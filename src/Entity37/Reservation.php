@@ -31,7 +31,7 @@ class Reservation
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="hora", type="time")
+     * @ORM\Column(name="hora", type="time without time zone")
      */
     private $time;
 

@@ -15,7 +15,7 @@ Entity37\Reservation:
       type: date
       column: fecha
     time:
-      type: time
+      type: time without time zone
       column: hora
     quantity:
       type: integer
