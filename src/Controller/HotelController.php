@@ -13,6 +13,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 
 /**
@@ -121,6 +122,7 @@ class HotelController implements ControllerProviderInterface {
                 },
                 'placeholder' => 'Elige tu metodo de pago'
             ])
+            ->add("submit", SubmitType::class)
             ->getForm();
 
         $form->handleRequest($request);
