@@ -4,16 +4,16 @@ Entity40\Guest:
   indexes:
     huespedes_pkey:
       columns: [id]
-  fields:
+  id:
     id:
       type: integer
-      id: true
       generator:
         strategy: SEQUENCE
       sequenceGenerator:
         sequenceName: huesped_ai
         allocationSize: 100
         initialValue: 1
+  fields:
     name:
       type: string
       column: nombre

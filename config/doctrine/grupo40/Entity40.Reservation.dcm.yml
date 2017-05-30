@@ -4,16 +4,16 @@ Entity40\Reservation:
   indexes:
     reservas_pkey:
       columns: [id]
-  fields:
+  id:
     id:
       type: integer
-      id: true
       generator:
         strategy: SEQUENCE
       sequenceGenerator:
         sequenceName: reserva_ai
         allocationSize: 100
         initialValue: 1
+  fields:
     arrival:
       type: date
       column: llegada
