@@ -111,7 +111,7 @@ class RestaurantController implements ControllerProviderInterface {
             ->add("clientName")
             // Reservation info
             ->add("date", DateType::class,[
-                'widget' => 'single-text'
+                'widget' => 'single_text'
             ])
             ->add("time", TimeType::class,[
                 'widget' => 'choice',
