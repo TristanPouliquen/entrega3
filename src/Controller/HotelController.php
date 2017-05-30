@@ -17,6 +17,9 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
+use Entity40\Guest;
+use Entity40\Reservation;
+
 
 /**
  * Sample controller

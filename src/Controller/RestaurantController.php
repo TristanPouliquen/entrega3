@@ -19,6 +19,10 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 
+use Entity37\Reservation;
+use Entity37\ReservationRestaurant;
+use Entity37\Client;
+
 /**
  * Sample controller
  *
