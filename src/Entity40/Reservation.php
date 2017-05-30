@@ -71,6 +71,17 @@ class Reservation
     private $hotel;
 
     /**
+     * @var \Entity40\Guest
+     *
+     * @ORM\ManyToOne(targetEntity="Entity40\Guest", inversedBy="reservations")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="huesped_id", referencedColumnName="id")
+     * })
+     */
+    private $guest;
+
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -240,5 +251,29 @@ class Reservation
     public function getHotel()
     {
         return $this->hotel;
+    }
+
+    /**
+     * Set guest
+     *
+     * @param \Entity40\guest $guest
+     *
+     * @return Reservation
+     */
+    public function setGuest(\Entity40\Guest $guest = null)
+    {
+        $this->guest = $guest;
+
+        return $this;
+    }
+
+    /**
+     * Get guest
+     *
+     * @return \Entity40\guest
+     */
+    public function getGuest()
+    {
+        return $this->guest;
     }
 }
