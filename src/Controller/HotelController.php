@@ -161,7 +161,7 @@ class HotelController implements ControllerProviderInterface {
         ]);
     }
 
-    public function detailReservations(Application $app){
+    public function detailReservations(Application $app, $id){
         $em = $app['orm.ems']['grupo40'];
         $hotel = $em->getRepository('Entity40\Hotel')->find($id);
         if(!$hotel){
