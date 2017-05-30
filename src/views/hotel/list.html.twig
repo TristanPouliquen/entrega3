@@ -19,18 +19,7 @@
   </div>
   <div class="row jobs">
     <div class="col-md-12">
-      <div class="job-posts table-responsive">
-        <table class="table">
-          {% for hotel in hotels %}
-          <tr class="odd wow fadeInUp" data-wow-delay="1s">
-            <td class="tbl-logo"><img src="{{ asset('logohotel.png', 'images') }}" alt="" height="50" width="45"></td>
-            <td class="tbl-title"><h4>{{ hotel.name }}<br><span class="job-type">Hotel</span></h4></td>
-            <td><p><i class="icon-location"></i>{{ hotel.address.city }}</p></td>
-            <td class="tbl-apply"><a href="{{path('hotel_detail', {'id': hotel.id}) }}">Ver</a> <a class="pull-right" href="{{path('hotel_reserve', {'id': hotel.id}) }}">Reservar</a></td>
-          </tr>
-          {% endfor %}
-        </table>
-      </div>
+      {% include "partials/search_hotel.html.twig" with {'hotels':hotels}%}
     </div>
   </div>
 </div>
