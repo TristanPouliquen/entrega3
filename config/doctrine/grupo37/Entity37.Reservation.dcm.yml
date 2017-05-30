@@ -4,13 +4,17 @@ Entity37\Reservation:
   indexes:
     reserva_pkey:
       columns: [idreserva]
-  fields:
+  id:
     id:
       type: integer
-      id: true
       column: idreserva
       generator:
-        strategy: AUTO
+        strategy: SEQUENCE
+      sequenceGenerator:
+        sequenceName:
+        allocationSize: 100
+        initialValue: 1
+  fields:
     date:
       type: date
       column: fecha

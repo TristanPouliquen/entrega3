@@ -4,7 +4,7 @@
  <div class="row page-title text-center wow bounce"  data-wow-delay="1s">
     <h5>Las reservas </h5>
     <h2><span>{{ hotel.reservations|length }}</span> reservas</h2>
-    
+    <a class="btn btn-primary pull-left" href="{{ path('hotel_detail', {'id': hotel.id}) }}">Volver</a>
   </div>
 
  <div class="row jobs">
@@ -15,7 +15,7 @@
           <tr class="odd wow fadeInUp" data-wow-delay="1s">
             <td class="tbl-logo"><img src="{{ asset('logohotel.png', 'images') }}" alt="" height="50" width="45">   </td>
             <td class="tbl-title"><h4>{{ reservation.guest.name }}<br><span class="job-type"> {{reservation.arrival|date('d/m/Y')}} -  Para {{ reservation.duration}} dia(s) </span></h4></td>
-            
+
           </tr>
           {% endfor %}
         </table>
