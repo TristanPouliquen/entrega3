@@ -22,6 +22,19 @@
 
     <h1>{{ hotel.name }}</h1>
     <p>{{ hotel.address.number }} {{ hotel.address.street }}, {{ hotel.address.city }}, {{ hotel.address.country }}</p>
+    <p></p>
+  <p></p>
+  
+  <div class="row">
+    <a class="btn btn-primary" href="{{path('hotel_detail_reservations', {'id': hotel.id}) }}">Ver todas las reservas </a>
+  <div class="row page-title text-center wow zoomInDown" data-wow-delay="1s">
+
+  <p></p>
+  <p></p>
+
+  <div class="row">
+    <a class="btn btn-primary" href="{{path('hotel_reserve', {'id': hotel.id}) }}">Reservar </a>
+  <div class="row page-title text-center wow zoomInDown" data-wow-delay="1s">
   </div>
 
   <div class="row how-it-work text-center">
@@ -72,7 +85,7 @@
 <div class="container">
     <div class="row page-title text-center wow bounce"  data-wow-delay="1s">
       <h3>EL HOTEL TAMBIEN TIENE UN RESTAURANTE</h3>
-      <h2><span>Las</span> ultimas criticas</h2>
+      <h2><span>{{restaurante.nombre}}</span> </h2>
     </div>
 </div>
 {% endif  %}
