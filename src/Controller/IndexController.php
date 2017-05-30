@@ -59,8 +59,18 @@ class IndexController implements ControllerProviderInterface {
         $em37 = $app['orm.ems']['grupo37'];
         $cities40 = $em40->getRepository('Entity40\Address')->getDistinctCities();
         $cities37 = $em37->getRepository('Entity37\Restaurant')->getDistinctCities();
-        $hotels = [];
-        $restaurants = [];
+
+        $city = $request->request->get('city');
+        $query = $request->request->get('query');
+        $option = $request->request->get('option');
+
+        if ($city){
+            $data['city'] = $city;
+        }
+
+        $hotels = $em40->getRepository('Entity40\Hotel')->getFiltered($data);
+
+        
     return $app['twig']->render('search/list.html.twig', [
             'hotels'=> $hotels,
             'restaurants'=> $restaurants,
