@@ -14,6 +14,23 @@ class RestaurantRepository extends EntityRepository
         return $query->getResult();
     }
 
+    public function getOpeningHours($restaurant, $date){
+      $dayNumber = date('w', $date);
+      // date gives 0 for Sunday
+      $dayNumber = $dayNumber == 0 ? 7 : $dayNumber;
+      $query = $this->createQueryBuilder('r')
+        ->join('r.schedule', 's')
+        ->where('r.name = :name')
+        ->setParameter('name', $restaurant->getName())
+        ->andWhere('s.day = :day')
+        ->setParameter('day', $dayNumber)
+        ->getQuery();
+
+      $result = $query->getResult();
+
+      return [];
+    }
+
     public function getFiltered($data){
       $queryBuilder = $this->createQueryBuilder('restaurant')
                   ->select('restaurant');

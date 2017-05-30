@@ -108,7 +108,6 @@ class RestaurantController implements ControllerProviderInterface {
             ])
             ->add("time", TimeType::class,[
                 'widget' => 'choice',
-                'hours' => $em->getRepository('Entity37\Restaurant')->getOpeningHours($restaurant),
                 'minutes' => ['00']
             ])
             ->add("quantity", IntegerType::class)
