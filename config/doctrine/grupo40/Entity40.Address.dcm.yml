@@ -5,16 +5,16 @@ Entity40\Address:
   indexes:
     direcciones_pkey:
       columns: [id]
-  fields:
+  id:
     id:
       type: integer
-      id: true
       generator:
         strategy: SEQUENCE
       sequenceGenerator:
         sequenceName: direccion_auto_increment
         allocationSize: 100
         initialValue: 1
+  fields:
     street:
       type: string
       column: calle

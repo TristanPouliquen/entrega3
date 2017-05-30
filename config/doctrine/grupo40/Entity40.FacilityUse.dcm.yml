@@ -4,16 +4,16 @@ Entity40\FacilityUse:
   indexes:
     usos_pkey:
       columns: [id]
-  fields:
+  id:
     id:
       type: integer
-      id: true
       strategy:
         generator: SEQUENCE
       sequenceGenerator:
         sequenceName: uso_ai
         allocationSize: 100
         initialValue: 1
+  fields:
   manyToOne:
     facility:
       targetEntity: Entity40\Facility
