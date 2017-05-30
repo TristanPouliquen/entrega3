@@ -111,7 +111,7 @@ class RestaurantController implements ControllerProviderInterface {
             ->add("clientName")
             // Reservation info
             ->add("date", DateType::class,[
-                'widget' => 'single-text'
+                'widget' => 'single_text'
             ])
             ->add("time", TimeType::class,[
                 'widget' => 'choice',
@@ -125,7 +125,7 @@ class RestaurantController implements ControllerProviderInterface {
 
         if ($form->isSubmitted()){
             $data = $form->getData();
-            $client = $em->getRepository('Entity37\Client')->findByPhoneNumber($data['phoneNumber']);
+            $client = $em->getRepository('Entity37\Client')->findOneBy(['phone_number' => $data['phoneNumber']]);
             if (!$client){
                 $client = new Client();
                 $client->setPhoneNumber($data['phoneNumber']);

@@ -4,16 +4,16 @@ Entity40\Facility:
   indexes:
     facilidades_pkey:
       columns: [id]
-  fields:
+  id:
     id:
       type: integer
-      id: true
       generator:
         strategy: SEQUENCE
       sequenceGenerator:
         sequenceName: facilidad_ai
         allocationSize: 100
         initialValue: 1
+  fields:
     price:
       type: integer
       column: precio
