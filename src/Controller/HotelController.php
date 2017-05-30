@@ -29,6 +29,7 @@ class HotelController implements ControllerProviderInterface {
         $hotelController = $app['controllers_factory'];
         $hotelController->match("/", array($this, 'showAll'))->bind('hotel_list');
         $hotelController->get("/{id}", array($this, 'detail'))->bind('hotel_detail');
+        $hotelController->match("/{id}/reserve", [$this, "reserve"])->bind('hotel_reserve');
         /*$indexController->get("/show/{id}", array($this, 'show'))->bind('acme_show');
         $indexController->match("/create", array($this, 'create'))->bind('acme_create');
         $indexController->match("/update/{id}", array($this, 'update'))->bind('acme_update');
@@ -77,6 +78,10 @@ class HotelController implements ControllerProviderInterface {
         $em40 = $app['orm.ems']['grupo40'];
         $em37 = $app['orm.ems']['grupo37'];
         $hotel = $em40->getRepository('Entity40\Hotel')->find($id);
+        if(!$hotel){
+            $app['session']->getFlashBag()->add('error', 'Hotel no encontrado');
+            return $app->redirect($app['url_generator']->generate('hotel_list'));
+        }
         $restaurant = $em37->getRepository('Entity37\Restaurant')->findOneBy([
             'city' => $hotel->getAddress()->getCity(),
             'street' => $hotel->getAddress()->getNumber() . ' ' . $hotel->getAddress()->getStreet()
@@ -84,6 +89,70 @@ class HotelController implements ControllerProviderInterface {
         return $app['twig']->render('hotel/detail.html.twig', [
             'hotel' => $hotel,
             'restaurant' => $restaurant
+        ]);
+    }
+
+    public function reserve(Application $app, Request $request, $id){
+        $em = $app['orm.ems']['grupo40'];
+        $hotel = $em->getRepository('Entity40\Hotel')->find($id);
+        if(!$hotel){
+            $app['session']->getFlashBag()->add('error', 'Hotel no encontrado');
+            return $app->redirect($app['url_generator']->generate('hotel_list'));
+        }
+
+        $form = $app['form.factory']->createBuilder(FormType::class, [])
+            // Guest info
+            ->add("name")
+            ->add('identityNumber')
+            ->add("phoneNumber")
+            ->add('birthdate', DateType::class, [
+                'widget' => 'single_text'
+            ])
+            // Reservation info
+            ->add("arrival", DateType::class, [
+                'widget' => 'single_text'
+            ])
+            ->add('duration', IntegerType::class)
+            ->add('paymentMethod', ChoiceType::class, [
+                'choices' => ['Efectivo', 'Tarjeta de credito', 'Tarjeta de debito', 'Transferencia'],
+                'choice_label' => function($value, $key, $index) {
+                    return $value;
+                },
+                'placeholder' => 'Elige tu metodo de pago'
+            ])
+            ->getForm();
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted()){
+            $data = $form->getData();
+            $guest = $em->getRepository('Entity40\Guest')->findOneByIdentityNumber($data['identityNumber']);
+            if(!$guest){
+                $guest = new Guest();
+                $guest->setName($data['name']);
+                $guest->setIdentityNumber($data['identityNumber']);
+                $guest->setPhoneNumber($data['phoneNumber']);
+                $quest->setBirthdate($data['birthdate']);
+            }
+
+            $reservation = new Reservation();
+            $reservation->setArrival($data['arrival']);
+            $reservation->setDuration($data['duration']);
+            $reservation->setPaymentMethod($data['paymentMethod']);
+            $reservation->setHotel($hotel);
+            $reservation->setGuest($guest);
+
+            $em->persist($guest);
+            $em->persist($reservation);
+            $em->flush();
+
+            $app['session']->getFlashBag()->add('success', 'Reserva hecha exitosamente');
+            return $app->redirect($app['url_generator']->generate('hotel_detail', ['id' => $id]));
+        }
+
+        return $app->render('hotel/reserve.html.twig', [
+            'hotel' => $hotel,
+            'form' => $form->createView()
         ]);
     }
 }
