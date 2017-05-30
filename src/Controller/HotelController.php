@@ -13,6 +13,8 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 
@@ -153,7 +155,7 @@ class HotelController implements ControllerProviderInterface {
             return $app->redirect($app['url_generator']->generate('hotel_detail', ['id' => $id]));
         }
 
-        return $app->render('hotel/reserve.html.twig', [
+        return $app['twig']->render('hotel/reserve.html.twig', [
             'hotel' => $hotel,
             'form' => $form->createView()
         ]);

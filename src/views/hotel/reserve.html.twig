@@ -3,15 +3,33 @@
 <div class="row">
   <div class="col-md-12">
     <form class="form" method="POST" action="{{ path('hotel_reserve', {'id': hotel.id }) }}">
-      {{ form.widget(form.name)}}
-      {{ form.widget(form.identityNumber)}}
-      {{ form.widget(form.phoneNumber)}}
-      {{ form.widget(form.birthdate)}}
-      {{ form.widget(form.arrival)}}
-      {{ form.widget(form.duration)}}
-      {{ form.widget(form.paymentMethod)}}
-      {{ form.widget(form.submit, {'label': 'Reservar'}) }}
-      {{ form.widget(form) }}
+      <div class="form-group">
+        {{ form_widget(form.name)}}
+      </div>
+      <div class="form-group">
+        {{ form_widget(form.identityNumber)}}
+      </div>
+      <div class="form-group">
+        {{ form_widget(form.phoneNumber)}}
+      </div>
+      <div class="form-group">
+        {{ form_widget(form.birthdate)}}
+      </div>
+      <div class="form-group">
+        {{ form_widget(form.arrival)}}
+      </div>
+      <div class="form-group">
+        {{ form_widget(form.duration)}}
+      </div>
+      <div class="form-group">
+        {{ form_widget(form.paymentMethod)}}
+      </div>
+      <div class="form-group">
+        {{ form_widget(form.submit, {'label': 'Reservar'
+      </div>}) }}
+      <div class="form-group">
+        {{ form_widget(form) }}
+      </div>
     </form>
   </div>
 </div>
