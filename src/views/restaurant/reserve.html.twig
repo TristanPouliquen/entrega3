@@ -22,7 +22,7 @@
     <div class="col-md-12">
       <form class="form" method="POST" action="{{ path('restaurant_reserve', {'name': restaurant.name }) }}">
         <div class="form-group">
-          {{ form_label(form.clientName, Nombre del cliente :) }}
+          {{ form_label(form.clientName, 'Nombre del cliente :') }}
           {{ form_widget(form.clientName, {'attr' : {'class': 'form-control'}}) }}
         </div>
         <div class="form-group">
