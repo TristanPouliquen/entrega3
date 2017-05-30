@@ -3,7 +3,17 @@
  <div class="row page-title text-center wow zoomInDown" data-wow-delay="1s">
   <h1>{{ hotel.name }}</h1>
   <p>{{ hotel.address.number }} {{ hotel.address.street }}, {{ hotel.address.city }}, {{ hotel.address.country }}</p>
+  </div>
+
+
+<div class="row jobs">
+  <td class="tbl-apply"><a href="{{path('hotel_detail_reservations', {'id': hotel.id}) }}">Ver todas las reservas </a> </td>
 </div>
+
+
+
+
+
 <div class="row how-it-work text-center">
   <div class="col-md-4">
     <div class="single-work wow fadeInUp" data-wow-delay="0.8s">

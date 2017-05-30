@@ -1,6 +1,14 @@
 {% extends "base.html.twig" %}
 {% block content %}
 
+          <div class="row jobs">
+              <div class="col-md-12">
+                  <div class="job-posts table-responsive">
+                    <td><a href="{{ path('restaurant_reserve', {'name': restaurant.name }) }}">Reservar</a></td>
+                  </div>
+              </div>
+          </div>
+
 
  <div class="row page-title text-center wow zoomInDown" data-wow-delay="1s">
     <h1>{{ restaurant.name }}</h1>
@@ -50,7 +58,7 @@
                       <img src="{{ asset('time.png', 'images') }}" alt="" height="80" width="80">
                       <h3>Horarios</h3>
                       {% set dayTranslation = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo'] %}
-                      {% for horario in  restaurant.schedule %}
+                      {% for horario in restaurant.schedule %}
                       <p> {{ dayTranslation[horario.day - 1]}} {{horario.opening|date("g:ia")}} : {{horario.closing|date("g:ia")}} </p>
                       {% endfor %}
                   </div>
