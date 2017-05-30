@@ -3,17 +3,7 @@
 
 
 <div class="container">
-  <div class="row">
-    <a class="btn btn-primary " href="{{ path('restaurant_detail_reservations', {'name': restaurant.name }) }}">Las reservas</a>
-  </div>
-
-  <p></p>
-  <p></p>
   
-  <div class="row">
-    <a class="btn btn-primary " href="{{ path('restaurant_reserve', {'name': restaurant.name }) }}">Reservar</a>
-  </div>
-
   <div class="row page-title text-center wow zoomInDown" data-wow-delay="1s">
     <h1>{{ restaurant.name }}</h1>
     <p> {{ restaurant.street }} , {{ restaurant.city }}</p>
