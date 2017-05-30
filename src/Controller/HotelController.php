@@ -131,7 +131,7 @@ class HotelController implements ControllerProviderInterface {
 
         if ($form->isSubmitted()){
             $data = $form->getData();
-            $guest = $em->getRepository('Entity40\Guest')->findOneByIdentityNumber($data['identityNumber']);
+            $guest = $em->getRepository('Entity40\Guest')->findOneBy(['identity_number' => $data['identityNumber']]);
             if(!$guest){
                 $guest = new Guest();
                 $guest->setName($data['name']);
