@@ -125,7 +125,7 @@ class RestaurantController implements ControllerProviderInterface {
 
         if ($form->isSubmitted()){
             $data = $form->getData();
-            $client = $em->getRepository('Entity37\Client')->findByPhoneNumber($data['phoneNumber']);
+            $client = $em->getRepository('Entity37\Client')->findOneBy(['phone_number' => $data['phoneNumber']]);
             if (!$client){
                 $client = new Client();
                 $client->setPhoneNumber($data['phoneNumber']);
