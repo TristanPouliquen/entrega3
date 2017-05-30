@@ -1,14 +1,14 @@
 {% extends 'base.html.twig' %}
 {% block content %}
-
+<div class="container">
+ <a class="btn btn-primary pull-left" href="{{ path('hotel_detail', {'id': hotel.id}) }}">Volver</a>
  <div class="row page-title text-center wow bounce"  data-wow-delay="1s">
     <h5>Las reservas </h5>
     <h2><span>{{ hotel.reservations|length }}</span> reservas</h2>
-    <a class="btn btn-primary pull-left" href="{{ path('hotel_detail', {'id': hotel.id}) }}">Volver</a>
   </div>
 
  <div class="row jobs">
-    <div class="col-md-12">
+    <div class="col-md-10 col-md-offset-1">
       <div class="job-posts table-responsive">
         <table class="table">
           {% for reservation in hotel.reservations %}
@@ -22,7 +22,5 @@
       </div>
     </div>
   </div>
-
-
-{# list of reservations details #}
+</div
 {% endblock %}
