@@ -146,7 +146,7 @@ class RestaurantController implements ControllerProviderInterface {
             return $app->redirect($app['url_generator']->generate('restaurant_detail', ['name' => $name]));
         }
 
-        return $app->render('restaurant/reserve.html.twig', [
+        return $app['twig']->render('restaurant/reserve.html.twig', [
             'restaurant' => $restaurant,
             'form' => $form->createView()
         ]);

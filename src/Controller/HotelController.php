@@ -155,7 +155,7 @@ class HotelController implements ControllerProviderInterface {
             return $app->redirect($app['url_generator']->generate('hotel_detail', ['id' => $id]));
         }
 
-        return $app->render('hotel/reserve.html.twig', [
+        return $app['twig']->render('hotel/reserve.html.twig', [
             'hotel' => $hotel,
             'form' => $form->createView()
         ]);
