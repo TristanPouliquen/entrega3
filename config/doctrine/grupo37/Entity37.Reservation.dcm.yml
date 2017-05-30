@@ -11,7 +11,7 @@ Entity37\Reservation:
       generator:
         strategy: SEQUENCE
       sequenceGenerator:
-        sequenceName:
+        sequenceName: reserva_idreserva_seq
         allocationSize: 100
         initialValue: 1
   fields:
