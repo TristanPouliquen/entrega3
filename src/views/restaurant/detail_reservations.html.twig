@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 {% block content %}
 
-{<div class="container">
+<div class="container">
           <div class="row page-title text-center wow bounce"  data-wow-delay="1s">
               <h2><span>{{ restaurant.reservations|length }}</span> reservas</h2>
           </div>
@@ -13,7 +13,7 @@
                           <tr class="odd wow fadeInUp" data-wow-delay="1s">
                               <td class="tbl-logo"><img src="{{ asset('logousers.png', 'images') }}" alt="" height="80" width="80">
                               <td class="tbl-title"><h3>{{ reservas.client.name }}<br><span class="job-type"></span></h3></td>
-                              <td class="tbl-title"><h4>{{ reservas.reservation.time }}<br><span class="job-type">{{ reservas.reservation.quantity }} </span></h4></td>
+                              <td class="tbl-title"><h4>{{ reservas.reservation.time|date("g:ia") }}<br><span class="job-type">{{ reservas.reservation.quantity }} </span></h4></td>
                               <td><p><i>{{reservas.reservation.date|date("d/m/Y")}}</i></p></td>
                           </tr>
                           {% endfor %}
@@ -21,6 +21,6 @@
                   </div>
               </div>
           </div>
-</div>}
+</div>
 
 {% endblock %}

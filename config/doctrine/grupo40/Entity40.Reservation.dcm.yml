@@ -30,6 +30,12 @@ Entity40\Reservation:
       joinColumn:
         name: hotel_id
         referencedColumnName: id
+    guest:
+      targetEntity: Entity40\Guest
+      inversedBy: reservation
+      joinColumn:
+        name: huesped_id
+        referencedColumnName: id
   oneToMany:
     facilityUses:
       targetEntity: Entity40\FacilityUse
