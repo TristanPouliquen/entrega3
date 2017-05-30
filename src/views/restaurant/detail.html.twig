@@ -1,14 +1,8 @@
 {% extends "base.html.twig" %}
 {% block content %}
 
-          <div class="row jobs">
-              <div class="col-md-12">
-                  <div class="job-posts table-responsive">
-                    <td class="tbl-apply"><a href="{{ path('restaurant_detail_reservations', {'name': restaurant.name }) }}">Las reservas</a></td>
-                  </div>
-              </div>
-          </div>
-
+<td class="tbl-apply"><a href="{{ path('restaurant_detail_reservations', {'name': restaurant.name }) }}">Las reservas</a></td>
+                  
 
  <div class="row page-title text-center wow zoomInDown" data-wow-delay="1s">
     <h1>{{ restaurant.name }}</h1>
