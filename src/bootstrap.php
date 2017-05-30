@@ -111,6 +111,8 @@ $app->register(new SecurityServiceProvider(), [
     ],
     'security.access_rules' => [
         ['^/login$', ''],
+        ['^.*/reserve$', 'ROLE_USER'],
+        ['^.*/reservations$', 'ROLE_USER'],
         ['^/intern/.*$', 'ROLE_USER'], //anonymous routes
     ]
 ]);
