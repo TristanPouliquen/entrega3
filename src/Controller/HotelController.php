@@ -140,7 +140,7 @@ class HotelController implements ControllerProviderInterface {
                 $guest->setName($data['name']);
                 $guest->setIdentityNumber($data['identityNumber']);
                 $guest->setPhoneNumber($data['phoneNumber']);
-                $quest->setBirthdate($data['birthdate']);
+                $guest->setBirthdate($data['birthdate']);
             }
 
             $reservation = new Reservation();
