@@ -30,6 +30,7 @@ class HotelController implements ControllerProviderInterface {
         $hotelController->match("/", array($this, 'showAll'))->bind('hotel_list');
         $hotelController->get("/{id}", array($this, 'detail'))->bind('hotel_detail');
         $hotelController->match("/{id}/reserve", [$this, "reserve"])->bind('hotel_reserve');
+        $hotelController->get("/{id}/reservations", array($this, 'detailReservations'))->bind('hotel_detail_reservations');
         /*$indexController->get("/show/{id}", array($this, 'show'))->bind('acme_show');
         $indexController->match("/create", array($this, 'create'))->bind('acme_create');
         $indexController->match("/update/{id}", array($this, 'update'))->bind('acme_update');
@@ -153,6 +154,19 @@ class HotelController implements ControllerProviderInterface {
         return $app->render('hotel/reserve.html.twig', [
             'hotel' => $hotel,
             'form' => $form->createView()
+        ]);
+    }
+
+    public function detailReservations(Application $app){
+        $em = $app['orm.ems']['grupo40'];
+        $hotel = $em->getRepository('Entity40\Hotel')->find($id);
+        if(!$hotel){
+            $app['session']->getFlashBag()->add('error', 'Hotel no encontrado');
+            return $app->redirect($app['url_generator']->generate('hotel_list'));
+        }
+
+        return $app['twig']->render('hotel/detail_reservations.html.twig', [
+            'hotel' => $hotel
         ]);
     }
 }

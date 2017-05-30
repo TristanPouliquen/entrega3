@@ -32,6 +32,7 @@ class RestaurantController implements ControllerProviderInterface {
         $restaurantController->match("/", array($this, 'showAll'))->bind('restaurant_list');
         $restaurantController->get("/{name}", array($this, 'detail'))->bind('restaurant_detail');
         $restaurantController->match("/{name}/reserve", [$this, "reserve"])->bind('restaurant_reserve');
+        $restaurantController->get("/{name}/reservations", array($this, 'detailReservations'))->bind('restaurant_detail_reservations');
         /*$indexController->get("/show/{id}", array($this, 'show'))->bind('acme_show');
         $indexController->match("/create", array($this, 'create'))->bind('acme_create');
         $indexController->match("/update/{id}", array($this, 'update'))->bind('acme_update');
@@ -148,6 +149,18 @@ class RestaurantController implements ControllerProviderInterface {
             'form' => $form->createView()
         ]);
 
+    }
+
+    public function detail(Application $app, $name){
+        $em = $app['orm.ems']['grupo37'];
+        $restaurant = $em->getRepository('Entity37\Restaurant')->findOneByName($name);
+        if (!$restaurant){
+            $app['session']->getFlashBag()->add('error', 'Restaurante no encontrado');
+            return $app->redirect($app['url_generator']->generate('restaurant_list'));
+        }
+        return $app['twig']->render('restaurant/detail_reservations.html.twig', [
+            'restaurant' => $restaurant
+        ]);
     }
 }
 
