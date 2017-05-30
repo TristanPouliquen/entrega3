@@ -10,10 +10,10 @@ Entity37\Schedule:
       column: dia
       id: true
     opening:
-      type: time without time zone
+      type: time
       column: apertura
     closing:
-      type: time without time zone
+      type: time
       column: cierre
   manyToOne:
     restaurant:

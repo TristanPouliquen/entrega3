@@ -12,7 +12,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -146,14 +146,14 @@ class RestaurantController implements ControllerProviderInterface {
             return $app->redirect($app['url_generator']->generate('restaurant_detail', ['name' => $name]));
         }
 
-        return $app->render('restaurant/reserve.html.twig', [
+        return $app['twig']->render('restaurant/reserve.html.twig', [
             'restaurant' => $restaurant,
             'form' => $form->createView()
         ]);
 
     }
 
-    public function detail(Application $app, $name){
+    public function detailReservations(Application $app, $name){
         $em = $app['orm.ems']['grupo37'];
         $restaurant = $em->getRepository('Entity37\Restaurant')->findOneByName($name);
         if (!$restaurant){
