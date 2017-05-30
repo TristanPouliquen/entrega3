@@ -24,7 +24,7 @@
     <div class="form-group">
       {{ form_errors(form.username) }}
       <div class="input-group">
-        {{ form_label(form.username, 'Correo') }}
+        <span class="input-group-addon">Correo</span>
         {{ form_widget(form.username, {attr: {'class': 'form-control'}}) }}
       </div>
     </div>
@@ -32,7 +32,7 @@
     <div class="form-group">
       {{ form_errors(form.plainPassword) }}
       <div class="input-group">
-        {{ form_label(form.plainPassword, 'Contrasena') }}
+        <span class="input-group-addon">Contrasena</span>
         {{ form_widget(form.plainPassword, {attr: {'class': 'form-control'}}) }}
       </div>
     </div>
