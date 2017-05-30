@@ -153,7 +153,7 @@ class RestaurantController implements ControllerProviderInterface {
 
     }
 
-    public function detail(Application $app, $name){
+    public function detailReservations(Application $app, $name){
         $em = $app['orm.ems']['grupo37'];
         $restaurant = $em->getRepository('Entity37\Restaurant')->findOneByName($name);
         if (!$restaurant){
