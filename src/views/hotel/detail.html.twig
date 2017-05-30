@@ -1,73 +1,76 @@
 {% extends "base.html.twig" %}
 {% block content %}
-<a class="btn btn-primary" href="{{path('hotel_detail_reservations', {'id': hotel.id}) }}">Ver todas las reservas </a>
-<div class="row page-title text-center wow zoomInDown" data-wow-delay="1s">
-  <h1>{{ hotel.name }}</h1>
-  <p>{{ hotel.address.number }} {{ hotel.address.street }}, {{ hotel.address.city }}, {{ hotel.address.country }}</p>
-</div>
-
-<div class="row how-it-work text-center">
-  <div class="col-md-4">
-    <div class="single-work wow fadeInUp" data-wow-delay="0.8s">
-      <img src="{{ asset('palme.png', 'images') }}" alt="" height="80" width="150">
-      <h3>Nota Promedia</h3>
-      <h2> {{ hotel.getAverageNote()}}/7 </h2>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="single-work  wow fadeInUp"  data-wow-delay="0.9s">
-      <img src="{{ asset('Etoile.png', 'images') }}" alt="" height="80" width="80">
-      <h3>Estrellas</h3>
-      <p>{{hotel.starRating}} estrellas </p>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="single-work wow fadeInUp"  data-wow-delay="1s">
-      <img src="{{ asset('lit.png', 'images') }}" alt="" height="80" width="80">
-      <h3>Numero de piezas</h3>
-      <p>{{hotel.numberRooms}}</p>
-    </div>
-  </div>
-</div>
-<div class="row how-it-work text-center">
-  <div class="col-md-6">
-    <div class="single-work wow fadeInUp" data-wow-delay="0.8s">
-        <img src="{{ asset('dollard.png', 'images') }}" alt="" height="80" width="80">
-        <h3>Precio por pieza</h3>
-        <p>{{hotel.priceRoom}} </p>
-    </div>
-  </div>
-  <div class="col-md-6">
-    <div class="single-work  wow fadeInUp"  data-wow-delay="0.9s">
-        <img src="{{ asset('fac.png', 'images') }}" alt="" height="80" width="80">
-        <h3>Facilities</h3>
-        {% for jennifer in hotel.facilities %}
-        <p>{{ jennifer.type}}</p>
-        {% endfor %}
-    </div>
-  </div>
-</div>
-<hr>
 <div class="container">
-  <div class="row page-title text-center wow bounce"  data-wow-delay="1s">
-    <h5>Las criticas</h5>
-    <h2><span>Las</span> ultimas criticas</h2>
+  <div class="row">
+    <a class="btn btn-primary" href="{{path('hotel_detail_reservations', {'id': hotel.id}) }}">Ver todas las reservas </a>
+  <div class="row page-title text-center wow zoomInDown" data-wow-delay="1s">
+    <h1>{{ hotel.name }}</h1>
+    <p>{{ hotel.address.number }} {{ hotel.address.street }}, {{ hotel.address.city }}, {{ hotel.address.country }}</p>
   </div>
-  <div class="row jobs">
-    <div class="col-md-12">
-      <div class="job-posts table-responsive">
-        <table class="table">
-            {% for reservation in hotel.reservations %}
-              {% if reservation.review %}
-                <tr class="odd wow fadeInUp" data-wow-delay="1s">
-                  <td class="tbl-logo"><img src="{{ asset('logousers.png', 'images') }}" alt="" height="80" width="80">
-                  <td class="tbl-title"><h3>{{reservation.review.rating}}/7<br><span class="job-type"></span></h3></td>
-                  <td class="tbl-title"><h4>{{ reservation.review.description}}<br><span class="job-type">on peut rajouter quelque chose </span></h4></td>
-                  <td><p><i>Visitado el {{ reservation.arrival|date('d/m/Y')}}</i></p></td>
-                </tr>
-              {% endif %}
-            {% endfor %}
-        </table>
+
+  <div class="row how-it-work text-center">
+    <div class="col-md-4">
+      <div class="single-work wow fadeInUp" data-wow-delay="0.8s">
+        <img src="{{ asset('palme.png', 'images') }}" alt="" height="80" width="150">
+        <h3>Nota Promedia</h3>
+        <h2> {{ hotel.getAverageNote()}}/7 </h2>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="single-work  wow fadeInUp"  data-wow-delay="0.9s">
+        <img src="{{ asset('Etoile.png', 'images') }}" alt="" height="80" width="80">
+        <h3>Estrellas</h3>
+        <p>{{hotel.starRating}} estrellas </p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="single-work wow fadeInUp"  data-wow-delay="1s">
+        <img src="{{ asset('lit.png', 'images') }}" alt="" height="80" width="80">
+        <h3>Numero de piezas</h3>
+        <p>{{hotel.numberRooms}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="row how-it-work text-center">
+    <div class="col-md-6">
+      <div class="single-work wow fadeInUp" data-wow-delay="0.8s">
+          <img src="{{ asset('dollard.png', 'images') }}" alt="" height="80" width="80">
+          <h3>Precio por pieza</h3>
+          <p>{{hotel.priceRoom}} </p>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="single-work  wow fadeInUp"  data-wow-delay="0.9s">
+          <img src="{{ asset('fac.png', 'images') }}" alt="" height="80" width="80">
+          <h3>Facilities</h3>
+          {% for jennifer in hotel.facilities %}
+          <p>{{ jennifer.type}}</p>
+          {% endfor %}
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="container">
+    <div class="row page-title text-center wow bounce"  data-wow-delay="1s">
+      <h5>Las criticas</h5>
+      <h2><span>Las</span> ultimas criticas</h2>
+    </div>
+    <div class="row jobs">
+      <div class="col-md-12">
+        <div class="job-posts table-responsive">
+          <table class="table">
+              {% for reservation in hotel.reservations %}
+                {% if reservation.review %}
+                  <tr class="odd wow fadeInUp" data-wow-delay="1s">
+                    <td class="tbl-logo"><img src="{{ asset('logousers.png', 'images') }}" alt="" height="80" width="80"></td>
+                    <td class="tbl-title"><h3>{{reservation.review.rating}}/7<br><span class="job-type"></span></h3></td>
+                    <td class="tbl-title"><h4>{{ reservation.review.description}}<br><span class="job-type">on peut rajouter quelque chose </span></h4></td>
+                    <td><p><i>Visitado el {{ reservation.arrival|date('d/m/Y')}}</i></p></td>
+                  </tr>
+                {% endif %}
+              {% endfor %}
+          </table>
+        </div>
       </div>
     </div>
   </div>

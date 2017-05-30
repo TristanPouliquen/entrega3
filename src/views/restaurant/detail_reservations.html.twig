@@ -1,7 +1,9 @@
 {% extends 'base.html.twig' %}
 {% block content %}
 <div class="container">
-  <a class="btn btn-primary pull-left" href="{{ path('restaurant_detail', {'name': restaurant.name}) }}">Volver</a>
+  <div class="row">
+    <a class="btn btn-primary pull-left" href="{{ path('restaurant_detail', {'name': restaurant.name}) }}">Volver</a>
+  </div>
   <div class="row page-title text-center wow bounce"  data-wow-delay="1s">
     <h2><span>{{ restaurant.reservations|length }}</span> reservas</h2>
   </div>
