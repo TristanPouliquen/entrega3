@@ -65,12 +65,16 @@ class IndexController implements ControllerProviderInterface {
         $option = $request->request->get('option');
         $hotels = [];
         $restaurants = [];
+
         if ($query){
             $data['name'] = $query;
+
         }
         if ($city){
             $data['city'] = $city;
                         }
+        $restaurants = $em37->getRepository('Entity37\Restaurant')->getFiltered($data);
+        $hotels = $em40->getRepository('Entity40\Hotel')->getFiltered($data);
 
         if (($option == "Elige tu tipo de facilidad") or ($option == "Hotel con restaurante")){
             $hotels = $em40->getRepository('Entity40\Hotel')->getFiltered($data);
@@ -79,11 +83,15 @@ class IndexController implements ControllerProviderInterface {
         
         if ($option == "Hotel"){
             $hotels = $em40->getRepository('Entity40\Hotel')->getFiltered($data);
+            $restaurants = [];
             }
         if ($option == "Restaurante"){
             $restaurants = $em37->getRepository('Entity37\Restaurant')->getFiltered($data);
+            $hotels = [];
             }
     
+
+
     return $app['twig']->render('search/list.html.twig', [
             'hotels'=> $hotels,
             'restaurants'=> $restaurants,
