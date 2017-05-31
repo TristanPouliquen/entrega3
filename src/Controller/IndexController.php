@@ -91,16 +91,6 @@ class IndexController implements ControllerProviderInterface {
                 ]);
             }
 
-
-
-<<<<<<< HEAD
-    
-
-=======
->>>>>>> fa8762a130f286961d1137cf54f3b17ddd038c6a
-
-    
-
     /**
      * Show entity
      *
