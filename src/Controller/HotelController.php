@@ -152,7 +152,7 @@ class HotelController implements ControllerProviderInterface {
             'minutes' => ['00'],
             'required' => false
           ])
-          ->add('quantity_lunches', IntegerType::class[
+          ->add('quantity_lunches', IntegerType::class, [
             'attr' => [
               'min' => 0,
               'max' => $restaurant->getCapacity()
