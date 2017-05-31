@@ -67,9 +67,8 @@ class IndexController implements ControllerProviderInterface {
         $restaurants = [];
 
         if ($city == "Elige tu ciudad"){
-            $city = "";
+            $city = null;
                         }
-
         if ($query){
             $data['name'] = $query;
 
