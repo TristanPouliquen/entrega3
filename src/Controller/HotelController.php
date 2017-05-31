@@ -45,7 +45,7 @@ class HotelController implements ControllerProviderInterface {
         $hotelController->get("/{id}", array($this, 'detail'))->bind('hotel_detail');
         $hotelController->match("/{id}/reserve", [$this, "reserve"])->bind('hotel_reserve');
         $hotelController->get("/{id}/reservations", array($this, 'detailReservations'))->bind('hotel_detail_reservations');
-        $hotelController->match("{id}/review", [$this, 'review'])->bind('hotel_review')
+        $hotelController->match("{id}/review", [$this, 'review'])->bind('hotel_review');
         /*$indexController->get("/show/{id}", array($this, 'show'))->bind('acme_show');
         $indexController->match("/create", array($this, 'create'))->bind('acme_create');
         $indexController->match("/update/{id}", array($this, 'update'))->bind('acme_update');
