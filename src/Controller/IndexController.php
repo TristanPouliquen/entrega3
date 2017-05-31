@@ -64,7 +64,7 @@ class IndexController implements ControllerProviderInterface {
         $query = $request->request->get('query');
         $option = $request->request->get('option');
 
-        if ($option == "Elige tu tipo de facilidad"){
+        if (($option == "Elige tu tipo de facilidad") or ($option == "Hotel con restaurante"){
             var_dump($option);
             $data['city'] = $city;
         }
