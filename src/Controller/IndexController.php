@@ -89,12 +89,12 @@ class IndexController implements ControllerProviderInterface {
 
 
 
-        if (($option == "Restaurante") && ($option == "Elige tu tipo de facilidad") && ($query == "")) {
+        if (($option == "Restaurante") && ($query == "")) {
             $restaurants = $em37->getRepository('Entity37\Restaurant')->showAll();
             $hotels = [];
             }
 
-        if (($option == "Hotel") && ($option == "Elige tu tipo de facilidad") && ($query == "")) {
+        if (($option == "Hotel") && ($query == "")) {
             $hotels = $em40->getRepository('Entity40\Hotel')->showAll();
             $restaurants = [];
             }
