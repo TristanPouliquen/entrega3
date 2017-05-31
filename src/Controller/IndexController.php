@@ -74,7 +74,7 @@ class IndexController implements ControllerProviderInterface {
                 $data['city'] = $city;
                 }
             }
-        
+
 
         $hotels = $em40->getRepository('Entity40\Hotel')->getFiltered($data);
         $restaurants = $em30->getRepository('Entity37\Restaurant')->getFiltered($data);
@@ -88,13 +88,13 @@ class IndexController implements ControllerProviderInterface {
 
 
 
-        if ($option == "Hotel"){
+        /*if ($option == "Hotel"){
                     $data['city'] = $city;
                 }
 
         if ($option == "Restaurante"){
                     $data['city'] = $city;
-                }
+                }*/
 
 
 
