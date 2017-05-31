@@ -1,0 +1,30 @@
+{% extends "base.html.twig" %}
+{% block content %}
+<div class="container">
+  <div class="row page-title text-center wow bounce"  data-wow-delay="1s">
+    <h5>{{hotel.name}}</h5>
+    <h2><span>Hacer</span> una critica</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <form class="form" action="{{ path('hotel_review', {'id': hotel.id})}}" method="POST">
+        <div class="form-group">
+          {{ form_label(form.reservation, "Reserva de la critica")}}
+          {{ form_widget(form.reservation, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="form-group">
+          {{ form_label(form.rating, "Nota (/7)") }}
+          {{ form_widget(form.rating, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="form-group">
+          {{ form_label(form.description, "Descripcion") }}
+          {{ form_wdiget(form.description, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="form-group">
+          <input class="btn btn-success" type="submit" value="Enviar"/>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

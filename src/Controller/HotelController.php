@@ -294,15 +294,7 @@ class HotelController implements ControllerProviderInterface {
         return $app->redirect($app['url_generator']->generate('hotel_list'));
       }
 
-      $form = $app['form.factory']->createBuilder(FormType::class, ['hotel' => $hotel])
-        ->add('hotel', EntityType::class, [
-            'class' => 'Entity40\Hotel',
-            'choice_label' => 'name',
-            'disabled' => true,
-            'attr' => [
-              'class' => 'form-control-static'
-            ]
-        ])
+      $form = $app['form.factory']->createBuilder(FormType::class, [])
         ->add('reservation', EntityType::class, [
           'class' => 'Entity40\Reservation',
           'choice_label' => 'displayName',
@@ -339,7 +331,7 @@ class HotelController implements ControllerProviderInterface {
         return $app->redirect($app['url_generator']->generate('hotel_detail', ['id' => $hotel->getId()]));
       }
 
-      return $app['twig']->render('hotel/detail_reservations.html.twig', [
+      return $app['twig']->render('hotel/review.html.twig', [
         'hotel' => $hotel,
         'form' => $form->createView()
       ]);
