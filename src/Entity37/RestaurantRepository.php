@@ -53,7 +53,7 @@ class RestaurantRepository extends EntityRepository
             } else if ($data['sort'] == 'alfabetico') {
                 $queryBuilder->orderBy('restaurant.name', 'ASC');
             } else if ($data['sort'] == 'estrellas') {
-                $queryBuilder->orderBy('restaurant.starRating', 'DESC');
+                $queryBuilder->orderBy('restaurant.star_rating', 'DESC');
             }
         }
 

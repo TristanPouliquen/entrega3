@@ -35,7 +35,7 @@ class HotelRepository extends EntityRepository
           } else if ($data['sort'] == 'alfabetico') {
               $queryBuilder->orderBy('hotel.name', 'ASC');
           } else if ($data['sort'] == 'estrellas') {
-              $queryBuilder->orderBy('hotel.starRating', 'DESC');
+              $queryBuilder->orderBy('hotel.star_rating', 'DESC');
           }
         }
 
