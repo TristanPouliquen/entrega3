@@ -1,11 +1,10 @@
 {% extends "base.html.twig" %}
 {% block content %}
 
- <p></p>
-  <p></p> 
+
 
 <div class="container">
-
+<div class="row page-title text-center wow zoomInDown" data-wow-delay="1s">
     <h1>{{ hotel.name }}</h1>
     <p>{{ hotel.address.number }} {{ hotel.address.street }}, {{ hotel.address.city }}, {{ hotel.address.country }}</p>
     <p></p>
@@ -19,6 +18,7 @@
   <div class="row">
     <a class="btn btn-primary" href="{{path('hotel_reserve', {'id': hotel.id}) }}">Reservar </a>
   <div class="row page-title text-center wow zoomInDown" data-wow-delay="1s">
+  </div>
   </div>
 
   <div class="row how-it-work text-center">
