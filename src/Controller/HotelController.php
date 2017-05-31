@@ -225,7 +225,7 @@ class HotelController implements ControllerProviderInterface {
         }
 
         if ($data['reserve_lunches'] && $data['hour_lunches'] && $data['quantity_lunches']) {
-          for ($i = 0; $i < $reservation->getDuration(); i++){
+          for ($i = 0; $i < $reservation->getDuration(); $i++){
             $client_lunch = $em37->getRepository('Entity37\Client')->findOneBy(['phone_number' => $data['phoneNumber']]);
             if (!$client_lunch){
               $client_lunch = new Client();
