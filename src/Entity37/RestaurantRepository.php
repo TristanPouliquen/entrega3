@@ -47,6 +47,16 @@ class RestaurantRepository extends EntityRepository
           ->setParameter('rating', $data["rating"]);
       }
 
+      if ($data['sort']) {
+            if ($data['sort'] == 'ciudad') {
+              $queryBuilder->orderBy('restaurant.city');
+            } else if ($data['sort'] == 'alfabetico') {
+                $queryBuilder->orderBy('restaurant.name');
+            } else if ($data['sort'] == 'estrellas') {
+                $queryBuilder->orderBy('restaurant.starRating');
+            }
+        }
+
       $query = $queryBuilder->getQuery();
 
       return $query->getResult();
