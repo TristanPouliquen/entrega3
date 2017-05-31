@@ -73,8 +73,8 @@
       <h3>EL HOTEL TAMBIEN TIENE UN RESTAURANTE</h3>
       <h2><span>{{restaurant.name}}</span> </h2>
       <p></p>
-      <h5>Nota promedia : </h5>
-      <h5>Estillo de cocina : </h5>
+      <h5>Nota promedia : {{ restaurant.getAverageNote() }} /4</h5>
+      <h5>Estillo de cocina : {{ restaurant.style }}</h5>
       <h5>Chef y estrellas : {{ restaurant.chef }} con {{ restaurant.starRating }} estrellas </h5>
     </div>
 </div>
