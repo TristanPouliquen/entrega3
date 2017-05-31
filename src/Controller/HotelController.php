@@ -22,7 +22,7 @@ use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Entity40\Guest;
 use Entity40\Reservation;
 
-use Entity37\Reservation;
+use Entity37\Reservation as Reservation37;
 use Entity37\ReservationRestaurant;
 use Entity37\Client;
 
@@ -205,7 +205,7 @@ class HotelController implements ControllerProviderInterface {
               $client_dinner->setName($data["name"]);
             }
 
-            $reservation_dinner = new Reservation();
+            $reservation_dinner = new Reservation37();
             $fecha = date_create($data['arrival']);
             date_add($fecha, date_interval_create_from_date_string($i . " days"));
             $reservation_dinner->setDate($fecha);
@@ -233,7 +233,7 @@ class HotelController implements ControllerProviderInterface {
               $client_lunch->setName($data["name"]);
             }
 
-            $reservation_lunch = new Reservation();
+            $reservation_lunch = new Reservation37();
             $fecha = date_create($data['arrival']);
             date_add($fecha, date_interval_create_from_date_string($i . " days"));
             $reservation_lunch->setDate($fecha);
