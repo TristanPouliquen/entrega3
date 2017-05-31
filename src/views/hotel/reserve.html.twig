@@ -44,6 +44,32 @@
           {{ form_label(form.duration, 'Duracion' )}}
           {{ form_widget(form.duration, {'attr' : {'class': 'form-control'}}) }}
         </div>
+        {% if form.reserve_lunches %}
+          <div class="form-group">
+            {{ form_label(form.reserve_lunches, 'Quiere reservar almuerzos en el restaurante del hotel?') }}
+            {{ form_widget(form.reserve_lunches, {'attr': 'form-control'}) }}
+          </div>
+          <div class="form-group">
+            {{ form_label(form.hour_lunches, 'Para que hora?') }}
+            {{ form_widget(form.hour_lunches, {'attr': 'form-control'}) }}
+          </div>
+          <div class="form-group">
+            {{ form_label(form.quantity_lunches, 'Para cuanto?') }}
+            {{ form_widget(form.quantity_lunches, {'attr': 'form-control'}) }}
+          </div>
+          <div class="form-group">
+            {{ form_label(form.reserve_dinners, 'Quiere reservar cenas en el restaurante del hotel?') }}
+            {{ form_widget(form.reserve_dinners, {'attr': 'form-control'}) }}
+          </div>
+          <div class="form-group">
+            {{ form_label(form.hour_dinners, 'Para que hora?') }}
+            {{ form_widget(form.hour_dinners, {'attr': 'form-control'}) }}
+          </div>
+          <div class="form-group">
+            {{ form_label(form.quantity_dinners, 'Para cuanto?') }}
+            {{ form_widget(form.quantity_dinners, {'attr': 'form-control'}) }}
+          </div>
+        {% endif %}
         <div class="form-group">
           {{ form_label(form.paymentMethod, 'Metodo de pago' )}}
           {{ form_widget(form.paymentMethod, {'attr' : {'class': 'form-control'}}) }}
