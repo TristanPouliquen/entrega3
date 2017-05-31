@@ -146,7 +146,9 @@ class HotelController implements ControllerProviderInterface {
         ->add("submit", SubmitType::class);
 
       if ($restaurant){
-        $formBuilder->add('reserve_lunches', CheckBoxType::class)
+        $formBuilder->add('reserve_lunches', CheckBoxType::class, [
+            'required' => false
+          ])
           ->add('hour_lunches', TimeType::class, [
             'widget' => 'choice',
             'minutes' => ['00'],
@@ -159,7 +161,9 @@ class HotelController implements ControllerProviderInterface {
             ],
             'required' => false
           ])
-          ->add('reserve_dinners', CheckBoxType::class)
+          ->add('reserve_dinners', CheckBoxType::class, [
+            'required' => false
+          ])
           ->add('hour_dinners', TimeType::class, [
             'widget' => 'choice',
             'minutes' => ['00'],
@@ -198,7 +202,7 @@ class HotelController implements ControllerProviderInterface {
 
         if ($data['reserve_dinners'] && $data['hour_dinners'] && $data['quantity_dinners']) {
           for ($i = 0; $i < $reservation->getDuration(); $i++){
-            $client_dinner = $em3737->getRepository('Entity37\Client')->findOneBy(['phone_number' => $data['phoneNumber']]);
+            $client_dinner = $em37->getRepository('Entity37\Client')->findOneBy(['phone_number' => $data['phoneNumber']]);
             if (!$client_dinner){
               $client_dinner = new Client();
               $client_dinner->setPhoneNumber($data['phoneNumber']);
