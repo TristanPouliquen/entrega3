@@ -44,7 +44,7 @@
           {{ form_label(form.duration, 'Duracion' )}}
           {{ form_widget(form.duration, {'attr' : {'class': 'form-control'}}) }}
         </div>
-        {% if form.reserve_lunches %}
+        {% if form.reserve_lunches is defined %}
           <div class="form-group">
             {{ form_label(form.reserve_lunches, 'Quiere reservar almuerzos en el restaurante del hotel?') }}
             {{ form_widget(form.reserve_lunches, {'attr': 'form-control'}) }}
