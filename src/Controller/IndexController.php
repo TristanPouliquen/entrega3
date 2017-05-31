@@ -85,10 +85,13 @@ class IndexController implements ControllerProviderInterface {
             $hotels = $em40->getRepository('Entity40\Hotel')->getFiltered($data);
             $restaurants = [];
             }
-        if ($option == "Restaurante"){
-            $restaurants = $em37->getRepository('Entity37\Restaurant')->getFiltered($data);
+
+
+        if (($option == "Restaurante") and $option == "Elige tu tipo de facilidad") and ($query == "")){
+            $restaurants = $em37->getRepository('Entity37\Restaurant')->showAll();
             $hotels = [];
             }
+
 <<<<<<< HEAD
     
 
