@@ -81,7 +81,7 @@ class IndexController implements ControllerProviderInterface {
             $restaurants = [];
             }
 
-        if (($option == "Restaurante") && ($query == "")) {;
+        if ($option == "Restaurante") {;
             $hotels = [];
             }
 
