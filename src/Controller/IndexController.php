@@ -64,6 +64,11 @@ class IndexController implements ControllerProviderInterface {
         $query = $request->request->get('query');
         $option = $request->request->get('option');
 
+        if (($option == "Elige tu tipo de facilidad") or ($option == "Hotel con restaurante")){
+            var_dump($option);
+            $data['city'] = $city;
+        }
+
         if ($city){
             $data['city'] = $city;
         }
@@ -72,9 +77,7 @@ class IndexController implements ControllerProviderInterface {
             $data['city'] = $city;
         }
 
-        if ($option){
-            $data['city'] = $city;
-        }
+
 
         $hotels = $em40->getRepository('Entity40\Hotel')->getFiltered($data);
 

@@ -1,28 +1,23 @@
 {% extends "base.html.twig" %}
 {% block content %}
 
- <p></p>
- <p></p> 
-
 <div class="container">
-  
-  <div class="row page-title text-center wow zoomInDown" data-wow-delay="1s"> 
+<div class="row page-title text-center wow zoomInDown" data-wow-delay="1s">
     <h1>{{ hotel.name }}</h1>
     <p>{{ hotel.address.number }} {{ hotel.address.street }}, {{ hotel.address.city }}, {{ hotel.address.country }}</p>
-
-  <div class="row">
-    <a class="btn btn-primary " href="{{ path('hotel_detail_reservations', {'id': hotel.id}) }}">Las reservas</a>
-  </div>
-
-  <p></p>
-  <p></p>
   
   <div class="row">
-    <a class="btn btn-primary " href="{{ path('hotel_reserve', {'id': hotel.id }) }}">Reservar</a>
-  </div>
-</div>
-
+    <a class="btn btn-primary" href="{{path('hotel_detail_reservations', {'id': hotel.id}) }}">Ver todas las reservas </a>
+   <p></p>
+  <p></p>
   
+
+  <div class="row">
+    <a class="btn btn-primary" href="{{path('hotel_reserve', {'id': hotel.id}) }}">Reservar </a>
+  <div class="row page-title text-center wow zoomInDown" data-wow-delay="1s">
+  </div>
+  </div>
+
   <div class="row how-it-work text-center">
     <div class="col-md-4">
       <div class="single-work wow fadeInUp" data-wow-delay="0.8s">
@@ -64,6 +59,31 @@
       </div>
     </div>
   </div>
+
+
+{% if restaurant is not null %}
+<hr>
+<div class="container">
+    <div class="row page-title text-center wow bounce"  data-wow-delay="1s">
+      <h3>EL HOTEL TAMBIEN TIENE UN RESTAURANTE</h3>
+      <h2><span>{{restaurant.name}}</span> </h2>
+      <p></p>
+      <h5>Nota promedia : {{ restaurant.getAverageNote() }} /4</h5>
+      <h5>Estillo de cocina : {{ restaurant.style }}</h5>
+      <h5>Chef y estrellas : {{ restaurant.chef }} con {{ restaurant.starRating }} estrellas </h5>
+<p></p>
+<p></p>
+<div class="row">
+    <a class="btn btn-primary" href="{{path('restaurant_detail', {'name': restaurant.name }) }}">Ver el restaurante </a>
+  <div class="row page-title text-center wow zoomInDown" data-wow-delay="1s">
+</div>
+</div>
+
+
+
+
+{% endif  %}
+
   <hr>
   <div class="container">
     <div class="row page-title text-center wow bounce"  data-wow-delay="1s">
