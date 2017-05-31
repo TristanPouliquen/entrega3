@@ -5,7 +5,7 @@
   <div class="row page-title text-center wow zoomInDown" data-wow-delay="1s">
     <h1>{{ hotel.name }}</h1>
     <p>{{ hotel.address.number }} {{ hotel.address.street }}, {{ hotel.address.city }}, {{ hotel.address.country }}</p>
-  </div>
+  
 
   <div class="row">
     <a class="btn btn-primary" href="{{path('hotel_detail_reservations', {'id': hotel.id}) }}">Ver todas las reservas </a>
@@ -16,6 +16,7 @@
     <a class="btn btn-primary" href="{{path('hotel_reserve', {'id': hotel.id}) }}">Reservar </a>
     <div class="row page-title text-center wow zoomInDown" data-wow-delay="1s"></div>
   </div>
+</div>
 
   <div class="row how-it-work text-center">
     <div class="col-md-4">
@@ -91,7 +92,7 @@
                 <tr class="odd wow fadeInUp" data-wow-delay="1s">
                   <td class="tbl-logo"><img src="{{ asset('logousers.png', 'images') }}" alt="" height="80" width="80"></td>
                   <td class="tbl-title"><h3>{{reservation.review.rating}}/7<br><span class="job-type"></span></h3></td>
-                  <td class="tbl-title"><h4>{{ reservation.review.description}}<br><span class="job-type">on peut rajouter quelque chose </span></h4></td>
+                  <td class="tbl-title"><h4>{{ reservation.review.description}}<br><span class="job-type"></span></h4></td>
                   <td><p><i>Visitado el {{ reservation.arrival|date('d/m/Y')}}</i></p></td>
                 </tr>
               {% endif %}
