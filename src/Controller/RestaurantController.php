@@ -122,7 +122,12 @@ class RestaurantController implements ControllerProviderInterface {
                 'widget' => 'choice',
                 'minutes' => ['00']
             ])
-            ->add("quantity", IntegerType::class)
+            ->add("quantity", IntegerType::class,[
+                'attr' => [
+                    'min' => 0,
+                    'max' => $restaurant->getCapacity()
+                ]
+            ])
             ->add('submit', SubmitType::class)
             ->getForm();
 
