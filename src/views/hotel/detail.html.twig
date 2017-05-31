@@ -2,20 +2,19 @@
 {% block content %}
 
 <div class="container">
-<div class="row page-title text-center wow zoomInDown" data-wow-delay="1s">
+  <div class="row page-title text-center wow zoomInDown" data-wow-delay="1s">
     <h1>{{ hotel.name }}</h1>
     <p>{{ hotel.address.number }} {{ hotel.address.street }}, {{ hotel.address.city }}, {{ hotel.address.country }}</p>
-  
-  <div class="row">
-    <a class="btn btn-primary" href="{{path('hotel_detail_reservations', {'id': hotel.id}) }}">Ver todas las reservas </a>
-   <p></p>
-  <p></p>
-  
+  </div>
 
   <div class="row">
-    <a class="btn btn-primary" href="{{path('hotel_reserve', {'id': hotel.id}) }}">Reservar </a>
-  <div class="row page-title text-center wow zoomInDown" data-wow-delay="1s">
+    <a class="btn btn-primary" href="{{path('hotel_detail_reservations', {'id': hotel.id}) }}">Ver todas las reservas </a>
+    <p></p>
+    <p></p>
   </div>
+  <div class="row">
+    <a class="btn btn-primary" href="{{path('hotel_reserve', {'id': hotel.id}) }}">Reservar </a>
+    <div class="row page-title text-center wow zoomInDown" data-wow-delay="1s"></div>
   </div>
 
   <div class="row how-it-work text-center">
@@ -60,52 +59,44 @@
     </div>
   </div>
 
-
-{% if restaurant is not null %}
-<hr>
-<div class="container">
-    <div class="row page-title text-center wow bounce"  data-wow-delay="1s">
-      <h3>EL HOTEL TAMBIEN TIENE UN RESTAURANTE</h3>
-      <h2><span>{{restaurant.name}}</span> </h2>
-      <p></p>
-      <h5>Nota promedia : {{ restaurant.getAverageNote() }} /4</h5>
-      <h5>Estillo de cocina : {{ restaurant.style }}</h5>
-      <h5>Chef y estrellas : {{ restaurant.chef }} con {{ restaurant.starRating }} estrellas </h5>
-<p></p>
-<p></p>
-<div class="row">
+  {% if restaurant is not null %}
+  <hr>
+  <div class="row page-title text-center wow bounce"  data-wow-delay="1s">
+    <h3>EL HOTEL TAMBIEN TIENE UN RESTAURANTE</h3>
+    <h2><span>{{restaurant.name}}</span> </h2>
+    <p></p>
+    <h5>Nota promedia : {{ restaurant.getAverageNote() }} /4</h5>
+    <h5>Estillo de cocina : {{ restaurant.style }}</h5>
+    <h5>Chef y estrellas : {{ restaurant.chef }} con {{ restaurant.starRating }} estrellas </h5>
+    <p></p>
+    <p></p>
+  </div>
+  <div class="row">
     <a class="btn btn-primary" href="{{path('restaurant_detail', {'name': restaurant.name }) }}">Ver el restaurante </a>
-  <div class="row page-title text-center wow zoomInDown" data-wow-delay="1s">
-</div>
-</div>
-
-
-
-
-{% endif  %}
+    <div class="row page-title text-center wow zoomInDown" data-wow-delay="1s"></div>
+  </div>
+  {% endif  %}
 
   <hr>
-  <div class="container">
-    <div class="row page-title text-center wow bounce"  data-wow-delay="1s">
-      <h5>Las criticas</h5>
-      <h2><span>Las</span> ultimas criticas</h2>
-    </div>
-    <div class="row jobs">
-      <div class="col-md-12">
-        <div class="job-posts table-responsive">
-          <table class="table">
-              {% for reservation in hotel.reservations %}
-                {% if reservation.review %}
-                  <tr class="odd wow fadeInUp" data-wow-delay="1s">
-                    <td class="tbl-logo"><img src="{{ asset('logousers.png', 'images') }}" alt="" height="80" width="80"></td>
-                    <td class="tbl-title"><h3>{{reservation.review.rating}}/7<br><span class="job-type"></span></h3></td>
-                    <td class="tbl-title"><h4>{{ reservation.review.description}}<br><span class="job-type">on peut rajouter quelque chose </span></h4></td>
-                    <td><p><i>Visitado el {{ reservation.arrival|date('d/m/Y')}}</i></p></td>
-                  </tr>
-                {% endif %}
-              {% endfor %}
-          </table>
-        </div>
+  <div class="row page-title text-center wow bounce"  data-wow-delay="1s">
+    <h5>Las criticas</h5>
+    <h2><span>Las</span> ultimas criticas</h2>
+  </div>
+  <div class="row jobs">
+    <div class="col-md-12">
+      <div class="job-posts table-responsive">
+        <table class="table">
+            {% for reservation in hotel.reservations %}
+              {% if reservation.review %}
+                <tr class="odd wow fadeInUp" data-wow-delay="1s">
+                  <td class="tbl-logo"><img src="{{ asset('logousers.png', 'images') }}" alt="" height="80" width="80"></td>
+                  <td class="tbl-title"><h3>{{reservation.review.rating}}/7<br><span class="job-type"></span></h3></td>
+                  <td class="tbl-title"><h4>{{ reservation.review.description}}<br><span class="job-type">on peut rajouter quelque chose </span></h4></td>
+                  <td><p><i>Visitado el {{ reservation.arrival|date('d/m/Y')}}</i></p></td>
+                </tr>
+              {% endif %}
+            {% endfor %}
+        </table>
       </div>
     </div>
   </div>
