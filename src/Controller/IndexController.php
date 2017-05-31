@@ -73,6 +73,7 @@ class IndexController implements ControllerProviderInterface {
         if ($city){
             $data['city'] = $city;
                         }
+
         $restaurants = $em37->getRepository('Entity37\Restaurant')->getFiltered($data);
         $hotels = $em40->getRepository('Entity40\Hotel')->getFiltered($data);
 
@@ -97,9 +98,6 @@ class IndexController implements ControllerProviderInterface {
             $hotels = $em40->getRepository('Entity40\Hotel')->showAll();
             $restaurants = [];
             }
-
-
-
 
         return $app['twig']->render('search/list.html.twig', [
                     'hotels'=> $hotels,
