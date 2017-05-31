@@ -67,6 +67,7 @@ class HotelController implements ControllerProviderInterface {
                 'choices' => ['Por ciudad' => 'ciudad', 'Alfabetico' => 'alfabetico', 'Por estrellas' => 'estrellas'],
                 'placeholder' => 'Ordenar los resultados...',
                 'required' => false
+            ])
             ->getForm();
 
         $form->handleRequest($request);
