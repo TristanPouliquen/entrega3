@@ -1,5 +1,13 @@
 {% extends "base.html.twig" %}
 {% block content %}
+
+  <p></p>
+  <p></p>
+
+ <div class="row">
+    <a class="btn btn-primary pull-left" href="{{ path('hotel_reserve', {'name': restaurant.name }) }}">Reservar</a>
+  </div>
+
 <div class="container">
   <div class="row">
     <a class="btn btn-primary" href="{{path('hotel_detail_reservations', {'id': hotel.id}) }}">Ver todas las reservas </a>
