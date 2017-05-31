@@ -27,18 +27,16 @@ class HotelRepository extends EntityRepository
         }
 
         if ($data['sort']) {
-            if ($data['sort'] == 'ciudad') {
-                if ($data['city']){
-                    $queryBuilder->orderBy('address.city');
-                } else {
-                    $queryBuilder->join('hotel.address', 'address')
-                        ->orderBy('address.city');
-                }
-            } else if ($data['sort'] == 'alfabetico') {
-                $queryBuilder->orderBy('hotel.name');
-            } else if ($data['sort'] == 'estrellas') {
-                $queryBuilder->orderBy('hotel.starRating');
+          if ($data['sort'] == 'ciudad') {
+            if (!$data['city']){
+              $queryBuilder->join('hotel.address', 'address');
             }
+            $queryBuilder->orderBy('address.city', 'ASC');
+          } else if ($data['sort'] == 'alfabetico') {
+              $queryBuilder->orderBy('hotel.name', 'ASC');
+          } else if ($data['sort'] == 'estrellas') {
+              $queryBuilder->orderBy('hotel.starRating', 'DESC');
+          }
         }
 
         $query = $queryBuilder->getQuery();

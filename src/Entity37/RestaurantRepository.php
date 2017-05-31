@@ -49,11 +49,11 @@ class RestaurantRepository extends EntityRepository
 
       if ($data['sort']) {
             if ($data['sort'] == 'ciudad') {
-              $queryBuilder->orderBy('restaurant.city');
+              $queryBuilder->orderBy('restaurant.city', 'ASC');
             } else if ($data['sort'] == 'alfabetico') {
-                $queryBuilder->orderBy('restaurant.name');
+                $queryBuilder->orderBy('restaurant.name', 'ASC');
             } else if ($data['sort'] == 'estrellas') {
-                $queryBuilder->orderBy('restaurant.starRating');
+                $queryBuilder->orderBy('restaurant.starRating', 'DESC');
             }
         }
 
