@@ -17,10 +17,10 @@
           <tr class="odd wow fadeInUp" data-wow-delay="1s">
             <td class="tbl-logo"><img src="{{ asset('logohotel.png', 'images') }}" alt="" height="50" width="45">   </td>
             <td class="tbl-title"><h4>{{ reservation.guest.name }}<br><span class="job-type"> {{reservation.arrival|date('d/m/Y')}} -  Para {{ reservation.duration}} dia(s) </span></h4></td>
-            {% if reservation.review is not defined %}
+            {% if reservation.review is not null %}
               <td class="tbl-apply"><a href="{{path('hotel_review', {'id': hotel.id}) }}">Poner critica</a>
             {% else %}
-              <td class="tbl-apply"></td>
+              <td class="tbl-apply">Critica ya hecha</td>
             {% endif %}
           </tr>
           {% endfor %}

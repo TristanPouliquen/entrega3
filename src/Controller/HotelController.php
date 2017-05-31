@@ -310,9 +310,7 @@ class HotelController implements ControllerProviderInterface {
                 return $er->createQueryBuilder('r')
                           ->join('r.hotel', 'h')
                           ->where('h.id = :id')
-                          ->setParameter('id', $hotel->getId())
-                          ->leftJoin('r.review', 'review')
-                          ->andWhere('SIZE(r.review) = 0');
+                          ->setParameter('id', $hotel->getId());
                 }
         ])
         ->add('rating', IntegerType::class, [
