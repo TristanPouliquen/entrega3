@@ -68,35 +68,27 @@ class IndexController implements ControllerProviderInterface {
         if ($query){
             $data['name'] = $query;
         }
+        if ($city){
+            $data['city'] = $city;
+                        }
 
         if (($option == "Elige tu tipo de facilidad") or ($option == "Hotel con restaurante")){
-            if ($city){
-                $data['city'] = $city;
-                }
+            $hotels = $em40->getRepository('Entity40\Hotel')->getFiltered($data);
+            $restaurants = $em37->getRepository('Entity37\Restaurant')->getFiltered($data);
             }
 
-
-        $hotels = $em40->getRepository('Entity40\Hotel')->getFiltered($data);
-        $restaurants = $em30->getRepository('Entity37\Restaurant')->getFiltered($data);
+        if ($option == "Hotel"){
+            $hotels = $em40->getRepository('Entity40\Hotel')->getFiltered($data);
+            }
+        if ($option == "Restaurante"){
+            $restaurants = $em37->getRepository('Entity37\Restaurant')->getFiltered($data);
+            }
 
     return $app['twig']->render('search/list.html.twig', [
             'hotels'=> $hotels,
             'restaurants'=> $restaurants,
         ]);
     }
-
-
-
-
-        /*if ($option == "Hotel"){
-                    $data['city'] = $city;
-                }
-
-        if ($option == "Restaurante"){
-                    $data['city'] = $city;
-                }*/
-
-
 
     /**
      * Show entity
