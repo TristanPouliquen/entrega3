@@ -43,6 +43,7 @@ Entity40\Reservation:
   oneToOne:
     review:
       targetEntity: Entity40\Review
+      inversedBy: reservation
       joinColumn:
         name: critica_id
         referencedColumnName: id

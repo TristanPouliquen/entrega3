@@ -46,7 +46,7 @@ class Reservation
     /**
      * @var \Entity40\Review
      *
-     * @ORM\OneToOne(targetEntity="Entity40\Review")
+     * @ORM\OneToOne(targetEntity="Entity40\Review", inversedBy="reservation")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="critica_id", referencedColumnName="id", unique=true, onDelete="SET NULL")
      * })
@@ -79,6 +79,10 @@ class Reservation
      * })
      */
     private $guest;
+
+    public function displayName() {
+        return $this->getGuest()->getName() . ' the ' . $this->getArrival()->format('d/m/Y') . ' for ' . $this->getDuration() . ' days';
+    }
 
 
     /**

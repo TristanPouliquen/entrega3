@@ -12,12 +12,14 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextArea*Type;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\TimeType;
+use Symfony\Component\Form\Extension\Core\Type\EntityType;
 
 use Entity40\Guest;
 use Entity40\Reservation;
@@ -43,6 +45,7 @@ class HotelController implements ControllerProviderInterface {
         $hotelController->get("/{id}", array($this, 'detail'))->bind('hotel_detail');
         $hotelController->match("/{id}/reserve", [$this, "reserve"])->bind('hotel_reserve');
         $hotelController->get("/{id}/reservations", array($this, 'detailReservations'))->bind('hotel_detail_reservations');
+        $hotelController->match("{id}/review", [$this, 'review'])->bind('hotel_review')
         /*$indexController->get("/show/{id}", array($this, 'show'))->bind('acme_show');
         $indexController->match("/create", array($this, 'create'))->bind('acme_create');
         $indexController->match("/update/{id}", array($this, 'update'))->bind('acme_update');
@@ -280,6 +283,67 @@ class HotelController implements ControllerProviderInterface {
 
       return $app['twig']->render('hotel/detail_reservations.html.twig', [
         'hotel' => $hotel
+      ]);
+    }
+
+    public function review(Applicacion $app, Request $request, $id) {
+      $em = $app['orm.ems']['grupo40'];
+      $hotel = $em->getRepository('Entity40\Hotel')->find($id);
+      if(!$hotel){
+        $app['session']->getFlashBag()->add('error', 'Hotel no encontrado');
+        return $app->redirect($app['url_generator']->generate('hotel_list'));
+      }
+
+      $form = $app['form.factory']->createBuilder(FormType::class, ['hotel' => $hotel])
+        ->add('hotel', EntityType::class, [
+            'class' => 'Entity40\Hotel',
+            'choice_label' => 'name',
+            'disabled' => true,
+            'attr' => [
+              'class' => 'form-control-static'
+            ]
+        ])
+        ->add('reservation', EntityType::class, [
+          'class' => 'Entity40\Reservation',
+          'choice_label' => 'displayName',
+          'query_builder' => function(EntityRepository $er) {
+                return $er->createQueryBuilder('r')
+                          ->join('r.hotel', 'h')
+                          ->where('h.id = :id')
+                          ->setParameter('id', $hotel->getId())
+                          ->leftJoin('r.review', 'review')
+                          ->andWhere('SIZE(r.review) = 0');
+                }
+        ])
+        ->add('rating', IntegerType::class, [
+          'attr' => [
+            'min' => 0,
+            'max' => 7
+          ]
+        ])
+        ->add('description', TextAreaType::class)
+        ->getForm();
+
+      $form->handleRequest($request);
+
+      if ($form->isSubmitted()) {
+        $data = $form->getData();
+        $review = new Review();
+
+        $review->setReservation($data['reservation']);
+        $review->setRating($data['rating']);
+        $review->setDescription($data['description']);
+
+        $em->persist($review);
+        $em->flush();
+
+        $app['session']->getFlashBag()->add('success', 'Critica guardada');
+        return $app->redirect($app['url_generator']->generate('hotel_detail', ['id' => $hotel->getId()]));
+      }
+
+      return $app['twig']->render('hotel/detail_reservations.html.twig', [
+        'hotel' => $hotel,
+        'form' => $form->createView()
       ]);
     }
 }

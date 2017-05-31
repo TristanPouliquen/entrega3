@@ -36,6 +36,13 @@ class Review
      */
     private $rating;
 
+    /**
+     * @var \Entity40\Reservation
+     *
+     * @ORM\OneToOne(targetEntity="Entity40\Reservation", mappedBy="review")
+     */
+    private $reservation;
+
 
     /**
      * Get id
@@ -93,5 +100,29 @@ class Review
     public function getRating()
     {
         return $this->rating;
+    }
+
+    /**
+     * Set reservation
+     *
+     * @param \Entity40\Reservation $reservation
+     *
+     * @return Reservation
+     */
+    public function setreservation(\Entity40\Reservation $reservation = null)
+    {
+        $this->reservation = $reservation;
+
+        return $this;
+    }
+
+    /**
+     * Get reservation
+     *
+     * @return \Entity40\Reservation
+     */
+    public function getReservation()
+    {
+        return $this->reservation;
     }
 }

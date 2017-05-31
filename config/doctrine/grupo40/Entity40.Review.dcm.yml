@@ -20,3 +20,7 @@ Entity40\Review:
     rating:
       type: integer
       column: nota
+  oneToOne:
+    reservation:
+      targetEntity: Entity40\Reservation
+      mappedBy: review
