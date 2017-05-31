@@ -66,6 +66,9 @@ class IndexController implements ControllerProviderInterface {
         $hotels = [];
         $restaurants = [];
 
+        if ($city == "Elige tu ciudad"){
+            $city = null;
+                        }
         if ($query){
             $data['name'] = $query;
 
@@ -84,6 +87,7 @@ class IndexController implements ControllerProviderInterface {
         if ($option == "Restaurante") {;
             $hotels = [];
             }
+
 
         return $app['twig']->render('search/list.html.twig', [
                     'hotels'=> $hotels,
