@@ -20,7 +20,7 @@
             {% if reservation.review is not defined %}
               <td class="tbl-apply"><a href="{{path('hotel_review', {'id': hotel.id}) }}">Poner critica</a>
             {% else %}
-              <td class="tbl-apply"></td>
+              <td class="tbl-apply">Critica ya hecha</td>
             {% endif %}
           </tr>
           {% endfor %}
