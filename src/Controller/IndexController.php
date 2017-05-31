@@ -104,7 +104,6 @@ class IndexController implements ControllerProviderInterface {
         return $app['twig']->render('search/list.html.twig', [
                     'hotels'=> $hotels,
                     'restaurants'=> $restaurants,
-                    var_dump($option);
                 ]);
             }
 
