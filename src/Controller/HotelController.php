@@ -210,8 +210,7 @@ class HotelController implements ControllerProviderInterface {
             }
 
             $reservation_dinner = new Reservation37();
-            $fecha = date_create($data['arrival']);
-            date_add($fecha, date_interval_create_from_date_string($i . " days"));
+            date_add($data['arrival'], date_interval_create_from_date_string($i . " days"));
             $reservation_dinner->setDate($fecha);
             $reservation_dinner->setTime($data['hour_dinners']);
             $reservation_dinner->setQuantity($data['quantity_dinners']);
